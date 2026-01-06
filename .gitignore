@@ -3,6 +3,13 @@ dist/
 # generated types
 .astro/
 
+# pnp
+.pnp.cjs
+
+# yarn
+yarn.lock
+.yarn/install-state.gz
+
 # dependencies
 node_modules/
 
