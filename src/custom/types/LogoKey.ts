@@ -24,7 +24,6 @@ export type LogoKey =
     'WAvE' |
     'axeDevTool' |
     'greenITanalysis' |
-    'htmlValidate' |
     'stylelint' |
     'pa11y' |
     'vitestAxe' |
