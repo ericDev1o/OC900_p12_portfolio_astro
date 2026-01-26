@@ -1,0 +1,378 @@
+---
+import Portfolio from '../components/containers/Portfolio.astro';
+
+import { logoStore } from '@/stores/logoStore';
+
+import LinkClickWarning from '../components/UI/LinkClickWarning';
+import Title3 from '../components/UI/Title3';
+import Title4 from '../components/UI/Title4';
+import Title5 from '../components/UI/Title5';
+import Section from '../components/UI/Section';
+import Link from '../components/UI/Link';
+import LogoLinkHomeContact from '../components/UI/LogoLinkHomeContact';
+import SpanGreen from '../components/UI/SpanGreen';
+import SpanViolet from '../components/UI/SpanViolet';
+import Skills from '../components/containers/Skills';
+
+const basePath = import.meta.env.BASE_URL || '/';
+const photo = 'CV/photoCV_w100px.webp';
+const photoPath = basePath + photo;
+
+const projectsPath = 'projects/';
+
+const logos = logoStore.get();
+const linkedinLogo = logos['linkedIn'];
+const githubLogo = logos['gitHub'];
+---
+
+<main>
+  <article>
+    <Section>
+      <h1
+        class='
+          pt-20 
+          text-5xl 
+          leading-loose'
+      >
+        Bonjour, je suis Eric
+      </h1>
+      <div
+        class='
+          mt-8 
+          flex
+          justify-center'
+      >
+        <img
+          src={photoPath}
+          alt='ma photo'
+        />
+      </div>
+      <h2
+        class='
+        pt-12
+        text-4xl
+        leading-loose'
+      >
+        votre intégrateur "web" react en Île-de-France
+      </h2>
+    </Section>
+    <Section>
+      <Title3
+        title='À propos de moi'
+        id='moi&vous=nous'
+      />
+      <p
+        class='
+          pt-4'
+      >
+        Développons votre activité en évitant les 
+        <span 
+          class='
+          mx-2 
+          font-extrabold'
+        >
+          frictions.
+        </span> 
+        Améliorons vos 
+        <span
+          class='
+            mx-2 
+            font-extrabold'
+        >
+          chiffres 
+        </span>
+        clés de 
+        <SpanViolet
+          text='performances.'
+        /> 
+        Passionné par les interfaces "web" 
+        <SpanGreen text='durables' />
+        j'en simplifie l'utilisation par tou·te·s. 
+      </p>
+      <Title4 title='Qui suis-je?' />
+      <p>
+        D'abord je fus intéressé par les indicateurs de prise de décision, l'extraction de leurs données et une solution "backend". Intégrateur "web" react passionné par l’accessibilité, je veille à atteindre un 
+        <SpanViolet text='audit Google Lighthouse supérieur à 90/100' />
+          pour un bon référencement et une expérience utilisat·rice·eur fluide.
+      </p>
+      <Title4 title='Pour quoi faire?' />
+      <Title5 title='Le fruit de mes expériences passées' />
+      <p
+      class='pb-10'>
+        Naturellement rigoureux, fort d’expériences solides chez Bosch ThermoTechnology et Bolloré Transport & Logistics, j’ai développé des compétences en 
+        <SpanGreen text='clarification fonctionnelle, documentation, tests unitaires et évolution de code "backend".' />
+      </p>
+      <Title5 title="Notre objectif aujourd'hui" />
+      <p class='pb-10'>
+        Je suis prêt pour être votre intégrateur "web" dans une agence, ESN ou organisation engagée en Île-de-France. 
+      </p>
+      <Title5 title='Pour un projet numérique plus inclusif et éco-responsable demain' />
+      <p>
+        De la startup du recyclage à une administration en passant par le grand groupe ou une association de l'Economie Sociale et Solidaire c'est le projet qui est mon moteur.
+      </p>
+      <Title4 title='Quel est mon apport?' />
+      <p class='pb-3'></p>
+      <Title5 title='Qualitatif' />
+      <p class='pb-6'>
+        Mon écoute, ma connaissance des standards "web", ma veille technologique et mon respect de la confidentialité via des 
+        <SpanGreen text='outils hors-ligne comme stylelint' />
+        font de vos projets des sites accessibles et éco-conçus. 
+      </p>
+      <Title5 title='Quantitatif' />
+      <p class='pb-8'>
+        Mon audit Lighthouse affiche régulièrement 
+        <SpanViolet text='100/100 au SEO' />
+        et à l’
+        <SpanGreen text='accessibilité.' />
+      </p>
+      <Title5 title='Précepte' />
+      <p>
+        Grâce aux projets OpenClassrooms concrets et au mentorat j'ai développé ma capacité à 
+        <span
+          class='
+            mx-2 
+            font-extrabold'
+        >
+          résoudre les problèmes et mon autonomie.
+        </span>
+      </p>
+      <p>
+        J’aiderai ainsi une organisation à renforcer sa présence digitale tout en 
+        <SpanGreen  text='limitant ses coûts de maintenance' />
+        par ma progression continue en rendu statique performant côté client puis serveur, extraction de données via API ReST, "design", "fullstack", devOps, cloud et architecture.
+      </p>
+      <p class='pt-4'>
+        J'adhère à « 
+        <span 
+          class='
+            mx-2 
+            font-extrabold '
+        >
+          Focus on serving your users, and all else will follow. 
+        </span>
+        » – Matt Cutts ancien responsable webspam de Google
+      </p>
+    </Section>
+    <Section>
+      <Title3
+        title='compétences'
+        id='competences'
+      />
+      <h4
+          class='
+            pb-8 
+            text-2xl
+            leading-loose'
+        >
+          clés
+      </h4>
+      <p class='text-xl'>
+        Vous avez besoin d'un site "web" à votre image?
+      </p>
+      <p
+          class='
+          pt-10 
+          pb-10 
+          text-xl'>
+        Je transforme un "brief" en écrans propres, "responsives" et frugaux.
+      </p>
+      <Skills />
+    </Section>
+    <Section>
+      <Title3
+        title='projets'
+        id='projets'
+      />
+      <Portfolio projectsPath={ projectsPath } />
+    </Section>
+    <Section>
+      <Title3 
+        title='parcours'
+        id='parcours'
+      />
+      <h4
+        class='
+          pt-2
+          pb-8 
+          text-2xl
+          leading-loose'
+      >
+        intégrateur "web"
+      </h4>
+      <h5 
+        class='
+          text-2xl
+          mx-2'
+      >
+        <div 
+          class='
+            group
+            relative'
+        >
+          <Link
+            href='https://www.francecompetences.fr/recherche/rncp/38145/'
+            text='RNCP 38145'
+          />
+          <LinkClickWarning />
+        </div>
+      </h5>
+      <p 
+        class='
+          pt-4
+          pb-4'>
+        à votre  service
+      </p>
+      <div 
+        class='
+          group
+          relative'
+      >
+        <Link
+          href='https://openclassrooms.com/fr/paths/900-integrateur-web#projects'
+          text='Suivez le parcours.'
+        />
+        <LinkClickWarning />
+      </div>
+      <h6 class='pt-6'>
+        22 avril 2024 au 21 décembre 2025
+      </h6>
+      <Title4 title='sachez-en plus sur ce que nous avons co-construit avant' />
+      <div 
+        class='
+          group
+          relative'
+      >
+        <a
+          href='/CV/CV+integrateur+web+react+Eric+F.pdf'
+          target='_blank'
+          rel='noopener noreferrer'
+          class='
+            pt-8 
+            inline-flex 
+            items-center 
+            text-blue-300  
+            no-underline
+            transition 
+            transform
+            hover:scale-110 
+            hover:brightness-110 
+            hover:shadow-lg
+            ease-in-out'
+        >
+          <svg 
+            xmlns='http://www.w3.org/2000/svg' 
+            viewBox='0 0 640 640'
+            width={48}
+            height={48}
+            fill='currentcolor'>
+              <path 
+                d='M128 64C92.7 64 64 92.7 64 128L64 512C64 547.3 92.7 576 128 576L208 576L208 464C208 428.7 236.7 400 272 400L448 400L448 234.5C448 217.5 441.3 201.2 429.3 189.2L322.7 82.7C310.7 70.7 294.5 64 277.5 64L128 64zM389.5 240L296 240C282.7 240 272 229.3 272 216L272 122.5L389.5 240zM272 444C261 444 252 453 252 464L252 592C252 603 261 612 272 612C283 612 292 603 292 592L292 564L304 564C337.1 564 364 537.1 364 504C364 470.9 337.1 444 304 444L272 444zM304 524L292 524L292 484L304 484C315 484 324 493 324 504C324 515 315 524 304 524zM400 444C389 444 380 453 380 464L380 592C380 603 389 612 400 612L432 612C460.7 612 484 588.7 484 560L484 496C484 467.3 460.7 444 432 444L400 444zM420 572L420 484L432 484C438.6 484 444 489.4 444 496L444 560C444 566.6 438.6 572 432 572L420 572zM508 464L508 592C508 603 517 612 528 612C539 612 548 603 548 592L548 548L576 548C587 548 596 539 596 528C596 517 587 508 576 508L548 508L548 484L576 484C587 484 596 475 596 464C596 453 587 444 576 444L528 444C517 444 508 453 508 464z'/>
+          </svg>
+          <span
+            class='
+              text-blue-300
+              hover:text-blue-600'>
+              Téléchargez mon CV
+          </span>
+        </a>
+        <LinkClickWarning />
+      </div>
+    </Section>
+    <Section>
+      <Title3
+        title='contact'
+        id='contact'
+      />
+      <p
+        class='
+          pt-8 
+          pb-16 
+          text-2xl'
+      >
+        Contribuons 
+        <SpanGreen text='doucement' />
+        à votre 
+        <span
+          class='
+            mx-2
+            font-extrabold
+            text-gray-500'
+        >
+          projet
+        </span> 
+        "web" avec 
+        <SpanGreen text='impact.' />
+      </p>
+      
+      <div 
+        class='
+          flex
+          flex-wrap
+          justify-center
+          items-center'
+      >
+        <LogoLinkHomeContact
+          href='https://github.com/ericDev1o' 
+          src={ githubLogo } 
+          altText='GitHub logo'
+        />
+        <LogoLinkHomeContact
+          href='https://linkedin.com/in/ericfaraut' 
+          src={ linkedinLogo } 
+          altText='LinkedIn logo' 
+        />
+        <div
+          class='
+            group
+            relative'
+          >
+            <Link
+              href='https://calendly.com/d/cxcb-3st-m8k/15-minutes'
+              text='https://calendly.com/d/cxcb-3st-m8k/15-minutes'
+            />
+          <LinkClickWarning />
+        </div>
+      </div>
+      <div
+        class='
+          group
+          relative'>
+        <a 
+          href='https://framaforms.org/contact-eric-faraut-1762791991'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <button 
+              class='
+                mt-18 
+                w-full 
+                sm:w-auto 
+                px-5 
+                py-2.5 
+                text-2xl 
+                cursor-pointer 
+                font-medium 
+                text-center 
+                text-gray-200  
+                bg-blue-600 
+                hover:bg-blue-700 
+                focus:ring-4 
+                focus:outline-none 
+                focus:ring-blue-300 
+                rounded-lg'
+            >
+              Prévoyons de parler de votre projet de site "web"
+            </button>
+          </a>
+          <LinkClickWarning />
+        </div>
+    </Section>
+  </article>
+  <hr 
+    class='
+      my-16 
+      h-px 
+      border-0 
+      bg-gray-600'
+  />
+</main>

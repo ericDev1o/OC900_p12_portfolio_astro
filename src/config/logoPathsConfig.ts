@@ -1,4 +1,4 @@
-import type { LogoKey } from "@/types/LogoKey";
+import type { LogoKey } from '@/custom/types/LogoKey';
 
 export const basePath = import.meta.env.BASE_URL || '/';
 export const logosPaths = 'logos/';
@@ -22,7 +22,6 @@ export const logos: Record<LogoKey, string> = {
     WAvE: fullPath + 'WAvE.webp',
     axeDevTool: fullPath + 'axeDevTool.webp',
     greenITanalysis: fullPath + 'greenITanalysis.webp',
-    htmlValidate: fullPath + 'html-validate.webp',
     stylelint: fullPath + 'stylelint.webp',
     pa11y: fullPath + 'pa11y.webp',
     vitestAxe: fullPath + 'vitest-axe.webp',

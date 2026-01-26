@@ -1,16 +1,75 @@
 ---
+import { StrictMode } from 'react';
+import 'flowbite';
+
+import '../styles/index.css';
+
+import Home from '../pages/Home.astro';
+import Layout from '../components/containers/Layout';
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!DOCTYPE html>
+<html 
+  lang="fr-FR" 
+  class="scroll-smooth"
+>
+  <head>
+    <meta charset="UTF-8">
+    <link 
+      rel="icon" 
+      type="image/webp" 
+      href="/logos/logo_ico.webp"
+    >
+    <meta 
+      name="viewport" 
+      content="width=device-width, initial-scale=1.0"
+    >
+    <meta 
+      name="description" 
+      content="Votre intégrateur web react en Île-de-France"
+    >
+    <meta property="og:site_name" content="EricFaraut">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://ericdev1o.github.io/OC900_p12_portfolio_astro/">
+		<meta property="og:title" content="Votre intégrateur web react en Île-de-France">
+		<meta property="og:description" content="Eric Faraut, votre intégrateur web react en Île-de-France. À propos de moi, mes compétences, mon parcours et comment me contacter.">
+		<meta property="og:image" content="https://ericdev1o.github.io/OC900_p12_portfolio_astro/CV/photoCV_w100px.webp">
+	  <meta name="twitter:card" content="summary">
+		<meta name="twitter:url" content="https://ericdev1o.github.io/OC900_p12_portfolio_astro/">
+		<meta name="twitter:title" content="Votre intégrateur web react en Île-de-France">
+		<meta name="twitter:description" content="Eric Faraut, votre intégrateur web react en Île-de-France. À propos de moi, mes compétences, mon parcours et comment me contacter.">
+		<meta name="twitter:image" content="https://ericdev1o.github.io/OC900_p12_portfolio_astro/CV/photoCV_w100px.webp">
+    <title>Votre intégrateur web react en Île-de-France</title>
+  </head>
+  <body
+    class="
+      font-mono 
+      min-w-xs
+      min-h-screen 
+      box-border 
+      m-0 
+      p-0 
+      flex
+      flex-row">
+    <div 
+      id="root" 
+      class="
+        m-auto
+        text-center
+        leading-7.5
+        font-normal
+        text-gray-300
+        bg-gray-800
+        synthesis-none
+        rendering-legibility
+        antialiased
+        ">
+        <StrictMode>
+          <Layout>
+              <Home />
+          </Layout>
+        </StrictMode>
+    </div>
+  </body>
 </html>

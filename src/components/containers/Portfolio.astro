@@ -1,0 +1,59 @@
+---
+import ProjectCard from '../UI/ProjectCard';
+
+// Fast, simple implicit JSON parse adapted to this use is done.
+import projectsImported from '../../assets/data/projects.json';
+// API fetch is ready to plan
+import type { Project } from '@/custom/types/Project'
+let projectsFetched: Project[] = [];
+
+let projects: Project[] = [];
+
+interface Props {
+    projectsPath: string;
+}
+const { projectsPath } = Astro.props;
+
+try{
+    if(! projectsImported) {
+        const baseURL = import.meta.env.SITE || 'http://localhost:4321/src';
+        const res = await fetch(`${baseURL}/assets/data/projects.json`);
+        try{
+            if(res.ok) {
+                projectsFetched = await res.json();
+            } else {
+                console.error(`Failed to load: ${res.status} ${res.statusText}`)
+            }
+        } catch (error) {
+            console.error('Fetch error: ', error);
+        }
+    }
+} catch (error) {
+    console.error('Failed to load projects:', error);
+}
+
+if(projectsImported)
+    projects = projectsImported;
+else if(projectsFetched)
+    projects = projectsFetched;
+else
+    console.error('No project is loaded.');
+---
+<div
+    class='
+        flex
+        flex-col
+        justify-center
+        items-center 
+        h-screen 
+        overflow-y-auto
+        relative'
+>
+    {projects.map((project) => (
+        <ProjectCard 
+            client:visible 
+            project={project}
+            projectsPath={projectsPath}
+        />
+    ))}
+</div>
