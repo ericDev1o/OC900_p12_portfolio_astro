@@ -10,14 +10,34 @@ Inside of your Astro project, you'll see the following folders and files:
 /
 ├── public/
 ├── src/
+│   └── assets/
+│       └── data
+│           └── projects.json
+│   └── components/
+│       └── containers
+│           └── Layout.tsx
+│           └── Portfolio.astro
+│           └── Skills.tsx
+│       └── UI
+│           └── Footer.tsx
+│           └── Header.tsx
+│           └── ProjectCard.tsx
+│           └── Skill.tsx
 │   └── pages/
 │       └── index.astro
 ├── test/
 │   └── accessibility/
-│       └── Home.a11y.test.tsx
+│       └── Home.pa11y.test.ts
 │   └── integration/
 │       └── Home.integration.browser.test.tsx
+└── astro.config.ts
+└── eslint.config.ts
 └── package.json
+└── stylelint.config.mjs
+└── tailwind.config.ts
+└── tsconfig.json
+└── vitest-setup.ts
+└── vitest.config.ts
 ```
 Any static assets, like images, robots.txt or sitemap.xml can be placed in the `public/` directory.
 
@@ -25,22 +45,23 @@ Any static assets, like images, robots.txt or sitemap.xml can be placed in the `
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                    | Action                                                                |
-| :------------------------- | :-------------------------------------------------------------------- |
-| `yarn install`             | Installs dependencies                                                 |
-| `yarn upgrade-interactive` | Upgrades dependencies                                                 |
-| `yarn clean`               | runs `vite :clean`                                                    |
-| `yarn lint`                | runs `eslint --fix .`                                                 |
-| `yarn test:node`           | runs `vitest run --config vitest.config.ts`                           |
-| `yarn test:jsdom`          | runs `vitest run --config vitest.jsdom.config.ts`                     |
-| `yarn test:browser`        | runs `vitest run --config vitest.browser.config.ts`                   |
-| `yarn dev`                 | Starts local dev server at `localhost:4321`                           |
-| `yarn build`               | Build your production site to `./dist/`, runs `vite build --base=./`  |
-| `yarn preview`             | Preview your build locally, before deploying, runs `vite preview`     |
-| `yarn predeploy`           | runs `yarn build`                                                     |
-| `yarn deploy`              | runs `gh-pages -d dist`                                               |
-| `yarn astro ...`           | Run CLI commands like `astro add`, `astro check`                      |
-| `yarn astro -- --help`     | Get help using the Astro CLI                                          |
+| :------------------------- | :-------------------------------------------------------------------------- |
+| Command                    | Action                                                                      |
+| :------------------------- | :-------------------------------------------------------------------------- |
+| `yarn install`             | Installs dependencies                                                       |
+| `yarn upgrade-interactive` | Upgrades dependencies one-by-one interactively                              |
+| `yarn clean`               | runs `vite :clean`                                                          |
+| `yarn lint`                | runs `eslint --fix .`                                                       |
+| `yarn test:a11y`           | runs `vitest run --config vitest.config.ts`                                 |
+| `yarn test:integration`    | runs `playwright test test/integration/Home.integration.browser.test.tsx"   |
+| `yarn dev`                 | Starts local dev server at `localhost:4321`, runs `astro dev`               |
+| `yarn build`               | Build your production site to `./dist/`, runs `npx paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro check && astro build`                                             |
+| `yarn preview`             | Preview your build locally, before deploying, runs `astro preview`          |
+| `yarn predeploy`           | runs `yarn build`                                                           |
+| `yarn deploy`              | runs `gh-pages -d dist`                                                     |
+| `yarn astro ...`           | Run CLI commands like `astro add`, `astro check`                            |
+| `yarn astro -- --help`     | Get help using the Astro CLI                                                |
+| :------------------------- | :-------------------------------------------------------------------------- |
 
 ## clone & install using yarn, be welcome
 git clone https://github.com/ericDev1o/OC900_p12_portfolio.git
@@ -78,20 +99,20 @@ F12 dev tools -> 3 vertical ... -> More tools > -> Rendering -> Emulate CSS medi
 
 ## test please
 ### pa11y
-yarn test:node
+yarn test:a11y
 #### details
 vitest run --config vitest.config.ts
-### axe a11y & Intersection Observer useEffect
-yarn test:jsdom
+### integration test in chromium browser
+yarn test:integration
 #### details
-vitest run --config vitest.jsdom.config.ts
+playwright test test/integration/Home.integration.browser.test.tsx
 
 ## preview package.json script build & then preview
 yarn build
 yarn preview
 ### details
-vite build --base=./
-vite preview
+npx paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro check && astro build
+astro preview
 ### detail: package.json script is from now on written PJS
 
 ## deploy
@@ -188,22 +209,18 @@ https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..800&subset=lat
     src: url(https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2) format('woff2'); 
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; 
 }
-#### put 1 file in src/assets/fonts
+#### put 1 light file in src/assets/fonts
 jetbrains-mono-400..800.woff2
 
-#### update astro.config.ts
-export default defineConfig({ 
-    ...
-    experimental: {
-    fonts: [
-      {
-        name: 'JetBrains Mono',
-        provider: 'local',
-        cssVariable: '--font-jetbrains-mono',
-        src: [
-          {url: './src/assets/fonts/jetbrains-mono-400..800.woff2'}
-        ]
-      }
-    ]
-  }
-});
+#### update index.css
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/jetbrains-mono-400..800.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
