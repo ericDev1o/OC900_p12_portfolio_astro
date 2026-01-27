@@ -25,7 +25,7 @@ export default defineConfig({
   ],
 
   vite: {
-    plugins: [tailwindcss()],
-    base: '/OC900_p12_portfolio_astro/'
+    base: '/OC900_p12_portfolio_astro/',
+    plugins: [tailwindcss()]
   }
 });
