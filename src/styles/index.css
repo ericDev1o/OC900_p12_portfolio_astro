@@ -1,7 +1,8 @@
-@config "../../tailwind.config.ts";
-@import "tailwindcss";
-@import "flowbite-react/plugin/tailwindcss";
-@source "../../.flowbite-react/class-list.json";
+/* Tailwind v3 syntax for astro integration => gh-pages CSS handling */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* end Tailwind v3 syntax */
 
 @font-face {
   font-family: 'JetBrains Mono';
@@ -9,10 +10,6 @@
   font-weight: 400 800;
   font-style: normal;
   font-display: swap;
-}
-
-@theme {
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 @layer utilities {

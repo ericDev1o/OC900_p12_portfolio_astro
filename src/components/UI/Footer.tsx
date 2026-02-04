@@ -30,12 +30,12 @@ export default function Footer() {
                 font-medium 
                 text-fg-brand  
                 text-blue-300
-                hover:text-blue-600
-                hover:underline
+                transition-colors 
                 duration-600 
-                motion-reduce:duration-3000 
                 ease-in-out 
-                hover:scale-110'
+                hover:text-blue-600
+                hover:underline 
+                motion-reduce:transition-none'
             onClick={() => setModalIsOpen(true)}>mentions légales
         </button>
         <LinkClickWarning />

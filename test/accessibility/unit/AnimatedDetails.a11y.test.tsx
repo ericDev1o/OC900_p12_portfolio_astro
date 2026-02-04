@@ -3,7 +3,7 @@
 import { render } from '@testing-library/react';
 import { axe } from 'vitest-axe';
 
-import AnimatedDetails from '../../../src/components/UI/AnimatedDetails';
+import AnimatedDetails from '../../../src/components/UI/Accordion';
 
 describe('AnimatedDetails custom accordion component', () => {
     it('should have no axe accessibility violations', async () => {

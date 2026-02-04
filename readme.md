@@ -55,7 +55,7 @@ All commands are run from the root of the project, from a terminal:
 | `yarn test:a11y`           | runs `vitest run --config vitest.config.ts`                                 |
 | `yarn test:integration`    | runs `playwright test test/integration/Home.integration.browser.test.tsx"   |
 | `yarn dev`                 | Starts local dev server at `localhost:4321`, runs `astro dev`               |
-| `yarn build`               | Build your production site to `./dist/`, runs `npx paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro check && astro build`                                             |
+| `yarn build`               | Build your production site to `./dist/`, runs `astro check && astro build`  |
 | `yarn preview`             | Preview your build locally, before deploying, runs `astro preview`          |
 | `yarn predeploy`           | runs `yarn build`                                                           |
 | `yarn deploy`              | runs `gh-pages -d dist`                                                     |
@@ -111,7 +111,7 @@ playwright test test/integration/Home.integration.browser.test.tsx
 yarn build
 yarn preview
 ### details
-npx paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro check && astro build
+astro check && astro build
 astro preview
 ### detail: package.json script is from now on written PJS
 
