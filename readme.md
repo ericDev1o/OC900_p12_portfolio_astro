@@ -45,7 +45,6 @@ Any static assets, like images, robots.txt or sitemap.xml can be placed in the `
 
 All commands are run from the root of the project, from a terminal:
 
-| :------------------------- | :-------------------------------------------------------------------------- |
 | Command                    | Action                                                                      |
 | :------------------------- | :-------------------------------------------------------------------------- |
 | `yarn install`             | Installs dependencies                                                       |
@@ -61,7 +60,6 @@ All commands are run from the root of the project, from a terminal:
 | `yarn deploy`              | runs `gh-pages -d dist`                                                     |
 | `yarn astro ...`           | Run CLI commands like `astro add`, `astro check`                            |
 | `yarn astro -- --help`     | Get help using the Astro CLI                                                |
-| :------------------------- | :-------------------------------------------------------------------------- |
 
 ## clone & install using yarn, be welcome
 git clone https://github.com/ericDev1o/OC900_p12_portfolio.git
