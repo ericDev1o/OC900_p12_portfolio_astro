@@ -9,7 +9,6 @@ export const logos: Record<LogoKey, string> = {
     CSS: fullPath + 'CSS3.webp',
     SCSS: fullPath + 'SCSS.webp',
     tailwindCSS : fullPath + 'tailwindCSS.webp',
-    flowbiteReact : fullPath + 'flowbite-react.webp', 
     vite: fullPath + 'vite.webp',
     JS: fullPath + 'JS.webp',
     TS: fullPath + 'TS.webp',
