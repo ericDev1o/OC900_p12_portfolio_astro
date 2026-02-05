@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url('../../public/fonts/jetbrains-mono-400..800.woff2') format('woff2');
+  src: var(--font-jetbrains) format('woff2');
   font-weight: 400 800;
   font-style: normal;
   font-display: swap;

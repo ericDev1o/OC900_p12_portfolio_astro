@@ -21,6 +21,13 @@ import Layout from '../components/containers/Layout';
       type="image/webp" 
       href={`${import.meta.env.BASE_URL}logos/logo_ico.webp`}
     >
+    <style>
+      :root {
+        --font-jetbrains: url(
+          "{Astro.resolve('/fonts/jetbrains-mono-400..800.woff2')}"
+        );
+      }
+    </style>
     <meta 
       name="viewport" 
       content="width=device-width, initial-scale=1.0"
