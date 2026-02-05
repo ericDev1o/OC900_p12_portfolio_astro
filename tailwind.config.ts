@@ -14,6 +14,10 @@ export default {
     extend: {
       fontFamily: {
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+      },
+      spacing: {
+        15: '3.75rem',
+        22: '5.5rem'
       }
     }
   }
