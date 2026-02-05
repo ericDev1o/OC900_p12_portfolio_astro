@@ -95,7 +95,7 @@ export default {
 #### accessibility a11y
 ##### Tailwind motion-reduce
 ###### chromium browser manual test
-F12 dev tools -> 3 vertical ... -> More tools > -> Rendering -> Emulate CSS media feature prefers-reduced-motion -> prefers-reduced-motion: reduce -> you open your project details in 3s. instead of 0.6s
+F12 dev tools -> 3 vertical ... -> More tools > -> Rendering -> Emulate CSS media feature prefers-reduced-motion -> prefers-reduced-motion: reduce -> you open your project details immediately instead of 0.6s.
 
 ## test please
 ### pa11y
