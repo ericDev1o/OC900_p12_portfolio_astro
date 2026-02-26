@@ -1,3 +1,5 @@
+import type { LogoKey } from "./LogoKey"
+
 /**
  * This is a type for data in /src/assets/data/projects.json
  */
@@ -13,5 +15,5 @@ export type Project = {
     'competencesDeveloppees': string,
     'resultatsEtImpact': string,
     'perspectivesAmelioration': string,
-    'logos': string[]
+    'logos': LogoKey[]
 }
