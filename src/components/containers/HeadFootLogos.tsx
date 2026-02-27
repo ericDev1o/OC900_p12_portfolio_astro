@@ -20,10 +20,7 @@ export default function HeadFootLogos() {
                 src={myLogo} 
                 className=' 
                     cursor-not-allowed
-                    will-change-filter 
-                    filter 
-                    duration-300
-                    hover:drop-shadow-[0_0_2em_#646cffaa]' 
+                    opacity-50' 
                 alt='Eric logo'
                 width={15}
                 height={24}

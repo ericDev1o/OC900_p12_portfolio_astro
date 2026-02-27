@@ -16,7 +16,6 @@ export default function Skills() {
     const cssLogo = getLogoURI('CSS');
     const scssLogo = getLogoURI('SCSS');
     const tailwindLogo = getLogoURI('tailwindCSS');
-    const flowbiteLogo = getLogoURI('flowbiteReact');
     const viteLogo = getLogoURI('vite');
     const jsLogo = getLogoURI('JS');
     const tsLogo = getLogoURI('TS');
@@ -47,7 +46,6 @@ export default function Skills() {
         <Skill logoURI={cssLogo} altText='CSS 3'/>
         <Skill logoURI={scssLogo} altText='SCSS'/>
         <Skill logoURI={tailwindLogo} altText='TailwindCSS' />
-        <Skill logoURI={flowbiteLogo} altText='Flowbite React' />
         <Skill logoURI={jsLogo} altText='JavaScript' />
         <Skill logoURI={tsLogo} altText='TypeScript' />
         <Skill logoURI={jestLogo} altText='Jest' />

@@ -15,6 +15,7 @@ import SpanViolet from '../components/UI/SpanViolet';
 import Skills from '../components/containers/Skills';
 
 const basePath = import.meta.env.BASE_URL || '/';
+
 const photo = 'CV/photoCV_w100px.webp';
 const photoPath = basePath + photo;
 
@@ -213,7 +214,7 @@ const githubLogo = logos['gitHub'];
             href='https://www.francecompetences.fr/recherche/rncp/38145/'
             text='RNCP 38145'
           />
-          <LinkClickWarning />
+          <LinkClickWarning client:visible />
         </div>
       </h5>
       <p 
@@ -231,7 +232,7 @@ const githubLogo = logos['gitHub'];
           href='https://openclassrooms.com/fr/paths/900-integrateur-web#projects'
           text='Suivez le parcours.'
         />
-        <LinkClickWarning />
+        <LinkClickWarning  client:visible />
       </div>
       <h6 class='pt-6'>
         22 avril 2024 au 21 décembre 2025
@@ -252,12 +253,15 @@ const githubLogo = logos['gitHub'];
             items-center 
             text-blue-300  
             no-underline
-            transition 
-            transform
+            transition-transform 
+            transition-shadow 
+            duration-600 
+            ease-in-out 
             hover:scale-110 
             hover:brightness-110 
             hover:shadow-lg
-            ease-in-out'
+            motion-reduce:transition-none 
+            motion-reduce:transform-none'
         >
           <svg 
             xmlns='http://www.w3.org/2000/svg' 
@@ -275,7 +279,7 @@ const githubLogo = logos['gitHub'];
               Téléchargez mon CV
           </span>
         </a>
-        <LinkClickWarning />
+        <LinkClickWarning client:visible />
       </div>
     </Section>
     <Section>
@@ -330,7 +334,7 @@ const githubLogo = logos['gitHub'];
               href='https://calendly.com/d/cxcb-3st-m8k/15-minutes'
               text='https://calendly.com/d/cxcb-3st-m8k/15-minutes'
             />
-          <LinkClickWarning />
+          <LinkClickWarning client:visible />
         </div>
       </div>
       <div
@@ -364,7 +368,7 @@ const githubLogo = logos['gitHub'];
               Prévoyons de parler de votre projet de site "web"
             </button>
           </a>
-          <LinkClickWarning />
+          <LinkClickWarning client:visible />
         </div>
     </Section>
   </article>

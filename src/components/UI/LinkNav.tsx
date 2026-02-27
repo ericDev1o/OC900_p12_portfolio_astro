@@ -15,14 +15,14 @@ export default function LinkNav(
             px-4 
             py-2 
             text-blue-300 
+            transition-transform 
+            transition-colors 
+            duration-600 
+            ease-in-out 
             hover:text-blue-600 
             hover:scale-110 
-            transition 
-            transform 
-            duration-600 
-            motion-reduce:duration-3000 
-            ease-in-out 
-            '
+            motion-reduce:transition-none 
+            motion-reduce:transform-none'
     >
         { text }
     </a>

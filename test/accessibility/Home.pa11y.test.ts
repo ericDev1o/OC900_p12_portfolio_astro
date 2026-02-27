@@ -13,17 +13,18 @@ describe('Home page accessibility test', () => {
     const PORT = 4321;
     const WAIT_SERVER_MS = 4000;
     const WAIT_TEST_MS = 30000;
+    const BASE = '/OC900_p12_portfolio_astro/';
 
     async function runPa11y(port: number = PORT) {
-        return pa11y(`http://localhost:${port}/`);
+        return pa11y(`http://localhost:${port}${BASE}`);
     }
 
     beforeAll(async () => {
         // Arrange
         serverProcess = await startAstroServer(PORT, WAIT_SERVER_MS);
-    })
+    }, WAIT_TEST_MS)
     afterAll(() => {
-         stopAstroServer(serverProcess);
+        stopAstroServer(serverProcess);
     });
 
     it('should have no axe accessibility violations', async () => {

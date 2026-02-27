@@ -1,17 +1,19 @@
 ---
-import ProjectCard from '../UI/ProjectCard';
+import ProjectCard from '../UI/ProjectCard.astro';
 
 // Fast, simple implicit JSON parse adapted to this use is done.
 import projectsImported from '../../assets/data/projects.json';
-// API fetch is ready to plan
-import type { Project } from '@/custom/types/Project'
+
+import { logos as logosMap } from '../../config/logoPathsConfig';
+
+import type { Project } from '../../custom/types/Project'
+import type { LogoKey } from '../../custom/types/LogoKey';
 let projectsFetched: Project[] = [];
+
+const isLogoKey = (s: string): s is LogoKey => s in logosMap;
 
 let projects: Project[] = [];
 
-interface Props {
-    projectsPath: string;
-}
 const { projectsPath } = Astro.props;
 
 try{
@@ -33,7 +35,10 @@ try{
 }
 
 if(projectsImported)
-    projects = projectsImported;
+   projects = (projectsImported as any[]).map((p) => ({
+    ...p,
+    logos: p.logos.filter(isLogoKey),
+    }));
 else if(projectsFetched)
     projects = projectsFetched;
 else
@@ -51,7 +56,6 @@ else
 >
     {projects.map((project) => (
         <ProjectCard 
-            client:visible 
             project={project}
             projectsPath={projectsPath}
         />
