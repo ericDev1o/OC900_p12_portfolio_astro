@@ -122,7 +122,7 @@
         "stackTechnique": "HTML, CSS, TypeScript, React, TailwindCSS, rendu côté client poussé grâce aux outils d’analyse tels que Lighthouse, pa11y, axe Dev Tools, ainsi que Notion Kanban pour la gestion agile.",
         "competencesDeveloppees": "Découpage frontend en composants react, accessibilité solide et performances en progrès. Début opérationnel d'automatisation des tests avec vitest-axe et stylelint.",
         "resultatsEtImpact": "Livraison d’une version 0.1.2 fonctionnelle respectant les standards, avec une amélioration notable de l’accessibilité et des performances mesurées par Lighthouse.",
-        "perspectivesAmelioration": "Fonctionnellement, accélérer les itérations sans régression pour filtrer les projets par technologie, intégrer des démonstrations vidéo des fonctionnalités, compléter le parcours en 'timeline' et réaliser la présentation “à propos” en vidéo, cibler plus d'offres d’emploi via des mots-clés pertinents.",
+        "perspectivesAmelioration": "1) Faire adhérer le bas de page au défilement, 2) supprimer les marges blanches au défilement de 320 à 1440 px, 3) proposer un carrousel de projets, 4) différencier l'affichage selon mobile / tablette ou desktop, 5) filtrer les projets par technologie, 6) publier une vidéo a) de la présentation à propos voire b) des projets passés sont soumises au sondage entre pairs pour décision / priorisation.",
         "logos": ["HTML", "CSS", "TS", "tailwindCSS", "react", "lighthouse", "WAvE", "axeDevTool", "greenITanalysis", "feedly", "stylelint", "pa11y", "vitestAxe", "notion", "gitHub"]
     }
 ]
