@@ -15,9 +15,6 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
-    "@fortawesome/fontawesome-svg-core": "^7.1.0",
-    "@fortawesome/free-brands-svg-icons": "^7.1.0",
-    "@fortawesome/react-fontawesome": "^3.1.1",
     "@nanostores/react": "^1.0.0",
     "astro": "^5.16.15",
     "nanostores": "^1.1.0",
