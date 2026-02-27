@@ -76,10 +76,10 @@ yarn dev
 #### HyperTextMarkupLanguage HTML
 ##### WorldWideWebConsortium W3C 
 ###### check online; please kindly signal if I oversaw the offline same 
-[text](https://validator.w3.org/nu/)
+[https://validator.w3.org/nu/](https://validator.w3.org/nu/)
 #### CascadingStyleSheets CSS
 ##### W3C
-[text](https://jigsaw.w3.org/css-validator/)
+[https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
 ##### stylelint pre-validate by linting
 yarn add -D stylelint stylelint-config-standard stylelint-config-tailwindcss
 ###### stylelint.config.mjs
@@ -127,9 +127,9 @@ gh-pages -d dist -b gh-pages --dotfiles"
 ## do you need help for markdown reading or preferred yarn install only?
 ### reading markdown
 #### titles as 2nd color for all non CLI is preferred for multi-line platform & mobile inclusion rather than
-[text](https://github.com/orgs/community/discussions/31570)
+[https://github.com/orgs/community/discussions/31570](https://github.com/orgs/community/discussions/31570)
 #### please kindly signal if I oversaw the current
-[text](https://code.visualstudio.com/docs/languages/markdown)
+[https://code.visualstudio.com/docs/languages/markdown](https://code.visualstudio.com/docs/languages/markdown)
 
 ### yarn install
 #### upgrade yarn
