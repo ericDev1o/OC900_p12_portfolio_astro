@@ -118,7 +118,7 @@ astro preview
 yarn predeploy
 yarn deploy
 #### details
-yarn build && touch dist/.nojekyll
+yarn build
 gh-pages -d dist -b gh-pages --dotfiles"
 
 
