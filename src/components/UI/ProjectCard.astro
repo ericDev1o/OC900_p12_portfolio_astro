@@ -1,0 +1,110 @@
+---
+import type { Project } from '../../custom/types/Project';
+
+import { basePath } from '../../config/logoPathsConfig';
+
+import SkillLogos from '../containers/ProjectCardSkillLogos.astro';
+
+import LinkClickWarning from './LinkClickWarning';
+import Accordion from './Accordion.astro';
+
+interface Props {
+    project: Project
+    projectsPath: string
+}
+
+const { project, projectsPath } = Astro.props;
+
+const alt = project.title.split(',')[0];
+
+const imgSrc = basePath + projectsPath + project.fileName;
+
+const motion = `
+    duration-600 
+    ease-in-out 
+    motion-reduce:transition-none`
+---
+<article 
+    class='
+        my-8 
+        mx-4 
+        max-w-lg 
+        shadow-xs 
+        bg-gray-900'
+    itemscope
+    itemtype='https://schema.org/CreativeWork'
+    >
+        <header 
+            class='
+                p-6 
+                text-center'
+        >
+            <a 
+                href={project.URL}
+                target='_blank' 
+                rel='noopener noreferrer'
+                aria-labelledby={`project-${project.title}`}
+                class={`
+                    group 
+                    inline-block 
+                    relative
+                    transition-transform                            
+                    hover:scale-110 
+                    ${ motion }
+                    motion-reduce:transition-none 
+                    motion-reduce:transform-none
+                `}
+                itemprop='url'
+            >
+                <img 
+                    src={imgSrc}
+                    class={`
+                        w-full 
+                        transition-shadow 
+                        ${ motion }
+                        hover:shadow-[0_0_2em_rgba(100,108,255,0.6)]
+                    `}
+                    alt={alt}
+                    loading='lazy'
+                    decoding='async'
+                    fetchpriority='low'
+                    itemprop='image'
+                />
+                <LinkClickWarning />
+            </a>
+            <h3 
+                id={`project-${project.title}`}
+                class='
+                    m-6 
+                    text-2xl 
+                    leading-loose 
+                    text-orange-500 
+                    font-semibold 
+                    tracking-tight 
+                    text-heading'
+                itemprop='name'
+            > 
+                {project.title}
+            </h3>
+            <SkillLogos 
+                logos={project.logos} 
+                repo={project.repository} 
+            />
+        </header>
+        <Accordion
+            summary='Découvrez ce projet'
+        >
+            <h4 class='font-extrabold mt-2'>contexte</h4>
+            <p>{project.contexte}</p>
+            <h4 class='font-extrabold mt-2'>objectifs</h4>
+            <p>{project.objectifs}</p>
+            <h4 class='font-extrabold mt-2'>stack technique</h4>
+            <p>{project.stackTechnique}</p>
+            <h4 class='font-extrabold mt-2'>compétences développées</h4>
+            <p>{project.competencesDeveloppees}</p>
+            <h4 class='font-extrabold mt-2'>résultats et impact</h4>
+            <p>{project.resultatsEtImpact}</p>
+            <h4 class='font-extrabold mt-2'>perspectives d'amélioration</h4>
+            <p>{project.perspectivesAmelioration}</p>
+        </Accordion>
+</article>

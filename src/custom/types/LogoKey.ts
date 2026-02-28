@@ -11,7 +11,6 @@ export type LogoKey =
     'CSS' |
     'SCSS' |
     'tailwindCSS' |
-    'flowbiteReact' |
     'vite' |
     'JS' |
     'TS' |

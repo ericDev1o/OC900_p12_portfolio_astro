@@ -6,13 +6,22 @@ export async function startAstroServer(
   port: number = 4321,
   waitMs: number = 4000
 ): Promise<ChildProcess> {
-  const serverProcess = spawn('yarn', ['astro', 'dev', '--port', port.toString()], {
-    stdio: 'inherit',
+  await new Promise<void>((resolve, reject) => {
+    const build = spawn('yarn', ['build'], { stdio: 'inherit', shell: true });
+    build.on('exit', (code) => {
+      if(code === 0) 
+        resolve();
+      else reject(new Error(`yarn build failed with code ${code}`));
+    });
+  });
+
+  const preview = spawn('yarn', ['preview', '--port', port.toString()], {
+    stdio: 'inherit', shell: true
   });
 
   await setTimeout(waitMs);
 
-  return serverProcess;
+  return preview;
 }
 
 export function stopAstroServer(serverProcess?: ChildProcess) {

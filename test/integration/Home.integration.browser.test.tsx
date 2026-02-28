@@ -15,6 +15,7 @@ test.describe('Home page', () => {
     let serverProcess: ChildProcess;
     const PORT = 4321;
     const WAIT_MS = 4000;
+    const BASE = '/OC900_p12_portfolio_astro/';
 
     test.beforeAll(async () => {
         // Arrange
@@ -26,7 +27,7 @@ test.describe('Home page', () => {
 
     test('must render most important content', async ({ page }) => {
         // Arrange
-        await page.goto(`http://localhost:${PORT}`);
+        await page.goto(`http://localhost:${PORT}${BASE}`);
         // Act
         const headings = [
              {

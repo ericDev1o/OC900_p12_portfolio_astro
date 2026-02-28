@@ -45,7 +45,6 @@ Any static assets, like images, robots.txt or sitemap.xml can be placed in the `
 
 All commands are run from the root of the project, from a terminal:
 
-| :------------------------- | :-------------------------------------------------------------------------- |
 | Command                    | Action                                                                      |
 | :------------------------- | :-------------------------------------------------------------------------- |
 | `yarn install`             | Installs dependencies                                                       |
@@ -55,13 +54,12 @@ All commands are run from the root of the project, from a terminal:
 | `yarn test:a11y`           | runs `vitest run --config vitest.config.ts`                                 |
 | `yarn test:integration`    | runs `playwright test test/integration/Home.integration.browser.test.tsx"   |
 | `yarn dev`                 | Starts local dev server at `localhost:4321`, runs `astro dev`               |
-| `yarn build`               | Build your production site to `./dist/`, runs `npx paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro check && astro build`                                             |
+| `yarn build`               | Build your production site to `./dist/`, runs `astro check && astro build`  |
 | `yarn preview`             | Preview your build locally, before deploying, runs `astro preview`          |
 | `yarn predeploy`           | runs `yarn build`                                                           |
 | `yarn deploy`              | runs `gh-pages -d dist`                                                     |
 | `yarn astro ...`           | Run CLI commands like `astro add`, `astro check`                            |
 | `yarn astro -- --help`     | Get help using the Astro CLI                                                |
-| :------------------------- | :-------------------------------------------------------------------------- |
 
 ## clone & install using yarn, be welcome
 git clone https://github.com/ericDev1o/OC900_p12_portfolio.git
@@ -78,10 +76,10 @@ yarn dev
 #### HyperTextMarkupLanguage HTML
 ##### WorldWideWebConsortium W3C 
 ###### check online; please kindly signal if I oversaw the offline same 
-[text](https://validator.w3.org/nu/)
+[https://validator.w3.org/nu/](https://validator.w3.org/nu/)
 #### CascadingStyleSheets CSS
 ##### W3C
-[text](https://jigsaw.w3.org/css-validator/)
+[https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
 ##### stylelint pre-validate by linting
 yarn add -D stylelint stylelint-config-standard stylelint-config-tailwindcss
 ###### stylelint.config.mjs
@@ -95,7 +93,7 @@ export default {
 #### accessibility a11y
 ##### Tailwind motion-reduce
 ###### chromium browser manual test
-F12 dev tools -> 3 vertical ... -> More tools > -> Rendering -> Emulate CSS media feature prefers-reduced-motion -> prefers-reduced-motion: reduce -> you open your project details in 3s. instead of 0.6s
+F12 dev tools -> 3 vertical ... -> More tools > -> Rendering -> Emulate CSS media feature prefers-reduced-motion -> prefers-reduced-motion: reduce -> you open your project details immediately instead of 0.6s.
 
 ## test please
 ### pa11y
@@ -111,7 +109,7 @@ playwright test test/integration/Home.integration.browser.test.tsx
 yarn build
 yarn preview
 ### details
-npx paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro check && astro build
+astro check && astro build
 astro preview
 ### detail: package.json script is from now on written PJS
 
@@ -121,7 +119,7 @@ yarn predeploy
 yarn deploy
 #### details
 yarn build
-gh-pages -d dist
+gh-pages -d dist -b gh-pages --dotfiles"
 
 
 
@@ -129,9 +127,9 @@ gh-pages -d dist
 ## do you need help for markdown reading or preferred yarn install only?
 ### reading markdown
 #### titles as 2nd color for all non CLI is preferred for multi-line platform & mobile inclusion rather than
-[text](https://github.com/orgs/community/discussions/31570)
+[https://github.com/orgs/community/discussions/31570](https://github.com/orgs/community/discussions/31570)
 #### please kindly signal if I oversaw the current
-[text](https://code.visualstudio.com/docs/languages/markdown)
+[https://code.visualstudio.com/docs/languages/markdown](https://code.visualstudio.com/docs/languages/markdown)
 
 ### yarn install
 #### upgrade yarn
