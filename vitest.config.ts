@@ -13,7 +13,7 @@ export default getViteConfig({
         'test/accessibility/**/*.pa11y.test.ts'
         ],
         exclude:[
-            'test/integration/**/*.integration.test.ts'
+            'test/integration/**/*.integration.browser.test.tsx'
         ],
         /* default */
         environment: 'node'
