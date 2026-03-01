@@ -35,7 +35,7 @@ test.describe('Home page', () => {
                 level: 1
             },
             {
-                name: 'votre intégrateur "web" react en Île-de-France',
+                name: 'votre intégrateur web react en Île-de-France',
                 level: 2
             },
             {
