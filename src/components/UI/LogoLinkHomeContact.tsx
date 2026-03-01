@@ -13,7 +13,12 @@ export default function LogoLinkHomeContact(
     return <a 
         href={ href }
         target='_blank'
-        rel='noopener noreferrer'
+        rel='noopener noreferrer' 
+        className='
+            focus-visible:outline-2 
+            focus-visible:outline-blue-500 
+            hover:drop-shadow-[0_0_2em_rgba(100,108,255,0.6)] 
+            focus-visible:drop-shadow-[0_0_2em_rgba(100,108,255,0.6)]'
     >
         <img 
             src={ src }
@@ -23,7 +28,6 @@ export default function LogoLinkHomeContact(
             transition-shadow 
             duration-600 
             ease-in-out 
-            hover:shadow-[0_0_2em_rgba(100,108,255,0.6)] 
             motion-reduce:transition-none' 
             alt={ altText }
             loading='lazy' 
