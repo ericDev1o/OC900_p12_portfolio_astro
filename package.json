@@ -19,8 +19,7 @@
     "astro": "^5.16.15",
     "nanostores": "^1.1.0",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "react-modal": "^3.16.3"
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
@@ -35,7 +34,6 @@
     "@types/pa11y": "^5.3.7",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
-    "@types/react-modal": "^3.16.3",
     "@typescript-eslint/eslint-plugin": "^8.53.1",
     "@typescript-eslint/parser": "^8.53.1",
     "@vitejs/plugin-react": "^5.1.2",
