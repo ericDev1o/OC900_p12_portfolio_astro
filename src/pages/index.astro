@@ -10,30 +10,30 @@ import Layout from '../components/containers/Layout.astro';
 
 <!DOCTYPE html>
 <html 
-  lang="fr-FR" 
-  class="scroll-smooth"
+  lang='fr-FR' 
+  class='scroll-smooth'
 >
   <head>
-    <meta charset="UTF-8">
+    <meta charset='UTF-8'>
     <link 
-      rel="icon" 
-      type="image/webp" 
+      rel='icon' 
+      type='image/webp' 
       href={`${import.meta.env.BASE_URL}logos/logo_ico.webp`}
     >
     <style>
       :root {
         --font-jetbrains: url(
-          "{Astro.resolve('/fonts/jetbrains-mono-400..800.woff2')}"
+          '{Astro.resolve('/fonts/jetbrains-mono-400..800.woff2')}'
         );
       }
     </style>
     <meta 
-      name="viewport" 
-      content="width=device-width, initial-scale=1.0"
+      name='viewport' 
+      content='width=device-width, initial-scale=1.0'
     >
     <title>Votre intégrateur web react en Île-de-France</title>
     <meta 
-      name="description"  
+      name='description'  
       content="À votre écoute, réalisons votre site web. 
         Augmentons son référencement naturel SEO par le moteur de recherche Google.
         Améliorons l'accessibilité en respectant les lignes directrices WCAG.
@@ -46,7 +46,7 @@ import Layout from '../components/containers/Layout.astro';
     >
   </head>
   <body
-    class="
+    class='
       font-mono 
       min-w-xs
       min-h-screen 
@@ -54,10 +54,10 @@ import Layout from '../components/containers/Layout.astro';
       m-0 
       p-0 
       flex
-      flex-row">
+      flex-row'>
     <div 
-      id="root" 
-      class="
+      id='root' 
+      class='
         m-auto
         text-center
         leading-7.5
@@ -67,7 +67,7 @@ import Layout from '../components/containers/Layout.astro';
         synthesis-none
         rendering-legibility
         antialiased
-        ">
+        '>
         <StrictMode>
           <Layout>
               <Home />
