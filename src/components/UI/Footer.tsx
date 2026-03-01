@@ -48,6 +48,7 @@ export default function Footer() {
                     cursor-pointer 
                     font-medium 
                     text-fg-brand  
+                    underline 
                     text-blue-300
                     transition-colors 
                     duration-600 
