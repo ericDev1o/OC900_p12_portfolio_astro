@@ -1,4 +1,4 @@
-import type { LogoKey } from "./LogoKey"
+import type { LogoKey } from './LogoKey'
 
 /**
  * This is a type for data in /src/assets/data/projects.json

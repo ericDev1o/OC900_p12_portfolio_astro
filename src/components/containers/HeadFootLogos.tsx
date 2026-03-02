@@ -1,4 +1,5 @@
 import { useLogo } from '../hooks/useLogo';
+import { IconLink } from '../UI/IconLink';
 
 export default function HeadFootLogos() {
     const { getLogoURI } = useLogo();
@@ -27,37 +28,22 @@ export default function HeadFootLogos() {
             />
         </li>
         <li>   
-            <a 
+            <IconLink 
                 href='https://github.com/ericDev1o' 
-                target='_blank'
-                rel='noopener noreferrer'
-            >
-                <img 
-                    src={githubLogo} 
-                    alt='GitHub logo'
-                    width={25}
-                    height={24} 
-                />
-            </a>
+                src={githubLogo} 
+                alt='GitHub logo'
+                width={25}
+                height={24} 
+            />
         </li>
         <li>   
-            <a 
+            <IconLink 
                 href='https://linkedin.com/in/ericfaraut' 
-                target='_blank'
-                rel='noopener noreferrer'
-            >
-                <img 
-                    src={linkedinLogo} 
-                    className='
-                        will-change-filter 
-                        filter 
-                        duration-300
-                        hover:drop-shadow-[0_0_2em_#646cffaa]' 
-                    alt='LinkedIn logo' 
-                    width={29}
-                    height={24}
-                />
-            </a>
+                src={linkedinLogo} 
+                alt='LinkedIn logo' 
+                width={29}
+                height={24}
+            />
         </li>
     </ul>
 }

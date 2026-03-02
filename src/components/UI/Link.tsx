@@ -15,6 +15,7 @@ export default function Link(
         className='
         px-4 
         py-2 
+        underline 
         text-blue-300 
         transition-transform 
         transition-colors 

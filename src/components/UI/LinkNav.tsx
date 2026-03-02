@@ -14,6 +14,7 @@ export default function LinkNav(
             block  
             px-4 
             py-2 
+            underline 
             text-blue-300 
             transition-transform 
             transition-colors 
