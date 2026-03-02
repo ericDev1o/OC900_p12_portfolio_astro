@@ -22,6 +22,7 @@ export default function LinkClickWarning() {
         opacity-0 
         pointer-events-none 
         group-hover:opacity-100 
+        group-focus-within:opacity-100 
 
         transition-opacity 
         duration-600 
