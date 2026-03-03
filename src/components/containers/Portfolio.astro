@@ -1,49 +1,13 @@
 ---
 import ProjectCard from '../UI/ProjectCard.astro';
 
-// Fast, simple implicit JSON parse adapted to this use is done.
-import projectsImported from '../../assets/data/projects.json';
-
-import { logos as logosMap } from '../../config/logoPathsConfig';
-
+import projects from '../../assets/data/projects.json';
 import type { Project } from '../../custom/types/Project'
-import type { LogoKey } from '../../custom/types/LogoKey';
-let projectsFetched: Project[] = [];
-
-const isLogoKey = (s: string): s is LogoKey => s in logosMap;
-
-let projects: Project[] = [];
+const typedProjects = projects as Project[];
 
 const { projectsPath } = Astro.props;
-
-try{
-    if(! projectsImported) {
-        const baseURL = import.meta.env.SITE || 'http://localhost:4321/src';
-        const res = await fetch(`${baseURL}/assets/data/projects.json`);
-        try{
-            if(res.ok) {
-                projectsFetched = await res.json();
-            } else {
-                console.error(`Failed to load: ${res.status} ${res.statusText}`)
-            }
-        } catch (error) {
-            console.error('Fetch error: ', error);
-        }
-    }
-} catch (error) {
-    console.error('Failed to load projects:', error);
-}
-
-if(projectsImported)
-   projects = (projectsImported as any[]).map((p) => ({
-    ...p,
-    logos: p.logos.filter(isLogoKey),
-    }));
-else if(projectsFetched)
-    projects = projectsFetched;
-else
-    console.error('No project is loaded.');
 ---
+
 <div
     class='
         flex
@@ -54,7 +18,7 @@ else
         overflow-y-auto
         relative'
 >
-    {projects.map((project) => (
+    {typedProjects.map((project) => (
         <ProjectCard 
             project={project}
             projectsPath={projectsPath}
