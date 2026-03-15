@@ -210,21 +210,33 @@ import LinkClickWarning from './LinkClickWarning';
         const closeBtn = document.querySelector<HTMLButtonElement>('#close-legal');
 
         if (dialog && openBtn && closeBtn) {
+            /*
+            TypeScript (5.9.3) loses null-check narrowing inside nested functions.
+            We store the guarded elements in local constants.
+            Please recheck if future TS version improves this. 
+            */
+           const dlg = dialog;
+           const openB = openBtn;
+           const closeB = closeBtn;
 
-            openBtn.addEventListener('click', () => {
-                if (!dialog.open) {
-                dialog.showModal();
-                dialog.focus();
-                }
-            });
+            function openDialog() {
+                if ( ! dlg.open) {
+                    dlg.showModal();
+                    closeB.focus();
+                    }
+            }
 
-            closeBtn.addEventListener('click', () => {
-                if (dialog.open) dialog.close();
-            });
+            function closeDialog() {
+                 if (dlg.open) dlg.close();
+            }
 
-            dialog.addEventListener('click', (e) => {
-                if (e.target === dialog) dialog.close();
-            });
+            function backDropClose(e: MouseEvent) {
+                if (e.target === dlg) dlg.close();
+            }
+        
+            openB.addEventListener('click', openDialog);
+            closeB.addEventListener('click', closeDialog);
+            dlg.addEventListener('click', backDropClose);
         }
     </script>
 </footer>
