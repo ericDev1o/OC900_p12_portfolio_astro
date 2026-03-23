@@ -4,9 +4,7 @@ import Portfolio from '../components/containers/Portfolio.astro';
 import { logos } from '@/config/logoPathsConfig';
 
 import LinkClickWarning from '../components/UI/LinkClickWarning.astro';
-import Title3 from '../components/UI/Title3.astro';
-import Title4 from '../components/UI/Title4.astro';
-import Title5 from '../components/UI/Title5.astro';
+import Title from '../components/UI/Title.astro';
 import Section from '../components/UI/Section.astro';
 import Link from '../components/UI/Link.astro';
 import LogoLinkHomeContact from '../components/UI/LogoLinkHomeContact.astro';
@@ -56,7 +54,8 @@ const githubLogo = logos.gitHub;
       </h2>
     </Section>
     <Section>
-      <Title3
+      <Title
+        level={3}
         title='À propos de moi'
         id='moi&vous=nous'
       />
@@ -92,7 +91,9 @@ const githubLogo = logos.gitHub;
         />
         j'en simplifie l'utilisation par tou·te·s. 
       </p>
-      <Title4 title='Qui suis-je?' />
+      <Title
+        level={4}
+        title='Qui suis-je?' />
       <p>
         D'abord je fus intéressé par les indicateurs de prise de décision, l'extraction de leurs données et une solution backend. Intégrateur web react passionné par l’accessibilité, je veille à atteindre un 
         <Span
@@ -101,8 +102,14 @@ const githubLogo = logos.gitHub;
         />
           pour un bon référencement et une expérience utilisat·rice·eur fluide.
       </p>
-      <Title4 title='Pour quoi faire?' />
-      <Title5 title='Le fruit de mes expériences passées' />
+      <Title
+        level={4} 
+        title='Pour quoi faire?' 
+      />
+      <Title
+        level={5}
+        title='Le fruit de mes expériences passées' 
+      />
       <p
       class='pb-10'>
         Naturellement rigoureux, fort d’expériences solides chez Bosch ThermoTechnology et Bolloré Transport & Logistics, j’ai développé des compétences en 
@@ -111,17 +118,29 @@ const githubLogo = logos.gitHub;
           color='green'
         />
       </p>
-      <Title5 title="Notre objectif aujourd'hui" />
+      <Title
+        level={5}
+        title="Notre objectif aujourd'hui" 
+      />
       <p class='pb-10'>
         Je suis prêt pour être votre intégrateur web dans une agence, ESN ou organisation engagée en Île-de-France. 
       </p>
-      <Title5 title='Pour un projet numérique plus inclusif et éco-responsable demain' />
+      <Title
+        level={5}
+        title='Pour un projet numérique plus inclusif et éco-responsable demain' 
+      />
       <p>
         De la startup du recyclage à une administration en passant par le grand groupe ou une association de l'Economie Sociale et Solidaire c'est le projet qui est mon moteur.
       </p>
-      <Title4 title='Quel est mon apport?' />
+      <Title
+        level={4} 
+        title='Quel est mon apport?' 
+      />
       <p class='pb-3'></p>
-      <Title5 title='Qualitatif' />
+      <Title 
+        level={5}
+        title='Qualitatif' 
+      />
       <p class='pb-6'>
         Mon écoute, ma connaissance des standards web, ma veille technologique et mon respect de la confidentialité via des 
         <Span
@@ -130,7 +149,10 @@ const githubLogo = logos.gitHub;
         />
         font de vos projets des sites accessibles et éco-conçus. 
       </p>
-      <Title5 title='Quantitatif' />
+      <Title
+        level={5} 
+        title='Quantitatif' 
+      />
       <p class='pb-8'>
         Mon audit Lighthouse affiche régulièrement 
         <Span
@@ -143,7 +165,10 @@ const githubLogo = logos.gitHub;
           color='violet'
         />
       </p>
-      <Title5 title='Précepte' />
+      <Title
+        level={5} 
+        title='Précepte' 
+      />
       <p>
         Grâce aux projets OpenClassrooms concrets et au mentorat j'ai développé ma capacité à 
         <span
@@ -175,7 +200,8 @@ const githubLogo = logos.gitHub;
       </p>
     </Section>
     <Section>
-      <Title3
+      <Title
+        level={3}
         title='compétences'
         id='competences'
       />
@@ -200,14 +226,16 @@ const githubLogo = logos.gitHub;
       <Skills />
     </Section>
     <Section>
-      <Title3
+      <Title
+        level={3}
         title='projets'
         id='projets'
       />
       <Portfolio projectsPath={ projectsPath } />
     </Section>
     <Section>
-      <Title3 
+      <Title
+        level={3}
         title='parcours'
         id='parcours'
       />
@@ -257,7 +285,10 @@ const githubLogo = logos.gitHub;
       <h6 class='pt-6'>
         22 avril 2024 au 21 décembre 2025
       </h6>
-      <Title4 title='sachez-en plus sur ce que nous avons co-construit avant' />
+      <Title
+        level={4} 
+        title='sachez-en plus sur ce que nous avons co-construit avant' 
+      />
       <div 
         class='
           group
@@ -307,7 +338,8 @@ const githubLogo = logos.gitHub;
       </div>
     </Section>
     <Section>
-      <Title3
+      <Title
+        level={3}
         title='contact'
         id='contact'
       />

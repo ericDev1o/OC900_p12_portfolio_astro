@@ -1,0 +1,39 @@
+---
+type Level = 3 | 4 | 5;
+
+const { 
+    title, 
+    level, 
+    id } 
+= Astro.props as {
+    title: string, 
+    level: Level,
+    id?: string
+};
+
+const Tag = `h${level}` as keyof HTMLElementTagNameMap;
+
+const styles = {
+    3: 
+        `pt-22 
+        pb-6 
+        text-3xl
+        leading-loose`,
+    4: 
+        `pt-12 
+        pb-2 
+        text-2xl
+        leading-loose`,
+    5:
+        `pb-4 
+        text-xl
+        leading-loose`
+}
+---
+
+<Tag
+    class={ styles[level] }
+    id={ id }
+>
+    { title }
+</Tag>
