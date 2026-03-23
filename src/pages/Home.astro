@@ -3,15 +3,15 @@ import Portfolio from '../components/containers/Portfolio.astro';
 
 import { logos } from '@/config/logoPathsConfig';
 
-import LinkClickWarning from '../components/UI/LinkClickWarning';
-import Title3 from '../components/UI/Title3';
-import Title4 from '../components/UI/Title4';
-import Title5 from '../components/UI/Title5';
-import Section from '../components/UI/Section';
-import Link from '../components/UI/Link';
+import LinkClickWarning from '../components/UI/LinkClickWarning.astro';
+import Title3 from '../components/UI/Title3.astro';
+import Title4 from '../components/UI/Title4.astro';
+import Title5 from '../components/UI/Title5.astro';
+import Section from '../components/UI/Section.astro';
+import Link from '../components/UI/Link.astro';
 import LogoLinkHomeContact from '../components/UI/LogoLinkHomeContact.astro';
-import SpanGreen from '../components/UI/SpanGreen';
-import SpanViolet from '../components/UI/SpanViolet';
+import SpanGreen from '../components/UI/SpanGreen.astro';
+import SpanViolet from '../components/UI/SpanViolet.astro';
 import Skills from '../components/containers/Skills.astro';
 
 const basePath = import.meta.env.BASE_URL || '/';
@@ -213,7 +213,7 @@ const githubLogo = logos.gitHub;
             href='https://www.francecompetences.fr/recherche/rncp/38145/'
             text='RNCP 38145'
           />
-          <LinkClickWarning client:visible />
+          <LinkClickWarning />
         </div>
       </h5>
       <p 
@@ -231,7 +231,7 @@ const githubLogo = logos.gitHub;
           href='https://openclassrooms.com/fr/paths/900-integrateur-web#projects'
           text='Suivez le parcours.'
         />
-        <LinkClickWarning  client:visible />
+        <LinkClickWarning />
       </div>
       <h6 class='pt-6'>
         22 avril 2024 au 21 décembre 2025
@@ -282,7 +282,7 @@ const githubLogo = logos.gitHub;
               Téléchargez mon CV
           </span>
         </a>
-        <LinkClickWarning client:visible />
+        <LinkClickWarning />
       </div>
     </Section>
     <Section>
@@ -338,7 +338,7 @@ const githubLogo = logos.gitHub;
               href='https://calendly.com/d/ctmm-ynb-x6f/15-minutes'
               text='https://calendly.com/d/ctmm-ynb-x6f/15-minutes'
             />
-          <LinkClickWarning client:visible />
+          <LinkClickWarning />
         </div>
       </div>
       <div
@@ -372,7 +372,7 @@ const githubLogo = logos.gitHub;
               Prévoyons de parler de votre projet de site web
             </button>
           </a>
-          <LinkClickWarning client:visible />
+          <LinkClickWarning />
         </div>
     </Section>
   </article>

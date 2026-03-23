@@ -1,18 +1,17 @@
-export default function Link(
-    {
-        href,
-        text
-    }:
-    {
-        href: string,
-        text: string
-    }
-){
-    return <a 
-        href={ href }
-        target='_blank'
-        rel='noopener noreferrer' 
-        className='
+---
+const { 
+    href, 
+    text 
+} = Astro.props as {
+    href: string,
+    text: string
+};
+---
+
+<a 
+    href={ href }
+    class='
+        block  
         px-4 
         py-2 
         underline 
@@ -25,7 +24,6 @@ export default function Link(
         hover:scale-110 
         motion-reduce:transition-none 
         motion-reduce:transform-none'
-    >
-       { text }
-    </a>
-}
+>
+    { text }
+</a>

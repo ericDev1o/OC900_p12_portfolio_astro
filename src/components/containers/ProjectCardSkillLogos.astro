@@ -1,12 +1,13 @@
 ---
 import { logos as logosMap, type  LogoKey } from '@/config/logoPathsConfig';
 
-type Props = {
+const { 
+    logos: projectLogos, 
+    repo 
+} = Astro.props as {
   logos: LogoKey[];
   repo?: string;
 }
-
-const { logos: projectLogos, repo } = Astro.props as Props;
 ---
 
 {projectLogos.length > 0 && ( 

@@ -1,0 +1,20 @@
+---
+const { 
+    title, 
+    id } 
+= Astro.props as {
+    title: string,
+    id: string
+};
+---
+
+<h3
+    id={ id }
+    class='
+    pt-22 
+    pb-6 
+    text-3xl
+    leading-loose'
+>
+    { title }
+</h3>

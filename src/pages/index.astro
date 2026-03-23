@@ -1,11 +1,8 @@
 ---
-import { StrictMode } from 'react';
-
 import '../styles/index.css';
 
 import Home from '../pages/Home.astro';
 import Layout from '../components/containers/Layout.astro';
-
 ---
 
 <!DOCTYPE html>
@@ -66,13 +63,11 @@ import Layout from '../components/containers/Layout.astro';
         bg-gray-800
         synthesis-none
         rendering-legibility
-        antialiased
-        '>
-        <StrictMode>
-          <Layout>
-              <Home />
-          </Layout>
-        </StrictMode>
+        antialiased'
+    >
+      <Layout>
+        <Home />
+      </Layout>
     </div>
   </body>
 </html>
