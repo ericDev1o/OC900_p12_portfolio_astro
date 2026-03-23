@@ -1,0 +1,21 @@
+---
+const { 
+    text,
+    color 
+} = Astro.props as { 
+    text: string,
+    color: 'green' | 'violet' 
+};
+---
+
+<span 
+    class={`
+        mx-2 
+        font-extrabold 
+        ${color === 'green' 
+        ? 'text-green-400'
+        : 'text-violet-400'
+    }`}
+>
+    { text }
+</span>
