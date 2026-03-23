@@ -3,20 +3,16 @@ interface Props {
   href: string
   src?: string
   alt: string
-  width: number
-  height: number
+  classNameImgWidthHeight: string
   classNameA?: string
-  classNameImg?: string
 }
 
 const {
   href,
   src,
   alt,
-  width,
-  height,
-  classNameA = '',
-  classNameImg = ''
+  classNameImgWidthHeight='',
+  classNameA = ''
 } = Astro.props as Props;
 ---
 
@@ -35,13 +31,11 @@ const {
   <img
     src={src}
     alt={alt}
-    width={width}
-    height={height}
     class={`
       transition-shadow
       duration-600
       ease-in-out
-      ${classNameImg}
+      ${classNameImgWidthHeight}
     `}
     loading='lazy'
   />
