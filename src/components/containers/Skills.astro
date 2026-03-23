@@ -1,0 +1,44 @@
+---
+import { logos } from '@/config/logoPathsConfig';
+import Skill from '../UI/Skill.astro';
+
+const skillKeys = [
+    'HTML',
+    'CSS',
+    'SCSS',
+    'tailwindCSS',
+    'vite',
+    'JS',
+    'TS',
+    'jest',
+    'react',
+    'reactRouter',
+    'redux',
+    'lighthouse',
+    'GTmetrix',
+    'WAvE',
+    'axeDevTool',
+    'greenITanalysis',
+    'stylelint',
+    'pa11y',
+    'vitestAxe',
+    'feedly',
+    'notion',
+    'excalidraw'
+] as const;
+---
+
+<div 
+    class='
+        flex
+        justify-center
+        flex-wrap
+        items-center'
+>
+    {skillKeys.map(skill => (
+        <Skill
+            logoURI={logos[skill]}
+            altText={skill}
+        />
+    ))}
+</div>

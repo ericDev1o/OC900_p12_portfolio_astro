@@ -1,0 +1,21 @@
+---
+import IconLink from "./IconLink.astro";
+
+interface Props {
+  href: string;
+  src?: string;
+  altText: string;
+}
+
+const { href, src, altText } = Astro.props as Props;
+---
+
+<IconLink 
+    href={ href }
+    src={ src } 
+    alt={ altText }
+    width={25}
+    height={24}
+    classNameA='p-6' 
+    classNameImg='h-[25px]'
+/>

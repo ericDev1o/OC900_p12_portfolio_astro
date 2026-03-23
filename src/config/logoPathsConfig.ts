@@ -1,10 +1,7 @@
-import type { LogoKey } from '@/custom/types/LogoKey';
-
 export const basePath = import.meta.env.BASE_URL || '/';
-export const logosPaths = 'logos/';
-const fullPath = basePath + logosPaths;
+const fullPath = `${basePath}logos/`;
 
-export const logos: Record<LogoKey, string> = {
+export const logos = {
     HTML: fullPath + 'HTML5.webp',
     CSS: fullPath + 'CSS3.webp',
     SCSS: fullPath + 'SCSS.webp',
@@ -30,4 +27,6 @@ export const logos: Record<LogoKey, string> = {
     feedly: fullPath + 'feedly.webp',
     notion: fullPath + 'notion.webp',
     excalidraw: fullPath + 'excalidraw.webp'
-}
+} as const;
+
+export type LogoKey = keyof typeof logos;

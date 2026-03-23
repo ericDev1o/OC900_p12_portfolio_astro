@@ -1,13 +1,13 @@
 ---
-import type { LogoKey } from '../../custom/types/LogoKey';
-import { logos as logosMap } from '../../config/logoPathsConfig';
+import { logos as logosMap, type  LogoKey } from '@/config/logoPathsConfig';
 
-interface Props {
+const { 
+    logos: projectLogos, 
+    repo 
+} = Astro.props as {
   logos: LogoKey[];
   repo?: string;
 }
-
-const { logos: projectLogos, repo } = Astro.props;
 ---
 
 {projectLogos.length > 0 && ( 
@@ -22,6 +22,7 @@ const { logos: projectLogos, repo } = Astro.props;
     >
         {projectLogos.map((logo) => {
             const src = logosMap[logo];
+            if( ! src) return null;
 
             return (
             <a

@@ -1,18 +1,15 @@
 ---
 import Portfolio from '../components/containers/Portfolio.astro';
 
-import { logoStore } from '@/stores/logoStore';
+import { logos } from '@/config/logoPathsConfig';
 
-import LinkClickWarning from '../components/UI/LinkClickWarning';
-import Title3 from '../components/UI/Title3';
-import Title4 from '../components/UI/Title4';
-import Title5 from '../components/UI/Title5';
-import Section from '../components/UI/Section';
-import Link from '../components/UI/Link';
-import LogoLinkHomeContact from '../components/UI/LogoLinkHomeContact';
-import SpanGreen from '../components/UI/SpanGreen';
-import SpanViolet from '../components/UI/SpanViolet';
-import Skills from '../components/containers/Skills';
+import LinkClickWarning from '../components/UI/LinkClickWarning.astro';
+import Title from '../components/UI/Title.astro';
+import Section from '../components/UI/Section.astro';
+import Link from '../components/UI/Link.astro';
+import LogoLinkHomeContact from '../components/UI/LogoLinkHomeContact.astro';
+import Span from '../components/UI/Span.astro';
+import Skills from '../components/containers/Skills.astro';
 
 const basePath = import.meta.env.BASE_URL || '/';
 const CVPath = basePath + 'CV/CV_integrateur_web_react_Eric_F.pdf'
@@ -21,9 +18,8 @@ const photoPath = basePath + photo;
 
 const projectsPath = 'projects/';
 
-const logos = logoStore.get();
-const linkedinLogo = logos['linkedIn'];
-const githubLogo = logos['gitHub'];
+const linkedinLogo = logos.linkedIn;
+const githubLogo = logos.gitHub;
 ---
 
 <main>
@@ -58,10 +54,12 @@ const githubLogo = logos['gitHub'];
       </h2>
     </Section>
     <Section>
-      <Title3
-        title='À propos de moi'
+      <Title
+        level={3}
         id='moi&vous=nous'
-      />
+      >
+        À propos de moi
+      </Title>
       <p
         class='
           pt-4'
@@ -83,50 +81,105 @@ const githubLogo = logos['gitHub'];
           chiffres 
         </span>
         clés de 
-        <SpanViolet
-          text='performances.'
+        <Span
+          text='performances.' 
+          color='violet'
         /> 
         Passionné par les interfaces web 
-        <SpanGreen text='durables' />
+        <Span
+          text='durables'
+          color='green' 
+        />
         j'en simplifie l'utilisation par tou·te·s. 
       </p>
-      <Title4 title='Qui suis-je?' />
+      <Title
+        level={4}
+      >
+        Qui suis-je?
+      </Title>
       <p>
         D'abord je fus intéressé par les indicateurs de prise de décision, l'extraction de leurs données et une solution backend. Intégrateur web react passionné par l’accessibilité, je veille à atteindre un 
-        <SpanViolet text='audit Google Lighthouse supérieur à 90/100' />
+        <Span
+          text='audit Google Lighthouse supérieur à 90/100' 
+          color='violet'
+        />
           pour un bon référencement et une expérience utilisat·rice·eur fluide.
       </p>
-      <Title4 title='Pour quoi faire?' />
-      <Title5 title='Le fruit de mes expériences passées' />
+      <Title
+        level={4}  
+      >
+        Pour quoi faire?
+      </Title>
+      <Title
+        level={5} 
+      >
+        Le fruit de mes expériences passées
+      </Title>
       <p
       class='pb-10'>
         Naturellement rigoureux, fort d’expériences solides chez Bosch ThermoTechnology et Bolloré Transport & Logistics, j’ai développé des compétences en 
-        <SpanGreen text='clarification fonctionnelle, documentation, tests unitaires et évolution de code backend.' />
+        <Span 
+          text='clarification fonctionnelle, documentation, tests unitaires et évolution de code backend.' 
+          color='green'
+        />
       </p>
-      <Title5 title="Notre objectif aujourd'hui" />
+      <Title
+        level={5} 
+      >
+        Notre objectif aujourd'hui
+      </Title>
       <p class='pb-10'>
         Je suis prêt pour être votre intégrateur web dans une agence, ESN ou organisation engagée en Île-de-France. 
       </p>
-      <Title5 title='Pour un projet numérique plus inclusif et éco-responsable demain' />
+      <Title
+        level={5} 
+      >
+        Pour un projet numérique plus inclusif et éco-responsable demain
+      </Title>
       <p>
         De la startup du recyclage à une administration en passant par le grand groupe ou une association de l'Economie Sociale et Solidaire c'est le projet qui est mon moteur.
       </p>
-      <Title4 title='Quel est mon apport?' />
+      <Title
+        level={4}  
+      >
+        Quel est mon apport?
+      </Title>
       <p class='pb-3'></p>
-      <Title5 title='Qualitatif' />
+      <Title 
+        level={5} 
+      >
+        Qualitatif
+      </Title>
       <p class='pb-6'>
         Mon écoute, ma connaissance des standards web, ma veille technologique et mon respect de la confidentialité via des 
-        <SpanGreen text='outils hors-ligne comme stylelint' />
+        <Span
+          text='outils hors-ligne comme stylelint'
+          color='green'
+        />
         font de vos projets des sites accessibles et éco-conçus. 
       </p>
-      <Title5 title='Quantitatif' />
+      <Title
+        level={5}  
+      >
+        Quantitatif
+      </Title>
       <p class='pb-8'>
         Mon audit Lighthouse affiche régulièrement 
-        <SpanViolet text='100/100 au SEO' />
+        <Span
+          text='100/100 au SEO' 
+          color='violet'
+        />
         et à l’
-        <SpanGreen text='accessibilité.' />
+        <Span
+          text='accessibilité.' 
+          color='violet'
+        />
       </p>
-      <Title5 title='Précepte' />
+      <Title
+        level={5}  
+      >
+        Précepte
+      </Title>
       <p>
         Grâce aux projets OpenClassrooms concrets et au mentorat j'ai développé ma capacité à 
         <span
@@ -139,7 +192,10 @@ const githubLogo = logos['gitHub'];
       </p>
       <p>
         J’aiderai ainsi une organisation à renforcer sa présence digitale tout en 
-        <SpanGreen  text='limitant ses coûts de maintenance' />
+        <Span
+          text='limitant ses coûts de maintenance' 
+          color='green'
+        />
         par ma progression continue en rendu statique performant côté client puis serveur, extraction de données via API ReST, design, fullstack, devOps, cloud et architecture.
       </p>
       <p class='pt-4'>
@@ -155,10 +211,12 @@ const githubLogo = logos['gitHub'];
       </p>
     </Section>
     <Section>
-      <Title3
-        title='compétences'
+      <Title
+        level={3}
         id='competences'
-      />
+      >
+        compétences
+      </Title>
       <h4
           class='
             pb-8 
@@ -180,17 +238,21 @@ const githubLogo = logos['gitHub'];
       <Skills />
     </Section>
     <Section>
-      <Title3
-        title='projets'
+      <Title
+        level={3}
         id='projets'
-      />
+      >
+        projets
+      </Title>
       <Portfolio projectsPath={ projectsPath } />
     </Section>
     <Section>
-      <Title3 
-        title='parcours'
+      <Title
+        level={3}
         id='parcours'
-      />
+      >
+        parcours
+      </Title>
       <h4
         class='
           pt-2
@@ -214,7 +276,7 @@ const githubLogo = logos['gitHub'];
             href='https://www.francecompetences.fr/recherche/rncp/38145/'
             text='RNCP 38145'
           />
-          <LinkClickWarning client:visible />
+          <LinkClickWarning />
         </div>
       </h5>
       <p 
@@ -232,12 +294,16 @@ const githubLogo = logos['gitHub'];
           href='https://openclassrooms.com/fr/paths/900-integrateur-web#projects'
           text='Suivez le parcours.'
         />
-        <LinkClickWarning  client:visible />
+        <LinkClickWarning />
       </div>
       <h6 class='pt-6'>
         22 avril 2024 au 21 décembre 2025
       </h6>
-      <Title4 title='sachez-en plus sur ce que nous avons co-construit avant' />
+      <Title
+        level={4}  
+      >
+        sachez-en plus sur ce que nous avons co-construit avant
+      </Title>
       <div 
         class='
           group
@@ -283,14 +349,16 @@ const githubLogo = logos['gitHub'];
               Téléchargez mon CV
           </span>
         </a>
-        <LinkClickWarning client:visible />
+        <LinkClickWarning />
       </div>
     </Section>
     <Section>
-      <Title3
-        title='contact'
+      <Title
+        level={3}
         id='contact'
-      />
+      >
+        contact
+      </Title>
       <p
         class='
           pt-8 
@@ -298,7 +366,10 @@ const githubLogo = logos['gitHub'];
           text-2xl'
       >
         Contribuons 
-        <SpanGreen text='doucement' />
+        <Span
+          text='doucement' 
+          color='green'
+        />
         à votre 
         <span
           class='
@@ -309,7 +380,10 @@ const githubLogo = logos['gitHub'];
           projet
         </span> 
         web avec 
-        <SpanGreen text='impact.' />
+        <Span
+          text='impact.'
+          color='green'
+        />
       </p>
       
       <div 
@@ -339,7 +413,7 @@ const githubLogo = logos['gitHub'];
               href='https://calendly.com/d/ctmm-ynb-x6f/15-minutes'
               text='https://calendly.com/d/ctmm-ynb-x6f/15-minutes'
             />
-          <LinkClickWarning client:visible />
+          <LinkClickWarning />
         </div>
       </div>
       <div
@@ -373,7 +447,7 @@ const githubLogo = logos['gitHub'];
               Prévoyons de parler de votre projet de site web
             </button>
           </a>
-          <LinkClickWarning client:visible />
+          <LinkClickWarning />
         </div>
     </Section>
   </article>
