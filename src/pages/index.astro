@@ -16,10 +16,12 @@ import Layout from '../components/containers/Layout.astro';
       http-equiv="Content-Security-Policy"
       content="
         default-src 'self';
-        script-src 'self';
+        script-src 'self' 'unsafe-inline';
         style-src 'self' 'unsafe-inline';
         img-src 'self' data:;
-        font-src 'self';"
+        font-src 'self';
+        object-src 'none';
+        base-uri 'self';"
     >
     <link 
       rel='icon' 
