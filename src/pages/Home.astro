@@ -13,8 +13,8 @@ import Skills from '../components/containers/Skills.astro';
 
 const basePath = import.meta.env.BASE_URL || '/';
 const CVPath = basePath + 'CV/CV_integrateur_web_react_Eric_F.pdf'
-const photo = 'CV/photoCV_w100px.webp';
-const photoPath = basePath + photo;
+const photoPath = basePath + 'CV/photoCV_w100px.webp';
+const photoPathRetina = basePath + 'CV/photoCV_w150px.webp';
 
 const projectsPath = 'projects/';
 
@@ -41,6 +41,9 @@ const githubLogo = logos.gitHub;
       >
         <img
           src={photoPath}
+          srcset={`${photoPath} 1x, ${photoPathRetina} 1.5x`}
+          width='100px'
+          height='134px'
           alt='ma photo'
         />
       </div>
