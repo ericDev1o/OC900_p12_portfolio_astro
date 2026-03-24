@@ -22,8 +22,11 @@ export const logos = {
     pa11y: fullPath + 'pa11y.webp',
     vitestAxe: fullPath + 'vitest-axe.webp',
     linkedIn: fullPath + 'linkedIn.webp',
+    linkedInRetina: fullPath + 'linkedIn_w90px.webp',
     gitHub: fullPath + 'gitHub.webp',
+    gitHubRetina: fullPath + 'gitHub_w78px.webp',
     E: fullPath + 'logo.webp',
+    Eretina: fullPath + 'logo_w23px.webp',
     feedly: fullPath + 'feedly.webp',
     notion: fullPath + 'notion.webp',
     excalidraw: fullPath + 'excalidraw.webp'

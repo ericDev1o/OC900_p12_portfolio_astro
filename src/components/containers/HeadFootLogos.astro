@@ -4,8 +4,11 @@ import IconLink from '../UI/IconLink.astro';
 import { logos } from '@/config/logoPathsConfig';
 
 const myLogo = logos.E;
+const myLogoRetina = logos.Eretina;
 const githubLogo = logos.gitHub;
+const githubLogoRetina = logos.gitHubRetina;
 const linkedinLogo = logos.linkedIn;
+const linkedinLogoRetina = logos.linkedInRetina;
 ---
     
 <ul 
@@ -19,6 +22,7 @@ const linkedinLogo = logos.linkedIn;
     <li>
         <img 
             src={myLogo} 
+            srcset={`${myLogo} 1x, ${myLogoRetina} 1.5x`}
             class=' 
                 cursor-not-allowed
                 opacity-50' 
@@ -31,6 +35,7 @@ const linkedinLogo = logos.linkedIn;
         <IconLink 
             href='https://github.com/ericDev1o' 
             src={githubLogo} 
+            srcSet={`${githubLogo} 1x, ${githubLogoRetina} 1.5x`}
             alt='GitHub logo'
             classNameImgWidthHeight='w-[25px] h-[24px]'
         />
@@ -39,6 +44,7 @@ const linkedinLogo = logos.linkedIn;
         <IconLink 
             href='https://linkedin.com/in/ericfaraut' 
             src={linkedinLogo} 
+            srcSet={`${linkedinLogo} 1x, ${linkedinLogoRetina} 1.5x`}
             alt='LinkedIn logo' 
             classNameImgWidthHeight='w-[29px] h-[24px]'
         />
