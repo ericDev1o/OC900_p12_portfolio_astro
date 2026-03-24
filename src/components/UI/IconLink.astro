@@ -5,6 +5,7 @@ interface Props {
   alt: string
   classNameImgWidthHeight: string
   classNameA?: string
+  srcSet?: string
 }
 
 const {
@@ -12,7 +13,8 @@ const {
   src,
   alt,
   classNameImgWidthHeight='',
-  classNameA = ''
+  classNameA = '',
+  srcSet=''
 } = Astro.props as Props;
 ---
 
@@ -30,6 +32,7 @@ const {
 >
   <img
     src={src}
+    srcset={srcSet}
     alt={alt}
     class={`
       transition-shadow
