@@ -214,39 +214,9 @@ import LinkClickWarning from './LinkClickWarning.astro';
             </button>
         </div>
     </dialog>
-    <script>
-        const dialog = document.querySelector<HTMLDialogElement>('#legal-dialog');
-        const openBtn = document.querySelector<HTMLButtonElement>('#legal');
-        const closeBtn = document.querySelector<HTMLButtonElement>('#close-legal');
-
-        if (dialog && openBtn && closeBtn) {
-            /*
-            TypeScript (5.9.3) loses null-check narrowing inside nested functions.
-            We store the guarded elements in local constants.
-            Please recheck if future TS version improves this. 
-            */
-           const dlg = dialog;
-           const openB = openBtn;
-           const closeB = closeBtn;
-
-            function openDialog() {
-                if ( ! dlg.open) {
-                    dlg.showModal();
-                    closeB.focus();
-                    }
-            }
-
-            function closeDialog() {
-                 if (dlg.open) dlg.close();
-            }
-
-            function backDropClose(e: MouseEvent) {
-                if (e.target === dlg) dlg.close();
-            }
-        
-            openB.addEventListener('click', openDialog);
-            closeB.addEventListener('click', closeDialog);
-            dlg.addEventListener('click', backDropClose);
-        }
-    </script>
+    <script 
+        type='module' 
+        src=`${import.meta.env.BASE_URL}scripts/legal-dialog.js`
+        is:inline
+    ></script>
 </footer>
