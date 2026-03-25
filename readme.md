@@ -27,7 +27,7 @@ Inside of your Astro project, you'll see the following folders and files:
 │       └── index.astro
 ├── test/
 │   └── accessibility/
-│       └── Home.pa11y.test.ts
+│       └── Home.a11y.test.ts
 │   └── integration/
 │       └── Home.integration.browser.test.tsx
 └── astro.config.ts
@@ -36,8 +36,6 @@ Inside of your Astro project, you'll see the following folders and files:
 └── stylelint.config.mjs
 └── tailwind.config.ts
 └── tsconfig.json
-└── vitest-setup.ts
-└── vitest.config.ts
 ```
 Any static assets, like images, robots.txt or sitemap.xml can be placed in the `public/` directory.
 
@@ -51,7 +49,7 @@ All commands are run from the root of the project, from a terminal:
 | `yarn upgrade-interactive` | Upgrades dependencies one-by-one interactively                              |
 | `yarn clean`               | runs `vite :clean`                                                          |
 | `yarn lint`                | runs `eslint --fix .`                                                       |
-| `yarn test:a11y`           | runs `vitest run --config vitest.config.ts`                                 |
+| `yarn test:e2e`           | runs `playwright test test/accessibility`                                 |
 | `yarn test:integration`    | runs `playwright test test/integration/Home.integration.browser.test.tsx"   |
 | `yarn dev`                 | Starts local dev server at `localhost:4321`, runs `astro dev`               |
 | `yarn build`               | Build your production site to `./dist/`, runs `astro check && astro build`  |
@@ -96,10 +94,10 @@ export default {
 F12 dev tools -> 3 vertical ... -> More tools > -> Rendering -> Emulate CSS media feature prefers-reduced-motion -> prefers-reduced-motion: reduce -> you open your project details immediately instead of 0.6s.
 
 ## test please
-### pa11y
-yarn test:a11y
+### e2e accessibility
+yarn test:e2e
 #### details
-vitest run --config vitest.config.ts
+playwright test test/accessibility
 ### integration test in chromium browser
 yarn test:integration
 #### details
@@ -120,8 +118,6 @@ yarn deploy
 #### details
 yarn build
 gh-pages -d dist -b gh-pages --dotfiles"
-
-
 
 
 ## do you need help for markdown reading or preferred yarn install only?
