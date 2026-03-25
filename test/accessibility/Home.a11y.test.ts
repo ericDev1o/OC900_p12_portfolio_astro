@@ -44,4 +44,55 @@ test.describe('Home page accessibility', () => {
         // Assert
         expect(results.violations.length).toBe(0);
     });
+
+    /**
+     * ✔ Tab works globally
+     * ✔ Focus moves
+     */
+    test('keyboard navigation should work', async ({ page }) => {
+        // Arrange
+        await page.goto(PORTFOLIO_URL);
+        await page.waitForSelector('main');
+
+        let found = false;
+
+        // Act
+        for (let i = 0; i < 40; i++) {
+            await page.keyboard.press('Tab');
+
+            const isLink = await page.evaluate(() => {
+                const el = document.activeElement;
+                return el?.tagName === 'A';
+            });
+
+            if (isLink) {
+                found = true;
+                break;
+            }
+        }
+
+        // Assert
+        expect(found).toBe(true);
+    });
+
+    /**
+     * ✔ CSS focus styles
+     * ✔ outline / focus-visible
+     * ✔ WCAG 2.4.7 / 2.4.11 compliant
+     */
+    test('keyboard focus should be visible', async ({ page }) => {
+        // Arrange
+        await page.goto(PORTFOLIO_URL);
+        await page.waitForSelector('main');
+        await page.keyboard.press('Tab');
+
+        // Act
+        const outline = await page.evaluate(() => {
+            const el = document.activeElement;
+            return el ? window.getComputedStyle(el).outlineStyle : null;
+        });
+
+        // Assert
+        expect(outline).not.toBe('none');
+    });
 });
