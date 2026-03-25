@@ -3,8 +3,7 @@
   "include": [
     ".astro/types.d.ts", 
     "src",
-    "test",
-    "test/vitest.d.ts"
+    "test"
   ],
   "exclude": [
     "dist"
@@ -32,10 +31,7 @@
     "jsxImportSource": "react",
     "types": [
       "node",
-      "astro/client",
-      "vitest",
-      "vitest/globals", 
-      "vitest/importMeta"],
+      "astro/client"],
     "verbatimModuleSyntax": true                   
   },
 }
