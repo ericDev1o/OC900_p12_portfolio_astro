@@ -1,43 +1,25 @@
 ---
-import { logos } from '@/config/logoPathsConfig';
+import { getLogoURI } from '@/config/logoPathsConfig';
 import Skill from '../UI/Skill.astro';
 
-const skillKeys = [
-    'HTML',
-    'CSS',
-    'SCSS',
-    'tailwindCSS',
-    'vite',
-    'JS',
-    'TS',
-    'jest',
-    'react',
-    'reactRouter',
-    'redux',
-    'lighthouse',
-    'GTmetrix',
-    'WAvE',
-    'axeDevTool',
-    'greenITanalysis',
-    'stylelint',
-    'playwright',
-    'feedly',
-    'notion',
-    'excalidraw'
-] as const;
+import skills from '../../assets/data/skills.json';
+import type { SkillData } from '../../custom/types/SkillData';
+const typedSkills = skills as SkillData[];
 ---
 
 <div 
     class='
         flex
-        justify-center
-        flex-wrap
+        flex-wrap 
+        justify-center 
         items-center'
 >
-    {skillKeys.map(skill => (
+    {typedSkills.map(skill => (
         <Skill
-            logoURI={logos[skill]}
-            altText={skill}
+            logoURI={getLogoURI(skill.key)}
+            altText={skill.key}
+            width={skill.width} 
+            height={skill.height}
         />
     ))}
 </div>
