@@ -1,5 +1,9 @@
 ---
 import type { Project } from '../../custom/types/Project';
+import { 
+     logosRaw as logosMap, 
+     type LogoKey 
+} from '@/config/logoPathsConfig';
 
 import { basePath } from '../../config/logoPathsConfig';
 
@@ -8,16 +12,19 @@ import SkillLogos from '../containers/ProjectCardSkillLogos.astro';
 import LinkClickWarning from './LinkClickWarning.astro';
 import Accordion from './Accordion.astro';
 
-interface Props {
+const { 
+    project, 
+    projectsPath 
+} = Astro.props as {
     project: Project
     projectsPath: string
 }
 
-const { project, projectsPath } = Astro.props;
-
 const alt = project.title.split(',')[0];
 
 const imgSrc = basePath + projectsPath + project.fileName;
+
+const logoKeys = [...new Set(project.logos)].filter((logo): logo is LogoKey => logo in logosMap)
 
 const motion = `
     duration-600 
@@ -43,7 +50,9 @@ const motion = `
             <a 
                 href={project.URL}
                 target='_blank' 
-                rel='noopener noreferrer'
+                rel='
+                    noopener 
+                    noreferrer'
                 aria-label={`project ${project.title}`}
                 class={`
                     group 
@@ -59,7 +68,7 @@ const motion = `
                     focus-visible:drop-shadow-[0_0_2em_rgba(100,108,255,0.6)] 
                     focus-visible:ring-4 
                     focus-visible:ring-blue-300 
-                    focus-visible:ring-offset-2'
+                    focus-visible:ring-offset-2
                 `}
                 itemprop='url'
             >
@@ -97,7 +106,7 @@ const motion = `
                 {project.title}
             </h3>
             <SkillLogos 
-                logos={project.logos} 
+                keys={logoKeys} 
                 repo={project.repository} 
             />
         </header>
