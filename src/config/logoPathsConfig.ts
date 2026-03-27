@@ -1,7 +1,7 @@
 export const basePath = import.meta.env.BASE_URL || '/';
 const fullPath = `${basePath}logos/`;
 
-export const logos = {
+export const logosRaw = {
     HTML: fullPath + 'HTML5.webp',
     CSS: fullPath + 'CSS3.webp',
     SCSS: fullPath + 'SCSS.webp',
@@ -11,7 +11,7 @@ export const logos = {
     TS: fullPath + 'TS.webp',
     jest: fullPath + 'jest.webp',
     react: fullPath + 'react.webp',
-    reactRouter: fullPath + 'react-router.webp',
+    reactRouter: fullPath + 'reactRouter.webp',
     redux: fullPath + 'redux.webp',
     lighthouse: fullPath + 'lighthouse.webp',
     GTmetrix: fullPath + 'GTmetrix.webp',
@@ -31,4 +31,8 @@ export const logos = {
     excalidraw: fullPath + 'excalidraw.webp'
 } as const;
 
-export type LogoKey = keyof typeof logos;
+export type LogoKey = keyof typeof logosRaw;
+
+export function getLogoURI(key: LogoKey): string {
+    return logosRaw[key];
+}

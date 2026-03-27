@@ -1,18 +1,24 @@
 ---
 const { 
     logoURI, 
-    altText 
+    altText, 
+    width, 
+    height
 } = Astro.props as {
     logoURI: string | undefined, 
-    altText: string
+    altText: string,
+    width: number, 
+    height: number
 };
 ---
-
 <img 
     src={logoURI} 
+    width={width} 
+    height={height} 
     class='
         p-6 
-        h-25 
+        w-auto 
+        object-contain 
         transition-shadow 
         duration-600 
         ease-in-out 

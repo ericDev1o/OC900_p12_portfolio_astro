@@ -1,13 +1,4 @@
 ---
-interface Props {
-  href: string
-  src?: string
-  alt: string
-  classNameImgWidthHeight: string
-  classNameA?: string
-  srcSet?: string
-}
-
 const {
   href,
   src,
@@ -15,7 +6,14 @@ const {
   classNameImgWidthHeight='',
   classNameA = '',
   srcSet=''
-} = Astro.props as Props;
+} = Astro.props as {
+  href: string
+  src?: string
+  alt: string
+  classNameImgWidthHeight: string
+  classNameA?: string
+  srcSet?: string
+}
 ---
 
 <a
@@ -38,6 +36,7 @@ const {
     srcset={srcSet}
     alt={alt}
     class={`
+      object-contain 
       transition-shadow
       duration-600
       ease-in-out

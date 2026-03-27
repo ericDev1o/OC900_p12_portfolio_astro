@@ -1,7 +1,7 @@
 ---
 import Portfolio from '../components/containers/Portfolio.astro';
 
-import { logos } from '@/config/logoPathsConfig';
+import { logosRaw } from '@/config/logoPathsConfig';
 
 import LinkClickWarning from '../components/UI/LinkClickWarning.astro';
 import Title from '../components/UI/Title.astro';
@@ -18,8 +18,8 @@ const photoPathRetina = basePath + 'CV/photoCV_w150px.webp';
 
 const projectsPath = 'projects/';
 
-const linkedinLogo = logos.linkedIn;
-const githubLogo = logos.gitHub;
+const linkedinLogo = logosRaw.linkedIn;
+const githubLogo = logosRaw.gitHub;
 ---
 
 <main>
