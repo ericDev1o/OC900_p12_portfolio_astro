@@ -1,20 +1,25 @@
 ---
 import IconLink from "./IconLink.astro";
 
-interface Props {
+const { 
+  href, 
+  src, 
+  altText, 
+  classNameImageWidthHeight 
+} = Astro.props as {
   href: string;
   src?: string;
   altText: string;
   classNameImageWidthHeight: string
-}
-
-const { href, src, altText, classNameImageWidthHeight } = Astro.props as Props;
+};
 ---
 
 <IconLink 
     href={ href }
     src={ src } 
     alt={ altText }
-    classNameA='p-6' 
+    classNameA='
+      p-6 
+      object-contain' 
     classNameImgWidthHeight={ classNameImageWidthHeight }
 />
