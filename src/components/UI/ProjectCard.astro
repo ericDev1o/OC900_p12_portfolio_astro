@@ -65,8 +65,12 @@ const motion = `
             >
                 <img 
                     src={imgSrc}
+                    width={project.width} 
+                    height={project.height} 
                     class={`
                         w-full 
+                        h-auto 
+                        object-contain 
                         transition-shadow 
                         ${ motion }
                     `}
