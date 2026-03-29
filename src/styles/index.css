@@ -1,8 +1,4 @@
-/* Tailwind v3 syntax for astro integration => gh-pages CSS handling */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* end Tailwind v3 syntax */
+@import 'tailwindcss';
 
 @font-face {
   font-family: 'JetBrains Mono';
