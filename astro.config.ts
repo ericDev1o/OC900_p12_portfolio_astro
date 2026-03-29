@@ -13,5 +13,27 @@ export default defineConfig({
 
   build: {
     assets: 'assets'
+  },
+
+  security: {
+    csp: {
+      directives: [
+        "default-src 'self'",
+
+        "object-src 'none'",
+        "base-uri 'none'",
+
+        "frame-src 'none'",
+        
+        "form-action 'self'",
+
+        "require-trusted-types-for 'script'",
+
+        "worker-src 'none'",
+        "manifest-src 'none'",
+
+        "upgrade-insecure-requests"
+      ]
+    }
   }
 });
