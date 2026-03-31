@@ -9,6 +9,10 @@ export default defineConfig({
     assets: 'assets'
   },
 
+  markdown: {
+    syntaxHighlight: false
+  },
+
   security: {
     csp: {
       directives: [
