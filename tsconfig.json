@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [
-    ".astro/types.d.ts", 
+    ".astro/*.d.ts", 
     "src",
     "test"
   ],
@@ -15,7 +15,7 @@
       "@test/*": ["test/*"],
       "test-utils": ["<rootDir>/test/app"]
     },
-    "target": "es2020",                          
+    "target": "es2020", 
     "lib": ["dom", "dom.iterable", "esnext"], 
     "allowJs": true,                         
     "skipLibCheck": true,                     
