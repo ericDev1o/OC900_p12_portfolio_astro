@@ -1,12 +1,16 @@
 ---
+const { class: className = '' } = Astro.props;
 ---
 
 <section
-    class='
+    class={`
+        text-center 
         odd:bg-gray-950 
         even:bg-gray-800  
         pb-22 
-        px-4'
+        px-4 
+        ${className}
+        `}
 >
     <slot />
 </section>
