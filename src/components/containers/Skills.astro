@@ -1,5 +1,5 @@
 ---
-import { getLogoURI } from '@/config/logoPathsConfig';
+import { logosMap } from '@/config/logoPathsConfig';
 import Skill from '../UI/Skill.astro';
 
 import skills from '../../assets/data/skills.json';
@@ -16,7 +16,7 @@ const typedSkills = skills as SkillData[];
 >
     {typedSkills.map(skill => (
         <Skill
-            logoURI={getLogoURI(skill.key)}
+            logoURI={logosMap[skill.key]}
             altText={skill.key}
             width={skill.width} 
             height={skill.height}

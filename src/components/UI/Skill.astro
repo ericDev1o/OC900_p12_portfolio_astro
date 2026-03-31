@@ -5,13 +5,15 @@ const {
     width, 
     height
 } = Astro.props as {
-    logoURI: string | undefined, 
+    logoURI: ImageMetadata, 
     altText: string,
     width: number, 
     height: number
 };
+
+import { Image } from 'astro:assets';
 ---
-<img 
+<Image 
     src={logoURI} 
     width={width} 
     height={height} 

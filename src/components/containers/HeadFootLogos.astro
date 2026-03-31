@@ -1,14 +1,9 @@
 ---
 import IconLink from '../UI/IconLink.astro';
 
-import { logosRaw } from '@/config/logoPathsConfig';
+import { logosMap } from '@/config/logoPathsConfig';
 
-const myLogo = logosRaw.E;
-const myLogoRetina = logosRaw.Eretina;
-const githubLogo = logosRaw.gitHub;
-const githubLogoRetina = logosRaw.gitHubRetina;
-const linkedinLogo = logosRaw.linkedIn;
-const linkedinLogoRetina = logosRaw.linkedInRetina;
+import { Image } from 'astro:assets';
 ---
     
 <ul 
@@ -20,34 +15,37 @@ const linkedinLogoRetina = logosRaw.linkedInRetina;
         gap-8'
 >
     <li>
-        <img 
-            src={myLogo} 
-            srcset={`${myLogo} 1x, ${myLogoRetina} 1.5x`}
-            class=' 
+        <Image 
+            src={logosMap.E} 
+            class='
                 cursor-not-allowed
                 opacity-50 
                 object-contain' 
             alt='Eric logo'
             width={15}
             height={24}
+            sizes='15px'
+            densities={[1, 1.5]}
+            loading='eager'
+            fetchpriority='high'
         />
     </li>
     <li>   
         <IconLink 
             href='https://github.com/ericDev1o' 
-            src={githubLogo} 
-            srcSet={`${githubLogo} 1x, ${githubLogoRetina} 1.5x`}
+            src={logosMap.gitHub} 
             alt='GitHub logo'
             classNameImgWidthHeight='w-[25px] h-[24px]'
+            sizes='25px'
         />
     </li>
     <li>   
         <IconLink 
             href='https://linkedin.com/in/ericfaraut' 
-            src={linkedinLogo} 
-            srcSet={`${linkedinLogo} 1x, ${linkedinLogoRetina} 1.5x`}
+            src={logosMap.linkedIn} 
             alt='LinkedIn logo' 
             classNameImgWidthHeight='w-[29px] h-[24px]'
+            sizes='29px'
         />
     </li>
 </ul>

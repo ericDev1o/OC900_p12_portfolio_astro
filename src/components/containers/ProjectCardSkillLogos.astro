@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+
 import { 
-    logosRaw as logosMap, 
+    logosMap, 
     type  LogoKey 
 } from '@/config/logoPathsConfig';
 
@@ -19,7 +21,7 @@ const validKeys = keys
 
     return { key, src };
   })
-  .filter(Boolean) as { key: LogoKey; src: string }[]; 
+  .filter(Boolean) as { key: LogoKey; src: ImageMetadata }[]; 
 ---
 
  <div 
@@ -36,7 +38,7 @@ const validKeys = keys
         ? null
         : validKeys.map(({key, src}) => {
             const image = (
-                <img
+                <Image
                     src={src}
                     alt={`${key} logo`}
                     class='
@@ -44,7 +46,6 @@ const validKeys = keys
                         w-auto 
                         object-contain'
                     loading='lazy'
-                    decoding='async'
                 />
             );
             
