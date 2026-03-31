@@ -18,6 +18,10 @@
   }
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html {
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size-adjust: 0.5;
