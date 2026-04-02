@@ -16,12 +16,12 @@ const {
 
 const validKeys = keys
   .map((key) => {
-    const src = logosMap[key];
-    if (!src) return null;
+    const imgMeta = logosMap[key];
+    if (!imgMeta) return null;
 
-    return { key, src };
+    return { key, imgMeta };
   })
-  .filter(Boolean) as { key: LogoKey; src: ImageMetadata }[]; 
+  .filter(Boolean) as { key: LogoKey; imgMeta: ImageMetadata }[]; 
 ---
 
  <div 
@@ -36,14 +36,17 @@ const validKeys = keys
     {
         validKeys.length === 0 
         ? null
-        : validKeys.map(({key, src}) => {
+        : validKeys.map(({key, imgMeta}) => {
             const image = (
                 <Image
-                    src={src}
+                    src={imgMeta.src}
+                    width={imgMeta.width} 
+                    height={imgMeta.height} 
                     alt={`${key} logo`}
                     class='
                         h-12 md:h-14 
-                        w-auto 
+                        max-w-full 
+                        max-h-full 
                         object-contain'
                     loading='lazy'
                 />

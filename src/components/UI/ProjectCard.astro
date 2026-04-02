@@ -66,10 +66,12 @@ const motion = `
             >
                 <Image 
                     src={project.image}
+                    width={project.image.width}
+                    height={project.image.height}
+                    sizes='(max-width: 768px) 100vw, 300px'
                     class={`
                         w-full 
-                        h-auto 
-                        object-contain 
+                        object-cover  
                         transition-shadow 
                         ${ motion }
                     `}
