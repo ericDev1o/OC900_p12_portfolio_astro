@@ -5,6 +5,10 @@ export default defineConfig({
   site: 'https://ericdev1o.github.io',
   base: '/OC900_p12_portfolio_astro/',
 
+  server: {
+    port: 4321
+  },
+  
   build: {
     assets: 'assets'
   },

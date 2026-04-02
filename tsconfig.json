@@ -3,6 +3,7 @@
   "include": [
     ".astro/*.d.ts", 
     "src",
+    "playwright.perf.config.ts",
     "test"
   ],
   "exclude": [

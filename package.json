@@ -6,6 +6,7 @@
     "lint": "eslint --fix .",
     "test:integration": "playwright test test/integration/Home.integration.browser.test.tsx",
     "test:e2e": "playwright test test/accessibility",
+    "test:perf": "playwright test test/performance --config=playwright.perf.config.ts",
     "dev": "astro dev",
     "build": "astro check && astro build",
     "build:scripts": "tsc -p tsconfig.scripts.json",
