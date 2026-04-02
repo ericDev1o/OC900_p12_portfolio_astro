@@ -3,19 +3,18 @@
   "include": [
     ".astro/*.d.ts", 
     "src",
-    "playwright.perf.config.ts",
+    "playwright*.config.ts",
     "test"
   ],
   "exclude": [
     "dist"
   ],
   "compilerOptions": { 
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@test/*": ["test/*"],
-      "test-utils": ["<rootDir>/test/app"]
+      "@/*": ["./src/*"],
+      "@test/*": ["./test/*"]
     },
+    "moduleResolution": "bundler",
     "target": "es2020", 
     "lib": ["dom", "dom.iterable", "esnext"], 
     "allowJs": true,                         
