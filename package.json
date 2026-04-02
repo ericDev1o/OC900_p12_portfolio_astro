@@ -1,9 +1,10 @@
 {
   "name": "portfolio",
   "type": "module",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "lint": "eslint --fix .",
+    "pw:install": "playwright install && playwright install-deps",
     "test:integration": "playwright test test/integration/Home.integration.browser.test.tsx",
     "test:e2e": "playwright test test/accessibility",
     "test:perf": "playwright test test/performance --config=playwright.perf.config.ts",
@@ -43,7 +44,8 @@
     "stylelint-config-standard": "^40.0.0",
     "stylelint-config-tailwindcss": "^1.0.1",
     "tailwindcss": "^4.2.2",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "vite-tsconfig-paths": "^6.1.1"
   },
   "packageManager": "yarn@4.13.0"
 }

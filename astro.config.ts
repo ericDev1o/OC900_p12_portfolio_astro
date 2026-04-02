@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import tsconfigPaths from 'vite-tsconfig-paths';
+
 export default defineConfig({
   site: 'https://ericdev1o.github.io',
   base: '/OC900_p12_portfolio_astro/',
@@ -37,5 +39,9 @@ export default defineConfig({
         "upgrade-insecure-requests"
       ]
     }
+  },
+
+  vite: {
+    plugins: [tsconfigPaths()]
   }
 });
