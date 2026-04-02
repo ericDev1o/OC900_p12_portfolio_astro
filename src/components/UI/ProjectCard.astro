@@ -33,8 +33,7 @@ const motion = `
         flex 
         flex-col 
         shadow-xs 
-        bg-gray-900 
-        overflow-hidden'
+        bg-gray-900'
     itemscope
     itemtype='https://schema.org/CreativeWork'
     >
@@ -68,22 +67,30 @@ const motion = `
                 `}
                 itemprop='url'
             >
+            <div 
+                class='
+                    w-full 
+                    flex 
+                    justify-center'
+            >
                 <Image 
                     src={project.image}
-                    width={320}
-                    height={240}
-                    sizes='(max-width: 768px) 280px, 320px'
+                    width={480}
+                    height={360}
+                    sizes='(max-width: 768px) 100vw, 480px'
                     class={`
-                        w-full 
-                        aspect-[4/3] 
-                        object-cover 
+                        w-auto 
+                        max-w-full 
+                        h-auto 
+                        object-contain 
                         transition-shadow 
                         ${ motion }
                     `}
                     alt={alt}
                     loading='lazy'
                 />
-                <LinkClickWarning />
+                 <LinkClickWarning />
+            </div>
             </a>
             <h3 
                 id={`project-${project.title}`}
