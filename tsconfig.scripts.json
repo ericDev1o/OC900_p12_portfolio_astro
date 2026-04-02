@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src/scripts",
+    "outDir": "./public/scripts",
+    "module": "es2020",
+    "target": "es2020"
+  },
+  "include": ["src/scripts"]
+}

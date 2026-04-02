@@ -11,20 +11,14 @@ const {
 
 const Tag = `h${level}` as keyof HTMLElementTagNameMap;
 
-const baseClass = 'leading-loose';
+const baseClass = `
+    max-w-[40ch] 
+    leading-loose`;
 
 const styles = {
-    3: 
-        `pt-22 
-        pb-6 
-        text-3xl`,
-    4: 
-        `pt-12 
-        pb-2 
-        text-2xl`,
-    5:
-        `pb-4 
-        text-xl`
+    3: 'text-3xl',
+    4: 'text-2xl',
+    5: 'text-xl'
 }
 ---
 

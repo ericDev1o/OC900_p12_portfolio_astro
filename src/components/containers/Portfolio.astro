@@ -1,11 +1,9 @@
 ---
 import ProjectCard from '../UI/ProjectCard.astro';
 
-import projects from '../../assets/data/projects.json';
+import { projects } from '@/assets/data/projects';
 import type { Project } from '../../custom/types/Project'
 const typedProjects = projects as Project[];
-
-const { projectsPath } = Astro.props;
 ---
 
 <div
@@ -14,14 +12,9 @@ const { projectsPath } = Astro.props;
         flex-col
         justify-center
         items-center 
-        h-screen 
-        overflow-y-auto
-        relative'
+        gap-8'
 >
     {typedProjects.map((project) => (
-        <ProjectCard 
-            project={project}
-            projectsPath={projectsPath}
-        />
+        <ProjectCard project={project} />
     ))}
 </div>

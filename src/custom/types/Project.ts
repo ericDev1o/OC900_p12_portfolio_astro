@@ -6,7 +6,7 @@ import type { LogoKey } from '@/config/logoPathsConfig';
 export type Project = {
     URL: string,
     repository: string,
-    fileName: string,
+    image: ImageMetadata,
     number: number,
     title: string,
     contexte: string,
@@ -15,7 +15,5 @@ export type Project = {
     competencesDeveloppees: string,
     resultatsEtImpact: string,
     perspectivesAmelioration: string,
-    logos: LogoKey[],
-    width: number,
-    height: number
+    logos: LogoKey[]
 }

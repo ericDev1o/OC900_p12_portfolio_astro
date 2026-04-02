@@ -1,7 +1,11 @@
 ---
+import { Image } from 'astro:assets';
+
 import Portfolio from '../components/containers/Portfolio.astro';
 
-import { logosRaw } from '@/config/logoPathsConfig';
+import { logosMap } from '@/config/logoPathsConfig';
+
+import photo from '@/assets/images/CV/photoCV.webp';
 
 import LinkClickWarning from '../components/UI/LinkClickWarning.astro';
 import Title from '../components/UI/Title.astro';
@@ -11,421 +15,438 @@ import LogoLinkHomeContact from '../components/UI/LogoLinkHomeContact.astro';
 import Span from '../components/UI/Span.astro';
 import Skills from '../components/containers/Skills.astro';
 
+import { projects } from  '@/assets/data/projects';
+
 const basePath = import.meta.env.BASE_URL || '/';
 const CVPath = basePath + 'CV/CV_integrateur_web_react_Eric_F.pdf'
-const photoPath = basePath + 'CV/photoCV_w100px.webp';
-const photoPathRetina = basePath + 'CV/photoCV_w150px.webp';
-
-const projectsPath = 'projects/';
-
-const linkedinLogo = logosRaw.linkedIn;
-const githubLogo = logosRaw.gitHub;
 ---
 
 <main>
   <article>
-    <Section>
-      <h1
+    <Section 
+      class='py-20'
+    >
+      <div 
         class='
-          pt-20 
-          text-5xl 
-          leading-loose'
+          flex 
+          flex-col 
+          items-center 
+          gap-8'
       >
-        Bonjour, je suis Eric
-      </h1>
-      <div
-        class='
-          mt-8 
-          flex
-          justify-center'
-      >
-        <img
-          src={photoPath}
-          srcset={`${photoPath} 1x, ${photoPathRetina} 1.5x`}
-          width='100px'
-          height='134px'
-          alt="Photo d'Eric Faraut"
-        />
-      </div>
-      <h2
-        class='
-        pt-12
-        text-4xl
-        leading-loose'
-      >
-        votre intégrateur 
-        <Span color='violet'>
-          web 
-        </Span>
-        react en Île-de-France
-      </h2>
-    </Section>
-    <Section>
-      <Title
-        level={3}
-        id='vous&moi=nous'
-      >
-        À propos de moi
-      </Title>
-      <p
-        class='
-          pt-4'
-      >
-        Développons votre activité sans 
-        <span 
+        <h1
           class='
-          font-extrabold'
+            text-5xl 
+            leading-tight'
         >
-          frictions.
-        </span> 
-        Améliorons vos 
-        <Span color='orange'>
-          performances.
-        </Span>
-        Passionné par les interfaces web 
-        <Span color='green'>
-          durables,
-        </Span>
-        je les simplifie pour tou·te·s. 
-      </p>
-      <Title level={4}>
-        Qui suis-je?
-      </Title>
-      <p>
-        D'abord intéressé par les indicateurs décisionnels et l'extraction de leurs données,
-        j'ai fait évoluer 1 solution back-end. 
-        Focalisé accessibilité, ma solution front-end offre 1 
-        <span 
+          Bonjour, je suis Eric
+        </h1>
+        <div
+          class='
+            h-[134px]
+            flex
+            justify-center'
+        >
+          <Image
+            src={photo}
+            width={100}
+            height={134}
+            alt="Photo d'Eric Faraut"
+            sizes='100px'
+            densities={[1, 1.5]}
+          />
+        </div>
+        <h2
+          class='
+          text-4xl
+          leading-tight 
+          max-w-[40ch]'
+        >
+          votre intégrateur 
+          <Span color='violet'>
+            web 
+          </Span>
+          react en Île-de-France
+        </h2>
+      </div>
+    </Section>
+    <Section class='py-20'>
+      <div 
+        class='
+          flex 
+          flex-col 
+          items-center 
+          gap-8'
+      >
+        <Title
+          level={3}
+          id='vous&moi=nous'
+        >
+          À propos de moi
+        </Title>
+        <p class='max-w-prose'>
+          Développons votre activité sans 
+          <span 
             class='
             font-extrabold'
           >
-          expérience utilisat·rice·eur
-          </span>
-          fluide.
-      </p>
-      <Title level={4}>
-        Pour quoi faire?
-      </Title>
-      <Title level={5}>
-        Le fruit de mes expériences passées
-      </Title>
-      <p
-      class='pb-10'>
-        Fort d’expériences pour elm leblanc Bosch ThermoTechnology et Bolloré Transport & Logistics, 
-        j’ai développé des compétences en 
-        <Span color='green'>
-          compréhension du besoin, documentation, tests, évolution back-end et communication.
-        </Span>
-      </p>
-      <Title level={5}>
-        Notre objectif aujourd'hui
-      </Title>
-      <p class='pb-10'>
-        Je suis prêt à être votre intégrateur web en agence, ESN ou organisation à impact en Île-de-France. 
-      </p>
-      <Title level={5}>
-        Pour 1 projet numérique plus inclusif et éco-responsable demain
-      </Title>
-      <p>
-        De la startup du recyclage à 1 administration en passant par le grand groupe ou 1 association, c'est le projet qui est mon moteur.
-      </p>
-      <Title level={4}>
-        Quel est mon apport?
-      </Title>
-      <p class='pb-3'></p>
-      <Title level={5}>
-        Qualitatif
-      </Title>
-      <p class='pb-6'>
-        Écoute, connaissance des standards web et veille technologique feront de votre projet 1 site 
-        <Span color='orange'>
-          accessible 
-        </Span>
-        et 
-        <Span color='green'>
-          éco-conçu. 
-        </Span>
-      </p>
-      <Title level={5}>
-        Quantitatif
-      </Title>
-      <p class='pb-8'>
-        L'audit Google Lighthouse de ma solution front-end, dans 1 fenêtre de navigation privée, est 
-        <Span color='orange'>
-          100/100.
-        </Span>
-      </p>
-      <Title level={5}>
-        Précepte
-      </Title>
-      <p>
-        Grâce aux
-        <span
-          class='
-            font-extrabold'
-        >
-          projets OpenClassrooms concrets mentorés,
-        </span>
-        j'ai amélioré  
-       <span
-          class='
-            font-extrabold'
-        >
-          résolution de problèmes et autonomie.
-       </span>
-      </p>
-      <p>
-        Je vous aiderai à rendre votre présence digitale
-        <Span color='orange'>
-          efficiente
-        </Span> 
-        en
-        <Span color='green'>
-          limitant ses coûts de maintenance.  
-        </Span>
-        Vous respecterez mieux les standards web.
-        La réalisation des potentialités de vos données grâce aux API ReST et bonnes pratiques devSecOps est parmi nos enjeux.
-      </p>
-      <p class='pt-4'>
-        J'adhère à « 
-        <span 
-          class='
-            font-extrabold '
-        >
-          Focus on serving your users, and all else will follow. 
-        </span>
-        » – Matt Cutts ancien responsable webspam de Google
-      </p>
-    </Section>
-    <Section>
-      <Title
-        level={3}
-        id='competences'
-      >
-        Compétences
-      </Title>
-      <p class='text-xl'>
-        Avez-vous besoin d'1 site web à votre image?
-      </p>
-      <p
-          class='
-          pt-10 
-          pb-10 
-          text-xl'>
-        Je transforme 1 brief en écrans propres, responsives et frugaux.
-      </p>
-      <Skills />
-    </Section>
-    <Section>
-      <Title
-        level={3}
-        id='projets'
-      >
-        Projets
-      </Title>
-      <Portfolio projectsPath={ projectsPath } />
-    </Section>
-    <Section>
-      <Title
-        level={3}
-        id='parcours'
-      >
-        Parcours
-      </Title>
-      <h4
-        class='
-          pt-2
-          pb-8 
-          text-2xl
-          leading-loose'
-      >
-        intégrateur 
-        <Span color='violet'>
-          web
-        </Span>
-      </h4>
-      <h5 
-        class='
-          mx-2
-          text-2xl
-          group
-          relative'
-      >
-        <Link
-          href='https://www.francecompetences.fr/recherche/rncp/38145/'
-          text='RNCP 38145'
-        />
-        <LinkClickWarning />
-      </h5>
-      <p 
-        class='
-          pt-4
-          pb-4
-          text-2xl'>
-        à votre
-        <Span color='violet'>
-          service
-        </Span>
-      </p>
-      <div 
-        class='
-          group
-          relative'
-      >
-        <Link
-          href='https://openclassrooms.com/fr/paths/900-integrateur-web#projects'
-          text='Suivez le parcours.'
-        />
-        <LinkClickWarning />
-      </div>
-      <h6 class='pt-6'>
-        22 avril 2024 au 21 décembre 2025
-      </h6>
-      <Title level={4}>
-        Sachez-en plus sur ce que nous avons co-construit avant
-      </Title>
-      <div 
-        class='
-          group
-          relative'
-      >
-        <a
-          href={CVPath}
-          target='_blank'
-          rel='noopener noreferrer'
-          class='
-            pt-8 
-            inline-flex 
-            items-center 
-            text-blue-300  
-            no-underline
-            transition-transform 
-            transition-shadow 
-            duration-600 
-            ease-in-out 
-            hover:scale-110 
-            hover:brightness-110 
-            hover:shadow-lg
-            motion-reduce:transition-none 
-            motion-reduce:transform-none 
-            focus-visible:ring-4 
-            focus-visible:ring-blue-300 
-            focus-visible:ring-offset-2'
-        >
-          <svg 
-            xmlns='http://www.w3.org/2000/svg' 
-            viewBox='0 0 640 640'
-            width={48}
-            height={48}
-            fill='currentcolor'>
-              <path 
-                d='M128 64C92.7 64 64 92.7 64 128L64 512C64 547.3 92.7 576 128 576L208 576L208 464C208 428.7 236.7 400 272 400L448 400L448 234.5C448 217.5 441.3 201.2 429.3 189.2L322.7 82.7C310.7 70.7 294.5 64 277.5 64L128 64zM389.5 240L296 240C282.7 240 272 229.3 272 216L272 122.5L389.5 240zM272 444C261 444 252 453 252 464L252 592C252 603 261 612 272 612C283 612 292 603 292 592L292 564L304 564C337.1 564 364 537.1 364 504C364 470.9 337.1 444 304 444L272 444zM304 524L292 524L292 484L304 484C315 484 324 493 324 504C324 515 315 524 304 524zM400 444C389 444 380 453 380 464L380 592C380 603 389 612 400 612L432 612C460.7 612 484 588.7 484 560L484 496C484 467.3 460.7 444 432 444L400 444zM420 572L420 484L432 484C438.6 484 444 489.4 444 496L444 560C444 566.6 438.6 572 432 572L420 572zM508 464L508 592C508 603 517 612 528 612C539 612 548 603 548 592L548 548L576 548C587 548 596 539 596 528C596 517 587 508 576 508L548 508L548 484L576 484C587 484 596 475 596 464C596 453 587 444 576 444L528 444C517 444 508 453 508 464z'/>
-          </svg>
+            frictions.
+          </span> 
+          Améliorons vos 
+          <Span color='orange'>
+            performances.
+          </Span>
+          Passionné par les interfaces web 
+          <Span color='green'>
+            durables,
+          </Span>
+          je les simplifie pour tou·te·s. 
+        </p>
+        <Title level={4}>
+          Qui suis-je?
+        </Title>
+        <p class='max-w-prose'>
+          D'abord intéressé par les indicateurs décisionnels et l'extraction de leurs données,
+          j'ai fait évoluer 1 solution back-end. 
+          Focalisé accessibilité, ma solution front-end offre 1 
+          <span 
+              class='
+              font-extrabold'
+            >
+            expérience utilisat·rice·eur
+            </span>
+            fluide.
+        </p>
+        <Title level={4}>
+          Pour quoi faire?
+        </Title>
+        <Title level={5}>
+          Le fruit de mes expériences passées
+        </Title>
+        <p class='max-w-prose'>
+          Fort d’expériences pour elm leblanc Bosch ThermoTechnology et Bolloré Transport & Logistics, 
+          j’ai développé des compétences en 
+          <Span color='green'>
+            compréhension du besoin, documentation, tests, évolution back-end et communication.
+          </Span>
+        </p>
+        <Title level={5}>
+          Notre objectif aujourd'hui
+        </Title>
+        <p class='max-w-prose'>
+          Je suis prêt à être votre intégrateur web en agence, ESN ou organisation à impact en Île-de-France. 
+        </p>
+        <Title level={5}>
+          Pour 1 projet numérique plus inclusif et éco-responsable demain
+        </Title>
+        <p class='max-w-prose'>
+          De la startup du recyclage à 1 administration en passant par le grand groupe ou 1 association, c'est le projet qui est mon moteur.
+        </p>
+        <Title level={4}>
+          Quel est mon apport?
+        </Title>
+        <Title level={5}>
+          Qualitatif
+        </Title>
+        <p class='max-w-prose'>
+          Écoute, connaissance des standards web et veille technologique feront de votre projet 1 site 
+          <Span color='orange'>
+            accessible 
+          </Span>
+          et 
+          <Span color='green'>
+            éco-conçu. 
+          </Span>
+        </p>
+        <Title level={5}>
+          Quantitatif
+        </Title>
+        <p class='max-w-prose'>
+          L'audit Google Lighthouse de ma solution front-end, dans 1 fenêtre de navigation privée, est 
+          <Span color='orange'>
+            100/100.
+          </Span>
+        </p>
+        <Title level={5}>
+          Précepte
+        </Title>
+        <p class='max-w-prose'>
+          Grâce aux
           <span
             class='
-              underline 
-              text-blue-300 
-              transition-colors 
-              duration-600 
-              ease-in-out 
-              hover:text-blue-600'>
-              Téléchargez mon CV
+              font-extrabold'
+          >
+            projets OpenClassrooms concrets mentorés,
           </span>
-        </a>
-        <LinkClickWarning />
+          j'ai amélioré  
+        <span class='font-extrabold'>
+            résolution de problèmes et autonomie.
+        </span>
+        </p>
+        <p class='max-w-prose'>
+          Je vous aiderai à rendre votre présence digitale
+          <Span color='orange'>
+            efficiente
+          </Span> 
+          en
+          <Span color='green'>
+            limitant ses coûts de maintenance.  
+          </Span>
+          Vous respecterez mieux les standards web.
+          La réalisation des potentialités de vos données grâce aux API ReST et bonnes pratiques devSecOps est parmi nos enjeux.
+        </p>
+        <p class='max-w-prose'>
+          J'adhère à « 
+          <span class='font-extrabold'>
+            Focus on serving your users, and all else will follow. 
+          </span>
+          » – Matt Cutts ancien responsable webspam de Google
+        </p>
       </div>
     </Section>
-    <Section>
-      <Title
-        level={3}
-        id='contact'
-      >
-        Contact
-      </Title>
-      <p
-        class='
-          pt-8 
-          pb-16 
-          text-2xl'
-      >
-        Contribuons à votre 
-        <Span color='orange'>
-          projet web
-        </Span> 
-        à 
-        <Span color='green'>
-          impact.
-        </Span>
-      </p>
-      
+    <Section class='py-20'>
       <div 
         class='
-          pb-16 
-          flex
-          flex-wrap
-          justify-center
-          items-center'
+          flex 
+          flex-col 
+          items-center 
+          gap-8'
       >
-        <LogoLinkHomeContact
-          href='https://github.com/ericDev1o' 
-          src={ githubLogo } 
-          altText='GitHub logo'
-          classNameImageWidthHeight='w-[25px] h-[24px]'
-        />
-        <LogoLinkHomeContact
-          href='https://linkedin.com/in/ericfaraut' 
-          src={ linkedinLogo } 
-          altText='LinkedIn logo' 
-          classNameImageWidthHeight='w-[29px] h-[24px]'
-        />
-        <div
+        <Title
+          level={3}
+          id='competences'
+        >
+          Compétences
+        </Title>
+        <p class='text-xl'>
+          Avez-vous besoin d'1 site web à votre image?
+        </p>
+        <p class='text-xl'>
+          Je transforme 1 brief en écrans propres, responsives et frugaux.
+        </p>
+        <Skills />
+      </div>
+    </Section>
+    <Section class='py-20'>
+      <div 
+        class='
+          flex 
+          flex-col 
+          items-center 
+          gap-8'
+      >
+        <Title
+          level={3}
+          id='projets'
+        >
+          Projets
+        </Title>
+        <Portfolio projects={ projects } />
+      </div>
+    </Section>
+    <Section class='py-20'>
+      <div 
+        class='
+          flex 
+          flex-col 
+          items-center 
+          gap-8'
+      >
+        <Title
+          level={3}
+          id='parcours'
+        >
+          Parcours
+        </Title>
+        <h4
+          class='
+            text-2xl
+            leading-loose'
+        >
+          intégrateur 
+          <Span color='violet'>
+            web
+          </Span>
+        </h4>
+        <h5 
+          class='
+            mx-2
+            text-2xl
+            group
+            relative'
+        >
+          <Link
+            href='https://www.francecompetences.fr/recherche/rncp/38145/'
+            text='RNCP 38145'
+          />
+          <LinkClickWarning />
+        </h5>
+        <p class='text-2xl'>
+          à votre
+          <Span color='violet'>
+            service
+          </Span>
+        </p>
+        <div 
           class='
             group
             relative'
-          >
-            <Link
-              href='https://calendly.com/d/cvk6-chh-pqq'
-              text='Prendre rendez-vous (Calendly)'
-            />
+        >
+          <Link
+            href='https://openclassrooms.com/fr/paths/900-integrateur-web#projects'
+            text='Suivez le parcours.'
+          />
           <LinkClickWarning />
         </div>
-      </div>
-      <div
-        class='
-          group
-          relative'>
-        <a 
-          href='https://framaforms.org/contact-eric-faraut-1762791991'
-          target='_blank'
-          rel='noopener noreferrer'
-          aria-label='Parlons-en'
+        <h6>
+          22 avril 2024 au 21 décembre 2025
+        </h6>
+        <Title level={4}>
+          Sachez-en plus sur ce que nous avons co-construit avant
+        </Title>
+        <div 
+          class='
+            group
+            relative'
         >
-          <button 
+          <a
+            href={CVPath}
+            target='_blank'
+            rel='noopener noreferrer'
+            class='
+              inline-flex 
+              items-center 
+              text-blue-300  
+              no-underline
+              transition-transform 
+              transition-shadow 
+              duration-600 
+              ease-in-out 
+              hover:scale-110 
+              hover:brightness-110 
+              hover:shadow-lg
+              motion-reduce:transition-none 
+              motion-reduce:transform-none 
+              focus-visible:ring-4 
+              focus-visible:ring-blue-300 
+              focus-visible:ring-offset-2'
+          >
+            <svg 
+              xmlns='http://www.w3.org/2000/svg' 
+              viewBox='0 0 640 640'
+              width={48}
+              height={48}
+              fill='currentcolor'>
+                <path 
+                  d='M128 64C92.7 64 64 92.7 64 128L64 512C64 547.3 92.7 576 128 576L208 576L208 464C208 428.7 236.7 400 272 400L448 400L448 234.5C448 217.5 441.3 201.2 429.3 189.2L322.7 82.7C310.7 70.7 294.5 64 277.5 64L128 64zM389.5 240L296 240C282.7 240 272 229.3 272 216L272 122.5L389.5 240zM272 444C261 444 252 453 252 464L252 592C252 603 261 612 272 612C283 612 292 603 292 592L292 564L304 564C337.1 564 364 537.1 364 504C364 470.9 337.1 444 304 444L272 444zM304 524L292 524L292 484L304 484C315 484 324 493 324 504C324 515 315 524 304 524zM400 444C389 444 380 453 380 464L380 592C380 603 389 612 400 612L432 612C460.7 612 484 588.7 484 560L484 496C484 467.3 460.7 444 432 444L400 444zM420 572L420 484L432 484C438.6 484 444 489.4 444 496L444 560C444 566.6 438.6 572 432 572L420 572zM508 464L508 592C508 603 517 612 528 612C539 612 548 603 548 592L548 548L576 548C587 548 596 539 596 528C596 517 587 508 576 508L548 508L548 484L576 484C587 484 596 475 596 464C596 453 587 444 576 444L528 444C517 444 508 453 508 464z'/>
+            </svg>
+            <span
               class='
-                mt-18 
-                inline-flex 
-                justify-center 
-                items-center 
-                w-full 
-                sm:w-auto 
-                px-5 
-                py-2.5 
-                text-2xl 
-                font-medium 
-                text-center 
-                text-gray-200  
-                bg-blue-700 
-                hover:bg-blue-800 
-                rounded-lg 
-                focus-visible:ring-4
-                focus-visible:ring-blue-300
-                focus-visible:ring-offset-2'
-            >
-              Parlons-en
-            </button>
+                underline 
+                text-blue-300 
+                transition-colors 
+                duration-600 
+                ease-in-out 
+                hover:text-blue-600'>
+                Téléchargez mon CV
+            </span>
           </a>
           <LinkClickWarning />
         </div>
+      </div>
+    </Section>
+    <Section class='py-20'>
+      <div 
+        class='
+          flex 
+          flex-col 
+          items-center 
+          gap-8'
+      >
+        <Title
+          level={3}
+          id='contact'
+        >
+          Contact
+        </Title>
+        <p class='text-2xl'>
+          Contribuons à votre 
+          <Span color='orange'>
+            projet web
+          </Span> 
+          à 
+          <Span color='green'>
+            impact.
+          </Span>
+        </p>
+        <div 
+          class='
+            flex
+            flex-wrap
+            justify-center
+            items-center'
+        >
+          <LogoLinkHomeContact
+            href='https://github.com/ericDev1o' 
+            src={ logosMap.gitHub } 
+            altText='GitHub logo'
+            classNameImageWidthHeight='w-[25px] h-[24px]'
+            sizes='25px'
+          />
+          <LogoLinkHomeContact
+            href='https://linkedin.com/in/ericfaraut' 
+            src={ logosMap.linkedIn } 
+            altText='LinkedIn logo' 
+            classNameImageWidthHeight='w-[29px] h-[24px]'
+            sizes='29px'
+          />
+          <div
+            class='
+              group
+              relative'
+            >
+              <Link
+                href='https://calendly.com/d/cvk6-chh-pqq'
+                text='Prendre rendez-vous (Calendly)'
+              />
+            <LinkClickWarning />
+          </div>
+        </div>
+        <div
+          class='
+            group
+            relative'>
+          <a 
+            href='https://framaforms.org/contact-eric-faraut-1762791991'
+            target='_blank'
+            rel='noopener noreferrer'
+            aria-label='Parlons-en'
+          >
+            <button 
+                class='
+                  inline-flex 
+                  justify-center 
+                  items-center 
+                  w-full 
+                  sm:w-auto 
+                  px-5 
+                  py-2.5 
+                  text-2xl 
+                  font-medium 
+                  text-center 
+                  text-gray-200  
+                  bg-blue-700 
+                  hover:bg-blue-800 
+                  rounded-lg 
+                  focus-visible:ring-4
+                  focus-visible:ring-blue-300
+                  focus-visible:ring-offset-2'
+              >
+                Parlons-en
+              </button>
+            </a>
+            <LinkClickWarning />
+          </div>
+      </div>
     </Section>
   </article>
   <hr 

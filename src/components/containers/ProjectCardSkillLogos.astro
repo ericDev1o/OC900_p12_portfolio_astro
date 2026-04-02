@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+
 import { 
-    logosRaw as logosMap, 
+    logosMap, 
     type  LogoKey 
 } from '@/config/logoPathsConfig';
 
@@ -14,12 +16,12 @@ const {
 
 const validKeys = keys
   .map((key) => {
-    const src = logosMap[key];
-    if (!src) return null;
+    const imgMeta = logosMap[key];
+    if (!imgMeta) return null;
 
-    return { key, src };
+    return { key, imgMeta };
   })
-  .filter(Boolean) as { key: LogoKey; src: string }[]; 
+  .filter(Boolean) as { key: LogoKey; imgMeta: ImageMetadata }[]; 
 ---
 
  <div 
@@ -34,17 +36,19 @@ const validKeys = keys
     {
         validKeys.length === 0 
         ? null
-        : validKeys.map(({key, src}) => {
+        : validKeys.map(({key, imgMeta}) => {
             const image = (
-                <img
-                    src={src}
+                <Image
+                    src={imgMeta.src}
+                    width={imgMeta.width} 
+                    height={imgMeta.height} 
                     alt={`${key} logo`}
                     class='
-                        h-8 
-                        w-auto 
+                        h-12 md:h-14 
+                        max-w-full 
+                        max-h-full 
                         object-contain'
                     loading='lazy'
-                    decoding='async'
                 />
             );
             
@@ -59,14 +63,14 @@ const validKeys = keys
                     `}
                     aria-label={`${key} (ouvre dans un nouvel onglet)`}
                     class={`
-                    inline-block 
-                    hover:scale-110 
-                    transition-transform 
-                    motion-reduce:transform-none 
-                    focus-visible:ring-4 
-                    focus-visible:ring-blue-300 
-                    focus-visible:ring-offset-2
-                    focus-visible:ring-offset-gray-900
+                        inline-block 
+                        hover:scale-110 
+                        transition-transform 
+                        motion-reduce:transform-none 
+                        focus-visible:ring-4 
+                        focus-visible:ring-blue-300 
+                        focus-visible:ring-offset-2
+                        focus-visible:ring-offset-gray-900
                     `}
                 >
                     {image}

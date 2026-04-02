@@ -5,25 +5,36 @@ const {
     width, 
     height
 } = Astro.props as {
-    logoURI: string | undefined, 
+    logoURI: ImageMetadata, 
     altText: string,
     width: number, 
     height: number
 };
+
+import { Image } from 'astro:assets';
 ---
-<img 
-    src={logoURI} 
-    width={width} 
-    height={height} 
+<div
     class='
-        p-6 
-        w-auto 
-        object-contain 
-        transition-shadow 
-        duration-600 
-        ease-in-out 
-        hover:shadow-[0_0_2em_rgba(100,108,255,0.6)] 
-        motion-reduce:transition-none' 
-    alt={altText}
-    loading='lazy'
-/>
+    h-12 
+    w-auto 
+    flex 
+    justify-center 
+    items-center'
+>
+    <Image 
+        src={logoURI} 
+        width={width} 
+        height={height} 
+        class='
+            max-w-full 
+            max-h-full 
+            object-contain 
+            transition-shadow 
+            duration-600 
+            ease-in-out 
+            hover:shadow-[0_0_2em_rgba(100,108,255,0.6)] 
+            motion-reduce:transition-none' 
+        alt={altText}
+        loading='lazy'
+    />
+</div>

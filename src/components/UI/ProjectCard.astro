@@ -1,28 +1,20 @@
 ---
+import { Image } from 'astro:assets';
+
 import type { Project } from '../../custom/types/Project';
 import { 
-     logosRaw as logosMap, 
+     logosMap, 
      type LogoKey 
 } from '@/config/logoPathsConfig';
-
-import { basePath } from '../../config/logoPathsConfig';
 
 import SkillLogos from '../containers/ProjectCardSkillLogos.astro';
 
 import LinkClickWarning from './LinkClickWarning.astro';
 import Accordion from './Accordion.astro';
 
-const { 
-    project, 
-    projectsPath 
-} = Astro.props as {
-    project: Project
-    projectsPath: string
-}
+const { project } = Astro.props as { project: Project }
 
 const alt = project.title.split(',')[0];
-
-const imgSrc = basePath + projectsPath + project.fileName;
 
 const logoKeys = [...new Set(project.logos)].filter((logo): logo is LogoKey => logo in logosMap)
 
@@ -37,6 +29,9 @@ const motion = `
         my-8 
         mx-4 
         max-w-lg 
+        h-full 
+        flex 
+        flex-col 
         shadow-xs 
         bg-gray-900'
     itemscope
@@ -72,12 +67,20 @@ const motion = `
                 `}
                 itemprop='url'
             >
-                <img 
-                    src={imgSrc}
-                    width={project.width} 
-                    height={project.height} 
+            <div 
+                class='
+                    w-full 
+                    flex 
+                    justify-center'
+            >
+                <Image 
+                    src={project.image}
+                    width={480}
+                    height={360}
+                    sizes='(max-width: 768px) 100vw, 480px'
                     class={`
-                        w-full 
+                        w-auto 
+                        max-w-full 
                         h-auto 
                         object-contain 
                         transition-shadow 
@@ -85,11 +88,9 @@ const motion = `
                     `}
                     alt={alt}
                     loading='lazy'
-                    decoding='async'
-                    fetchpriority='low'
-                    itemprop='image'
                 />
-                <LinkClickWarning />
+                 <LinkClickWarning />
+            </div>
             </a>
             <h3 
                 id={`project-${project.title}`}
