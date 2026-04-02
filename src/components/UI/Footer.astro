@@ -51,15 +51,21 @@ import LinkClickWarning from './LinkClickWarning.astro';
         id='legal-dialog' 
         aria-labelledby='legal-title' 
         aria-modal='true' 
-        class='  
+        class='
+            fixed 
+            inset-0 
+            m-auto 
             p-10 
-            max-w-[80vw]
+            w-[min(80vw,40rem)] 
             max-h-[80vh] 
             overflow-y-auto 
             bg-gray-200
             text-center
             backdrop:bg-black/40
-            backdrop:backdrop-blur-sm'
+            backdrop:backdrop-blur-sm
+            open:opacity-100
+            opacity-0
+            transition-opacity'
     >
         <div
             class='
