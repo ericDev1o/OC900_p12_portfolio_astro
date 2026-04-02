@@ -1,34 +1,37 @@
 ---
-import type { Project } from '../../custom/types/Project';
+import { Image } from 'astro:assets';
 
-import { basePath } from '../../config/logoPathsConfig';
+import type { Project } from '../../custom/types/Project';
+import { 
+     logosMap, 
+     type LogoKey 
+} from '@/config/logoPathsConfig';
 
 import SkillLogos from '../containers/ProjectCardSkillLogos.astro';
 
-import LinkClickWarning from './LinkClickWarning';
+import LinkClickWarning from './LinkClickWarning.astro';
 import Accordion from './Accordion.astro';
 
-interface Props {
-    project: Project
-    projectsPath: string
-}
-
-const { project, projectsPath } = Astro.props;
+const { project } = Astro.props as { project: Project }
 
 const alt = project.title.split(',')[0];
 
-const imgSrc = basePath + projectsPath + project.fileName;
+const logoKeys = [...new Set(project.logos)].filter((logo): logo is LogoKey => logo in logosMap)
 
 const motion = `
     duration-600 
     ease-in-out 
     motion-reduce:transition-none`
 ---
+
 <article 
     class='
         my-8 
         mx-4 
         max-w-lg 
+        h-full 
+        flex 
+        flex-col 
         shadow-xs 
         bg-gray-900'
     itemscope
@@ -42,8 +45,10 @@ const motion = `
             <a 
                 href={project.URL}
                 target='_blank' 
-                rel='noopener noreferrer'
-                aria-labelledby={`project-${project.title}`}
+                rel='
+                    noopener 
+                    noreferrer'
+                aria-label={`project ${project.title}`}
                 class={`
                     group 
                     inline-block 
@@ -55,24 +60,37 @@ const motion = `
                     focus-visible:outline-2 
                   focus-visible:outline-blue-500 
                     hover:drop-shadow-[0_0_2em_rgba(100,108,255,0.6)] 
-                    focus-visible:drop-shadow-[0_0_2em_rgba(100,108,255,0.6)]'
+                    focus-visible:drop-shadow-[0_0_2em_rgba(100,108,255,0.6)] 
+                    focus-visible:ring-4 
+                    focus-visible:ring-blue-300 
+                    focus-visible:ring-offset-2
                 `}
                 itemprop='url'
             >
-                <img 
-                    src={imgSrc}
+            <div 
+                class='
+                    w-full 
+                    flex 
+                    justify-center'
+            >
+                <Image 
+                    src={project.image}
+                    width={480}
+                    height={360}
+                    sizes='(max-width: 768px) 100vw, 480px'
                     class={`
-                        w-full 
+                        w-auto 
+                        max-w-full 
+                        h-auto 
+                        object-contain 
                         transition-shadow 
                         ${ motion }
                     `}
                     alt={alt}
                     loading='lazy'
-                    decoding='async'
-                    fetchpriority='low'
-                    itemprop='image'
                 />
-                <LinkClickWarning />
+                 <LinkClickWarning />
+            </div>
             </a>
             <h3 
                 id={`project-${project.title}`}
@@ -89,7 +107,7 @@ const motion = `
                 {project.title}
             </h3>
             <SkillLogos 
-                logos={project.logos} 
+                keys={logoKeys} 
                 repo={project.repository} 
             />
         </header>

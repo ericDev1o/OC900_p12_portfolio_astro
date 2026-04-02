@@ -1,0 +1,26 @@
+---
+import { logosMap } from '@/config/logoPathsConfig';
+import Skill from '../UI/Skill.astro';
+
+import skills from '../../assets/data/skills.json';
+import type { SkillData } from '../../custom/types/SkillData';
+const typedSkills = skills as SkillData[];
+---
+
+<div 
+    class='
+        flex
+        flex-wrap 
+        justify-center 
+        items-center 
+        gap-8'
+>
+    {typedSkills.map(skill => (
+        <Skill
+            logoURI={logosMap[skill.key]}
+            altText={skill.key}
+            width={skill.width} 
+            height={skill.height}
+        />
+    ))}
+</div>

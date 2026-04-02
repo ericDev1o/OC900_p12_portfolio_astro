@@ -1,50 +1,82 @@
 ---
-import type { LogoKey } from '../../custom/types/LogoKey';
-import { logos as logosMap } from '../../config/logoPathsConfig';
+import { Image } from 'astro:assets';
 
-interface Props {
-  logos: LogoKey[];
-  repo?: string;
-}
+import { 
+    logosMap, 
+    type  LogoKey 
+} from '@/config/logoPathsConfig';
 
-const { logos: projectLogos, repo } = Astro.props;
+const {
+    keys,
+    repo
+}= Astro.props as {
+    keys: LogoKey[],
+    repo?: string
+};
+
+const validKeys = keys
+  .map((key) => {
+    const imgMeta = logosMap[key];
+    if (!imgMeta) return null;
+
+    return { key, imgMeta };
+  })
+  .filter(Boolean) as { key: LogoKey; imgMeta: ImageMetadata }[]; 
 ---
 
-{projectLogos.length > 0 && ( 
-    <div 
-        class='
-            flex 
-            flex-wrap 
-            shrink-0 
-            justify-between 
-            items-center
-            gap-3'
-    >
-        {projectLogos.map((logo) => {
-            const src = logosMap[logo];
-
-            return (
-            <a
-                href={repo}
-                target="_blank"
-                rel='
-                    noopener 
-                    noreferrer'
-                class='
-                    hover:scale-110 
-                    transition-transform 
-                    motion-reduce:transform-none'
-            >
-                <img
-                    src={src}
-                    alt={logo}
-                    width="32"
-                    height="32"
-                    loading="lazy"
-                    decoding="async"
+ <div 
+    class='
+        flex 
+        flex-wrap 
+        shrink-0 
+        justify-between 
+        items-center
+        gap-3'
+>
+    {
+        validKeys.length === 0 
+        ? null
+        : validKeys.map(({key, imgMeta}) => {
+            const image = (
+                <Image
+                    src={imgMeta.src}
+                    width={imgMeta.width} 
+                    height={imgMeta.height} 
+                    alt={`${key} logo`}
+                    class='
+                        h-12 md:h-14 
+                        max-w-full 
+                        max-h-full 
+                        object-contain'
+                    loading='lazy'
                 />
-            </a>
             );
-        })}      
-    </div>
-)}
+            
+            return repo 
+            ? (
+                <a
+                    href={repo}
+                    target='_blank'
+                    rel={`
+                        noopener 
+                        noreferrer
+                    `}
+                    aria-label={`${key} (ouvre dans un nouvel onglet)`}
+                    class={`
+                        inline-block 
+                        hover:scale-110 
+                        transition-transform 
+                        motion-reduce:transform-none 
+                        focus-visible:ring-4 
+                        focus-visible:ring-blue-300 
+                        focus-visible:ring-offset-2
+                        focus-visible:ring-offset-gray-900
+                    `}
+                >
+                    {image}
+                </a>
+            )
+            : image
+        })
+    }
+ </div>

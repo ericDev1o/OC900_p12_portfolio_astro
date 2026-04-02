@@ -1,0 +1,107 @@
+[
+    {
+        "key": "HTML", 
+        "width": 52, 
+        "height": 46
+    },
+    {
+        "key": "CSS", 
+        "width": 50, 
+        "height": 57
+    },
+    {
+        "key": "SCSS", 
+        "width": 57, 
+        "height": 43
+    },
+    {
+        "key": "tailwindCSS", 
+        "width": 83, 
+        "height": 55
+    },
+    {
+        "key": "vite", 
+        "width": 52, 
+        "height": 52
+    },
+    {
+        "key": "JS", 
+        "width": 52, 
+        "height": 52
+    },
+    {
+        "key": "TS", 
+        "width": 52, 
+        "height": 52
+    },
+    {
+        "key": "jest", 
+        "width": 55, 
+        "height": 55
+    },
+    {
+        "key": "react", 
+        "width": 50, 
+        "height": 55
+    },
+    {
+        "key": "reactRouter", 
+        "width": 234, 
+        "height": 55
+    },
+    {
+        "key": "redux", 
+        "width": 135, 
+        "height": 55
+    },
+    {
+        "key": "lighthouse", 
+        "width": 57, 
+        "height": 55
+    },
+    {
+        "key": "GTmetrix", 
+        "width": 143, 
+        "height": 55
+    },
+    {
+        "key": "WAvE", 
+        "width": 49, 
+        "height": 55
+    },
+    {
+        "key": "axeDevTool", 
+        "width": 127, 
+        "height": 55
+    },
+    {
+        "key": "greenITanalysis", 
+        "width": 91, 
+        "height": 31
+    },
+    {
+        "key": "stylelint", 
+        "width": 153, 
+        "height": 55
+    },
+    {
+        "key": "playwright", 
+        "width": 179, 
+        "height": 46
+    },
+    {
+        "key": "feedly", 
+        "width": 64, 
+        "height": 55
+    },
+    {
+        "key": "notion", 
+        "width": 62, 
+        "height": 55
+    },
+    {
+        "key": "excalidraw", 
+        "width": 154, 
+        "height": 55
+    }
+]

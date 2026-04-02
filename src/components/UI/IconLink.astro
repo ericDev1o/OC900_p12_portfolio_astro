@@ -1,0 +1,52 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+const {
+  href,
+  src,
+  alt,
+  sizes='',
+  classNameImgWidthHeight='',
+  classNameA = ''
+} = Astro.props as {
+  href: string
+  src: ImageMetadata
+  alt: string
+  sizes: string
+  classNameImgWidthHeight: string
+  classNameA?: string
+}
+---
+
+<a
+  href={href}
+  target='_blank'
+  rel='noopener noreferrer'
+  class={`
+    focus-visible:outline-2
+    focus-visible:outline-blue-500
+    hover:drop-shadow-[0_0_2em_rgba(100,108,255,0.6)]
+    focus-visible:drop-shadow-[0_0_2em_rgba(100,108,255,0.6)] 
+    focus-visible:ring-4 
+    focus-visible:ring-blue-300 
+    focus-visible:ring-offset-2
+    ${classNameA}
+  `}
+>
+  <Image
+    src={src}
+    alt={alt}
+    class={`
+      object-contain 
+      transition-shadow
+      duration-600
+      ease-in-out
+      ${classNameImgWidthHeight}
+    `}
+    sizes={sizes}
+    densities={[1, 1.5]}
+    loading='eager'
+    fetchpriority='high'
+  />
+</a>

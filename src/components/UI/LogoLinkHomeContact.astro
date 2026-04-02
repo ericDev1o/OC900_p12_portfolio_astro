@@ -1,0 +1,29 @@
+---
+import type { ImageMetadata } from "astro";
+import IconLink from "./IconLink.astro";
+
+const { 
+  href, 
+  src, 
+  altText, 
+  classNameImageWidthHeight, 
+  sizes
+} = Astro.props as {
+  href: string;
+  src: ImageMetadata;
+  altText: string;
+  classNameImageWidthHeight: string;
+  sizes: string
+};
+---
+
+<IconLink 
+    href={ href }
+    src={ src } 
+    alt={ altText }
+    classNameA='
+      p-6 
+      object-contain' 
+    classNameImgWidthHeight={ classNameImageWidthHeight }
+    sizes={ sizes }
+/>

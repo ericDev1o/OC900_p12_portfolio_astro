@@ -1,0 +1,31 @@
+---
+const { 
+    href, 
+    text 
+} = Astro.props as {
+    href: string,
+    text: string
+};
+---
+
+<a 
+    href={ href }
+    class='
+        block  
+        px-4 
+        py-2 
+        underline 
+        text-blue-300 
+        transition
+        duration-600 
+        ease-in-out 
+        hover:text-blue-600 
+        hover:scale-110 
+        motion-reduce:transition-none 
+        motion-reduce:transform-none 
+        focus-visible:ring-4 
+        focus-visible:ring-blue-300 
+        focus-visible:ring-offset-2'
+>
+    { text }
+</a>

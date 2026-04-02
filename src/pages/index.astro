@@ -1,11 +1,8 @@
 ---
-import { StrictMode } from 'react';
-
 import '../styles/index.css';
 
 import Home from '../pages/Home.astro';
 import Layout from '../components/containers/Layout.astro';
-
 ---
 
 <!DOCTYPE html>
@@ -20,13 +17,6 @@ import Layout from '../components/containers/Layout.astro';
       type='image/webp' 
       href={`${import.meta.env.BASE_URL}logos/logo_ico.webp`}
     >
-    <style>
-      :root {
-        --font-jetbrains: url(
-          '{Astro.resolve('/fonts/jetbrains-mono-400..800.woff2')}'
-        );
-      }
-    </style>
     <meta 
       name='viewport' 
       content='width=device-width, initial-scale=1.0'
@@ -39,7 +29,7 @@ import Layout from '../components/containers/Layout.astro';
         Améliorons l'accessibilité en respectant les lignes directrices WCAG.
         Intégrons votre contenu grâce au langages HTML, CSS, SCSS, JS, TS.
         Simplifions la maintenance en utilisant les dépendances / librairies / cadriciels:
-        de test jest, vitest et playwright,
+        de test jest et playwright,
         de style tailwind,
         de composants react,
         d'état redux!"
@@ -47,32 +37,20 @@ import Layout from '../components/containers/Layout.astro';
   </head>
   <body
     class='
-      font-mono 
-      min-w-xs
-      min-h-screen 
-      box-border 
+      min-h-screen  
       m-0 
-      p-0 
-      flex
-      flex-row'>
+      p-0'
+      >
     <div 
       id='root' 
       class='
-        m-auto
-        text-center
-        leading-7.5
-        font-normal
         text-gray-300
         bg-gray-800
-        synthesis-none
-        rendering-legibility
-        antialiased
-        '>
-        <StrictMode>
-          <Layout>
-              <Home />
-          </Layout>
-        </StrictMode>
+        antialiased'
+    >
+      <Layout>
+        <Home />
+      </Layout>
     </div>
   </body>
 </html>

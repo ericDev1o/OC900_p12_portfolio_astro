@@ -2,8 +2,6 @@ import type { Linter } from 'eslint';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import globals from 'globals';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
 import prettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
 import { defineConfig, globalIgnores } from 'eslint/config';
@@ -36,9 +34,7 @@ export default defineConfig([
     files: ['**/*.{ts,tsx}'],
 
     plugins: {
-      '@typescript-eslint': tseslint,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh
+      '@typescript-eslint': tseslint
     },
     
     
@@ -54,9 +50,6 @@ export default defineConfig([
     rules: {
       ...tseslint.configs.recommended.rules,
 
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
-
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error', 
@@ -68,11 +61,6 @@ export default defineConfig([
       ],
 
       'quotes': ['error', 'single', {'avoidEscape': true}]
-    },
-    settings: {
-      react: {
-        version: 'detect'
-      }
     }
   },
   prettier

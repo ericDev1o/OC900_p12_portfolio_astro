@@ -27,7 +27,7 @@ Inside of your Astro project, you'll see the following folders and files:
 │       └── index.astro
 ├── test/
 │   └── accessibility/
-│       └── Home.pa11y.test.ts
+│       └── Home.a11y.test.ts
 │   └── integration/
 │       └── Home.integration.browser.test.tsx
 └── astro.config.ts
@@ -36,8 +36,6 @@ Inside of your Astro project, you'll see the following folders and files:
 └── stylelint.config.mjs
 └── tailwind.config.ts
 └── tsconfig.json
-└── vitest-setup.ts
-└── vitest.config.ts
 ```
 Any static assets, like images, robots.txt or sitemap.xml can be placed in the `public/` directory.
 
@@ -49,9 +47,8 @@ All commands are run from the root of the project, from a terminal:
 | :------------------------- | :-------------------------------------------------------------------------- |
 | `yarn install`             | Installs dependencies                                                       |
 | `yarn upgrade-interactive` | Upgrades dependencies one-by-one interactively                              |
-| `yarn clean`               | runs `vite :clean`                                                          |
 | `yarn lint`                | runs `eslint --fix .`                                                       |
-| `yarn test:a11y`           | runs `vitest run --config vitest.config.ts`                                 |
+| `yarn test:e2e`            | runs `playwright test test/accessibility`                                   |
 | `yarn test:integration`    | runs `playwright test test/integration/Home.integration.browser.test.tsx"   |
 | `yarn dev`                 | Starts local dev server at `localhost:4321`, runs `astro dev`               |
 | `yarn build`               | Build your production site to `./dist/`, runs `astro check && astro build`  |
@@ -96,10 +93,10 @@ export default {
 F12 dev tools -> 3 vertical ... -> More tools > -> Rendering -> Emulate CSS media feature prefers-reduced-motion -> prefers-reduced-motion: reduce -> you open your project details immediately instead of 0.6s.
 
 ## test please
-### pa11y
-yarn test:a11y
+### e2e accessibility
+yarn test:e2e
 #### details
-vitest run --config vitest.config.ts
+playwright test test/accessibility
 ### integration test in chromium browser
 yarn test:integration
 #### details
@@ -122,8 +119,6 @@ yarn build
 gh-pages -d dist -b gh-pages --dotfiles"
 
 
-
-
 ## do you need help for markdown reading or preferred yarn install only?
 ### reading markdown
 #### titles as 2nd color for all non CLI is preferred for multi-line platform & mobile inclusion rather than
@@ -134,65 +129,16 @@ gh-pages -d dist -b gh-pages --dotfiles"
 ### yarn install
 #### upgrade yarn
 ##### minor version
-###### the following answer finally given by brave's leo AI might do it for you; it once did for last peer node version by eric@eric-Aspire-TC-603:~/source/repos/OC/OC900_p12_portfolio$ 
-which yarn
-###### /home/eric/.nvs/node/24.10.0/x64/bin/yarn
-corepack yarn -v
-###### 4.11.0
-corepack prepare yarn@4.12.0 --activate
-###### Preparing yarn@4.12.0 for immediate activation...
-corepack yarn -v
-###### 4.11.0
-yarn set version stable
-###### ➤ YN0000: Downloading https://repo.yarnpkg.com/4.12.0/packages/yarnpkg-cli/bin/yarn.js
-###### ➤ YN0000: Saving the new release in .yarn/releases/yarn-4.12.0.cjs
-###### ➤ YN0000: Done in 0s 189ms
-yarn install
-###### ➤ YN0000: · Yarn 4.12.0
-###### ➤ YN0000: ┌ Resolution step
-###### ➤ YN0000: └ Completed in 0s 357ms
-###### ➤ YN0000: ┌ Post-resolution validation
-###### ➤ YN0002: │ portfolio@workspace:. doesn't provide @testing-library/dom (p6657f8), requested by @testing-library/react.
-###### ➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
-###### ➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
-###### ➤ YN0000: └ Completed
-###### ➤ YN0000: ┌ Fetch step
-###### ➤ YN0000: └ Completed in 1s 186ms
-###### ➤ YN0000: ┌ Link step
-###### ➤ YN0000: └ Completed in 0s 447ms
-###### ➤ YN0000: · Done with warnings in 2s 186ms
-yarn -v
-###### 4.12.0
-
-
-#### after you're done, do you still need help?
-##### try follow https://yarnpkg.com/getting-started/install or
-##### fallback on https://classic.yarnpkg.com/en/docs/install#debian-stable and 
-##### https://yarnpkg.com/migration/guide
-###### one or many following (abbreviated to complete ...) commands might help
-which yarn
-###### ...nvs...node/25.../bin/x64
-###### /usr/local/bin...
-sudo apt remove yarn && sudo apt purge yarn
-rm /home/.../.nvs/node/25.2.1/x64/bin/yarn /home/.../.nvs/node/25.2.1/x64/bin/yarnpkg
-find ~/.nvs -name "yarn" -type f -executable -delete
-##### sudo rm -f ... .yarn .yarnpkg
-sudo rm -f usr/local/bin/yarn usr/local/bin/yarnpkg
-exec $SHELL
-##### avoid the following -g as possible
-npm install --g yarn@latest
-yarn exec env
-##### no paths? Try to remove the package.json packageManager line.
-yarn exec env
-##### paths? then don't install/enable
-##### corepack enable
-corepack yarn -v
-##### not latest?
-corepack prepare yarn@latest --activate
-corepack yarn -v
-yarn set version stable
-yarn install
-yarn -v
+###### sudo corepack enable
+[sudo: authenticate] Password: 
+###### corepack prepare yarn@4.13.0 --activate
+Preparing yarn@4.13.0 for immediate activation...
+###### yarn set version 4.13.0
+➤ YN0000: Downloading https://repo.yarnpkg.com/4.13.0/packages/yarnpkg-cli/bin/yarn.js
+➤ YN0000: Saving the new release in .yarn/releases/yarn-4.13.0.cjs
+➤ YN0000: Done in 0s 337ms
+###### yarn -v
+4.13.0
 
 ### preinstall a font
 https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..800&subset=latin&display=swap

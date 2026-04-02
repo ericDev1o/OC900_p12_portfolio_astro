@@ -8,9 +8,9 @@ dist/
 .pnp.cjs
 
 # yarn
+.yarn
 .yarnrc.yml
 yarn.lock
-.yarn/install-state.gz
 
 # dependencies
 node_modules/
