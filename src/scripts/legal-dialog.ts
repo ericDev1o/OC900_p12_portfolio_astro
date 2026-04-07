@@ -1,7 +1,7 @@
-function initLegalDialog() {
-    const dialog = document.querySelector<HTMLDialogElement>('#legal-dialog');
-    const openBtn = document.querySelector<HTMLButtonElement>('#legal');
-    const closeBtn = document.querySelector<HTMLButtonElement>('#close-legal');
+export function initLegalDialog() {
+    const dialog = document.getElementById('legal-dialog');
+    const openBtn = document.getElementById('legal');
+    const closeBtn = document.getElementById('close-legal');
 
     if (! (dialog instanceof HTMLDialogElement)
          || ! (openBtn instanceof HTMLButtonElement)
@@ -9,10 +9,11 @@ function initLegalDialog() {
     ) return;
 
     openBtn.addEventListener('click', () => {
-        if (!dialog.open) {
-            dialog.showModal();
-            closeBtn.focus();
-        }
+        if (dialog.open) 
+            return;
+
+        dialog.showModal();
+        closeBtn.focus();
     });
     closeBtn.addEventListener('click', () => {
         if (dialog.open) dialog.close();
@@ -20,12 +21,12 @@ function initLegalDialog() {
     dialog.addEventListener('click', (e: MouseEvent) => {
         if (e.target === dialog) dialog.close();
     });
+    dialog.addEventListener('close', () => {
+        openBtn.focus();
+    });
 }
 
-const openBtn = document.querySelector('#legal');
-
-if( openBtn instanceof HTMLButtonElement) 
-    openBtn.addEventListener('click', 
-        initLegalDialog, 
-        { once: true }
-    );
+if(document.readyState === 'loading')
+    window.addEventListener('DOMContentLoaded', initLegalDialog);
+else
+    initLegalDialog();
