@@ -1,8 +1,6 @@
 ---
-interface Props {
-  summary: string;
-}
-const { summary } = Astro.props;
+type Props = { summary: string };
+const { summary } = Astro.props satisfies Props;
 ---
 
 <details 

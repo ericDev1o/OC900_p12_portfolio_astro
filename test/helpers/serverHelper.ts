@@ -1,10 +1,8 @@
 import { 
   spawn, 
-  ChildProcess 
+  ChildProcess, 
+  execSync
 } from 'node:child_process';
-
-import { execSync } from 'node:child_process';
-
 import net from 'node:net';
 
 let serverProcess: ChildProcess | null = null;
