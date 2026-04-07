@@ -1,11 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 
-import Portfolio from '../components/containers/Portfolio.astro';
-
 import { logosMap } from '@/config/logoPathsConfig';
 
-import photo from '@/assets/images/CV/photoCV.webp';
+import Skills from '../components/containers/Skills.astro';
+import Portfolio from '../components/containers/Portfolio.astro';
 
 import LinkClickWarning from '../components/UI/LinkClickWarning.astro';
 import Title from '../components/UI/Title.astro';
@@ -13,9 +12,10 @@ import Section from '../components/UI/Section.astro';
 import Link from '../components/UI/Link.astro';
 import LogoLinkHomeContact from '../components/UI/LogoLinkHomeContact.astro';
 import Span from '../components/UI/Span.astro';
-import Skills from '../components/containers/Skills.astro';
 
 import { projects } from  '@/assets/data/projects';
+
+import photo from '@/assets/images/CV/photoCV.webp';
 
 const basePath = import.meta.env.BASE_URL || '/';
 const CVPath = basePath + 'CV/CV_integrateur_web_react_Eric_F.pdf'
