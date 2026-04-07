@@ -2,6 +2,14 @@
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 
+type Props = {
+  href: string
+  src: ImageMetadata
+  alt: string
+  sizes: string
+  classNameImgWidthHeight: string
+  classNameA?: string
+};
 const {
   href,
   src,
@@ -9,14 +17,7 @@ const {
   sizes='',
   classNameImgWidthHeight='',
   classNameA = ''
-} = Astro.props as {
-  href: string
-  src: ImageMetadata
-  alt: string
-  sizes: string
-  classNameImgWidthHeight: string
-  classNameA?: string
-}
+} = Astro.props satisfies Props; 
 ---
 
 <a
