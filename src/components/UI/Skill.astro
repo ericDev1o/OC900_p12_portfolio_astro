@@ -1,17 +1,18 @@
 ---
 import { Image } from 'astro:assets';
 
-const { 
-    logoURI, 
-    altText, 
-    width, 
-    height
-} = Astro.props as {
+type Props = {
     logoURI: ImageMetadata, 
     altText: string,
     width: number, 
     height: number
 };
+const { 
+    logoURI, 
+    altText, 
+    width, 
+    height
+} = Astro.props satisfies Props; 
 ---
 <div
     class='

@@ -1,5 +1,6 @@
 ---
-const { class: className = '' } = Astro.props;
+type Props = { class: string };
+const { class: className = '' } = Astro.props satisfies Props;
 ---
 
 <section

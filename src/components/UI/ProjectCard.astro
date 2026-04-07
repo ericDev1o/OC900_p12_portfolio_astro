@@ -13,7 +13,8 @@ import SkillLogos from '../containers/ProjectCardSkillLogos.astro';
 import LinkClickWarning from './LinkClickWarning.astro';
 import Accordion from './Accordion.astro';
 
-const { project } = Astro.props as { project: Project }
+type Props = { project: Project };
+const { project } = Astro.props satisfies Props;
 
 const alt = project.title.split(',')[0];
 

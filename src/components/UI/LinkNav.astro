@@ -1,11 +1,12 @@
 ---
-const { 
-    href, 
-    text 
-} = Astro.props as {
+type Props = {
     href: string,
     text: string
 };
+const { 
+    href, 
+    text 
+} = Astro.props satisfies Props;
 ---
 
 <a 
