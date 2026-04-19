@@ -1,8 +1,10 @@
 {
   "name": "portfolio",
   "type": "module",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "scripts": {
+    "weigh:js": "gzip -c dist/assets/*.js | wc -c",
+    "weigh:css": "gzip -c dist/assets/*.css | wc -c",
     "lint": "eslint --fix .",
     "pw:install": "playwright install && playwright install-deps",
     "test:integration": "playwright test test/integration/Home.integration.browser.test.tsx",
@@ -17,36 +19,36 @@
     "deploy": "gh-pages -d dist -b gh-pages --dotfiles"
   },
   "dependencies": {
-    "astro": "^6.1.3"
+    "astro": "^6.1.8"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
-    "@astrojs/compiler-rs": "^0.1.6",
-    "@axe-core/playwright": "^4.11.1",
+    "@astrojs/compiler-rs": "^0.1.7",
+    "@axe-core/playwright": "^4.11.2",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4.2.2",
     "@testing-library/dom": "^10.4.1",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^25.5.2",
-    "@typescript-eslint/eslint-plugin": "^8.58.0",
-    "@typescript-eslint/parser": "^8.58.0",
-    "autoprefixer": "^10.4.27",
-    "eslint": "^10.2.0",
+    "@types/node": "^25.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.58.2",
+    "@typescript-eslint/parser": "^8.58.2",
+    "autoprefixer": "^10.5.0",
+    "eslint": "^10.2.1",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-astro": "^1.6.0",
+    "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-prettier": "^5.5.5",
     "gh-pages": "^6.3.0",
-    "globals": "^17.4.0",
+    "globals": "^17.5.0",
     "jiti": "^2.6.1",
-    "postcss": "^8.5.8",
-    "prettier": "^3.8.1",
-    "stylelint": "^17.6.0",
+    "postcss": "^8.5.10",
+    "prettier": "^3.8.3",
+    "stylelint": "^17.8.0",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-config-tailwindcss": "^1.0.1",
     "tailwindcss": "^4.2.2",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "vite-tsconfig-paths": "^6.1.1"
   },
-  "packageManager": "yarn@4.13.0"
+  "packageManager": "yarn@4.14.1"
 }
