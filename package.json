@@ -3,6 +3,8 @@
   "type": "module",
   "version": "0.0.7",
   "scripts": {
+    "weigh:js": "gzip -c dist/assets/*.js | wc -c",
+    "weigh:css": "gzip -c dist/assets/*.css | wc -c",
     "lint": "eslint --fix .",
     "pw:install": "playwright install && playwright install-deps",
     "test:integration": "playwright test test/integration/Home.integration.browser.test.tsx",
