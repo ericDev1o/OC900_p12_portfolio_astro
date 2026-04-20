@@ -118,6 +118,13 @@ yarn deploy
 yarn build
 gh-pages -d dist -b gh-pages --dotfiles"
 
+## mitigate dependency vulnerability risk please
+### .yarnrc.yml
+#### add this line
+npmMinimalAgeGate: "7d"
+#### to prevent following example attack
+https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan
+
 
 ## do you need help for markdown reading or preferred yarn install only?
 ### reading markdown
