@@ -16,7 +16,11 @@ export default defineConfig({
   },
 
   markdown: {
-    syntaxHighlight: false
+    syntaxHighlight: false,
+    smartypants: {
+      openingQuotes: { double: '« ', single: '‹ ' },
+      closingQuotes: { double: ' »', single: ' ›' }
+    }
   },
 
   security: {
