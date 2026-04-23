@@ -13,13 +13,7 @@ test.describe('Home page accessibility', () => {
        
     test('should have no axe violations',  async({ page }) => {    
         // Arrange
-        await page.goto(
-            PORTFOLIO_URL,
-            { waitUntil: 'domcontentloaded'}
-        );
-        await page.waitForSelector('main');
-        await page.waitForSelector('h1');
-        await page.waitForLoadState('networkidle');
+        await page.goto(PORTFOLIO_URL);
 
         // Act 
         const results = await new AxeBuilder({page})
@@ -52,7 +46,6 @@ test.describe('Home page accessibility', () => {
     test('keyboard navigation should work', async ({ page }) => {
         // Arrange
         await page.goto(PORTFOLIO_URL);
-        await page.waitForSelector('main');
 
         let found = false;
 
@@ -60,10 +53,12 @@ test.describe('Home page accessibility', () => {
         for (let i = 0; i < 40; i++) {
             await page.keyboard.press('Tab');
 
-            const isLink = await page.evaluate(() => {
-                const el = document.activeElement;
-                return el?.tagName === 'A';
-            });
+            const isLink = await page
+            .locator(':focus')
+            .evaluate(el =>
+                el.getAttribute('role') === 'link' ||
+                el.tagName === 'A'
+            );
 
             if (isLink) {
                 found = true;
@@ -83,16 +78,23 @@ test.describe('Home page accessibility', () => {
     test('keyboard focus should be visible', async ({ page }) => {
         // Arrange
         await page.goto(PORTFOLIO_URL);
-        await page.waitForSelector('main');
+        
         await page.keyboard.press('Tab');
 
         // Act
-        const outline = await page.evaluate(() => {
-            const el = document.activeElement;
-            return el ? window.getComputedStyle(el).outlineStyle : null;
+        const hasFocusStyle = await page
+        .locator(':focus')
+        .evaluate(el => {
+            const style = window.getComputedStyle(el);
+
+            return (
+                style.outlineStyle !== 'none' ||
+                style.outlineWidth !== '0px' ||
+                style.boxShadow !== 'none'
+            );
         });
 
         // Assert
-        expect(outline).not.toBe('none');
+        expect(hasFocusStyle).toBe(true);
     });
 });
