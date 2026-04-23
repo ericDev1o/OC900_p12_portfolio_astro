@@ -24,9 +24,7 @@ test.describe('Home page', () => {
     test('must render most important content', async ({ page }) => {
         await withAstroTestServer(async () => {
             // Arrange
-            await page.goto(`http://localhost:${PORT}${BASE}`,
-            { waitUntil: 'domcontentloaded'}
-            );
+            await page.goto(`http://localhost:${PORT}${BASE}`);
 
             // Act
             const headings: HeadingSpec[] = [
