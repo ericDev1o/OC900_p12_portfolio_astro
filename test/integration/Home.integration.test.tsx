@@ -5,6 +5,11 @@ import {
 
 import { withAstroTestServer } from '@test/helpers/serverHelper';
 
+type HeadingSpec = {
+    name: string,
+    level: number
+};
+
 /**
  * Main titles are all asserted in the same test because 
  *     1. it's the same logical behavior
@@ -22,10 +27,9 @@ test.describe('Home page', () => {
             await page.goto(`http://localhost:${PORT}${BASE}`,
             { waitUntil: 'domcontentloaded'}
             );
-            await page.waitForSelector('h1');
 
             // Act
-            const headings = [
+            const headings: HeadingSpec[] = [
                 {
                     name: 'Bonjour, je suis Eric',
                     level: 1
@@ -56,9 +60,18 @@ test.describe('Home page', () => {
                 }
             ];
             // Assert
-            for (const { name } of headings) {
-              const heading = page.getByRole('heading', { name: new RegExp(name, 'i') });
-                await expect(heading).toBeVisible();
+            for (const { 
+                name, 
+                level 
+            } of headings) {
+              await expect(
+                page.getByRole(
+                    'heading', 
+                    { 
+                        name: new RegExp(`^${name}$`, 'i'),
+                        level 
+                    })
+              ).toBeVisible();
             }
         });
     });
