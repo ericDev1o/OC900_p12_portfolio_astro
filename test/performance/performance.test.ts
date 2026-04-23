@@ -7,9 +7,8 @@ import {
   envs, 
   type EnvMode 
 } from '@test/performance/configEnv';
-import { $brand } from 'astro:schema';
 
-(['local', 'prod'] as EnvMode[]).forEach((envMode) => {
+for (const envMode of ['local', 'prod'] as EnvMode[]) {
   test(`Web Vitals performance - ${envMode}`, async ({ page }) => {
     test.setTimeout(60000);
     
@@ -44,4 +43,4 @@ import { $brand } from 'astro:schema';
 
     assertVitals(vitals);
   });
-});
+};
