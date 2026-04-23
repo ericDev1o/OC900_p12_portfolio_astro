@@ -33,7 +33,7 @@ import {
       FCP = ${vitals.FCP} ms,
       LCP = ${vitals.LCP} ms,
       TTFB = ${vitals.TTFB} ms,
-      CLS = ${vitals.CLS.toFixed(3)}
+      CLS = ${Number.isFinite(vitals.CLS) ? vitals.CLS.toFixed(3) : 'NaN'}
     `);
 
     assertVitals(vitals);
