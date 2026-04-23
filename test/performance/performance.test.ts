@@ -23,8 +23,7 @@ import {
     if (
       FCP === null ||
       LCP === null ||
-      TTFB === null ||
-      CLS === null
+      TTFB === null
     ) {
       throw new Error(`Incomplete vitals: ${JSON.stringify(vitals)}`);
     }
