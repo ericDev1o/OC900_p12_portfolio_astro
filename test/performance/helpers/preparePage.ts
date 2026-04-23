@@ -3,25 +3,28 @@ import type { Page } from '@playwright/test';
 export async function preparePage(
   page: Page, 
   url: string) {
-  await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await page.goto(url);
 
-  await page.locator('main').waitFor();
-  await page.waitForLoadState('networkidle');
+  autoScroll(page);
+}
 
+async function autoScroll(page: Page) {
   await page.evaluate(async () => {
     await new Promise<void>((resolve) => {
-      let total = 0;
-      const step = 200;
+      let lastHeight = 0;
 
       const timer = setInterval(() => {
-        window.scrollBy(0, step);
-        total += step;
+        const currentHeight = document.body.scrollHeight;
 
-        if (total >= document.body.scrollHeight) {
+        window.scrollTo(0, currentHeight);
+
+        if (currentHeight === lastHeight) {
           clearInterval(timer);
           resolve();
         }
-      }, 50);
+
+        lastHeight = currentHeight;
+      }, 100);
     });
   });
 }

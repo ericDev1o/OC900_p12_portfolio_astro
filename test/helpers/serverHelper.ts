@@ -4,16 +4,46 @@ import {
   execSync
 } from 'node:child_process';
 import net from 'node:net';
+import fs from 'node:fs';
 
 let serverProcess: ChildProcess | null = null;
+
+let cleanupRegistered = false;
+
+function registerGlobalCleanup() {
+  if (cleanupRegistered) return;
+  cleanupRegistered = true;
+
+  const shutdown = async () => {
+    console.log('🧹 Global cleanup...');
+
+    try {
+      await stopAstroServer();
+    } catch (e) {
+      console.error('Cleanup error:', e);
+    } finally {
+      process.exit();
+    }
+  };
+
+  process.on('SIGINT', shutdown);   // Ctrl+C
+  process.on('SIGTERM', shutdown);  // CI / Docker
+  process.on('uncaughtException', shutdown);
+  process.on('unhandledRejection', shutdown);
+}
 
 /* =========================
    1. BUILD PROJECT
 ========================= */
 export function buildProject() {
+  if(fs.existsSync('dist')) {
+    console.log('🧱 Build skipped (dist exists)');
+    return;
+  }
   console.log('🧱 Building project...');
 
-  execSync('yarn build', {
+  execSync('yarn build', 
+  {
     stdio: 'inherit',
   });
 
@@ -24,6 +54,8 @@ export function buildProject() {
    2. START ASTRO SERVER
 ========================= */
 export async function startAstroServer(port = 4321) {
+  registerGlobalCleanup();
+
   console.log(`🚀 Starting Astro on port ${port}...`);
 
   serverProcess = spawn(
@@ -39,8 +71,6 @@ export async function startAstroServer(port = 4321) {
   await waitForPort(port);
 
   console.log('✅ Astro ready');
-
-  serverProcess.unref();
 
   return serverProcess;
 }

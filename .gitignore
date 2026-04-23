@@ -6,6 +6,7 @@ dist/
 
 # pnp
 .pnp.cjs
+.pnp.*.mjs
 
 # yarn
 .yarn

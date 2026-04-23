@@ -97,7 +97,11 @@ F12 dev tools -> 3 vertical ... -> More tools > -> Rendering -> Emulate CSS medi
 yarn test:e2e
 #### details
 playwright test test/accessibility
-### integration test in chromium browser
+### integration
+#### set up
+##### $ yarn playwright install
+##### $ yarn playwright install-deps
+#### integration test in chromium browser
 yarn test:integration
 #### details
 playwright test test/integration/Home.integration.browser.test.tsx
