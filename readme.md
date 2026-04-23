@@ -100,7 +100,7 @@ playwright test test/accessibility
 ### integration
 #### set up
 ##### $ yarn playwright install
-##### $ sudo yarn playwright install-deps
+##### $ yarn playwright install-deps
 #### integration test in chromium browser
 yarn test:integration
 #### details
