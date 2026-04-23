@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const PORTFOLIO_URL = 'https://ericdev1o.github.io/OC900_p12_portfolio';
+const PORTFOLIO_URL = 'https://ericdev1o.github.io/OC900_p12_portfolio_astro';
 
 /**
  * Accessibility Axe E2E tests
