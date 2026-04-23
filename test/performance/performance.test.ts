@@ -7,6 +7,7 @@ import {
   envs, 
   type EnvMode 
 } from '@test/performance/configEnv';
+import { $brand } from 'astro:schema';
 
 (['local', 'prod'] as EnvMode[]).forEach((envMode) => {
   test(`Web Vitals performance - ${envMode}`, async ({ page }) => {
@@ -27,6 +28,11 @@ import {
     ) {
       throw new Error(`Incomplete vitals: ${JSON.stringify(vitals)}`);
     }
+
+    test.info().attach(`Vitals-${envMode}.json`, {
+      body: JSON.stringify(vitals, null, 2),
+      contentType: 'application/json'
+    });
 
     console.log(`
       [${envMode}] Vitals:
