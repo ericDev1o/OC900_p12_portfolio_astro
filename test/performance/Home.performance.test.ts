@@ -29,7 +29,7 @@ for (const envMode of ['local', 'prod'] as EnvMode[]) {
 
       const vitals = await collectVitals(page);
 
-      const { FCP, LCP, TTFB, CLS } = vitals;
+      const { FCP, LCP, TTFB } = vitals;
 
       if (
         FCP === null ||
