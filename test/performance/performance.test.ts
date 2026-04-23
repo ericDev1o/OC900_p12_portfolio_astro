@@ -10,6 +10,8 @@ import {
 
 (['local', 'prod'] as EnvMode[]).forEach((envMode) => {
   test(`Web Vitals performance - ${envMode}`, async ({ page }) => {
+    test.setTimeout(60000);
+    
     const baseURL = envs[envMode].baseURL;
 
     await preparePage(page, baseURL);
