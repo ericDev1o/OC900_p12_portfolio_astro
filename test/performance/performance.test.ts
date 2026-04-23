@@ -1,12 +1,19 @@
 import { test } from '@playwright/test';
 
-import { collectVitals } from './helpers/collectWebVitals';
+import { 
+  type Vitals,
+  collectVitals
+} from './helpers/collectWebVitals';
 import { preparePage } from './helpers/preparePage';
 import { assertVitals } from './helpers/assertVitals';
 import { 
-  envs, 
-  type EnvMode 
+  type EnvMode, 
+  envs
 } from '@test/performance/configEnv';
+import { 
+  isCompleteVitals, 
+  averageVitals
+} from './helpers/averageVitals';
 
 for (const envMode of ['local', 'prod'] as EnvMode[]) {
   test(`Web Vitals performance - ${envMode}`, async ({ page }) => {
@@ -14,33 +21,48 @@ for (const envMode of ['local', 'prod'] as EnvMode[]) {
     
     const baseURL = envs[envMode].baseURL;
 
-    await preparePage(page, baseURL);
+    const NUMBER_OF_RUNS = 3;
+    const runs: Vitals[] = [];
 
-    const vitals = await collectVitals(page);
+    for(let i = 0; i < NUMBER_OF_RUNS; i++) {
+      await preparePage(page, baseURL);
 
-    const { FCP, LCP, TTFB, CLS } = vitals;
+      const vitals = await collectVitals(page);
 
-    if (
-      FCP === null ||
-      LCP === null ||
-      TTFB === null
-    ) {
-      throw new Error(`Incomplete vitals: ${JSON.stringify(vitals)}`);
+      const { FCP, LCP, TTFB, CLS } = vitals;
+
+      if (
+        FCP === null ||
+        LCP === null ||
+        TTFB === null
+      ) {
+        throw new Error(`Incomplete vitals: ${JSON.stringify(vitals)}`);
+      }
+
+      runs.push(vitals);
     }
 
+    const completeRuns = runs.filter(isCompleteVitals);
+    if (completeRuns.length === 0)
+      throw new Error('No valid vitals to average');
+    if(completeRuns.length !== runs.length)
+      throw new Error('Some vitals are incomplete.');
+
+    const avg = averageVitals(completeRuns);
+
     test.info().attach(`Vitals-${envMode}.json`, {
-      body: JSON.stringify(vitals, null, 2),
+      body: JSON.stringify({ runs, average: avg}, null, 2),
       contentType: 'application/json'
     });
 
     console.log(`
-      [${envMode}] Vitals:
-      FCP = ${vitals.FCP} ms,
-      LCP = ${vitals.LCP} ms,
-      TTFB = ${vitals.TTFB} ms,
-      CLS = ${Number.isFinite(vitals.CLS) ? vitals.CLS.toFixed(3) : 'NaN'}
+      [${envMode}] Averaged vitals (${NUMBER_OF_RUNS} runs):
+      FCP = ${Number.isFinite(avg.FCP) ? avg.FCP?.toFixed(0) : 'NaN'} ms,
+      LCP = ${Number.isFinite(avg.LCP) ? avg.LCP?.toFixed(0) : 'NaN'} ms,
+      TTFB = ${Number.isFinite(avg.TTFB) ? avg.TTFB?.toFixed(1) : 'NaN'} ms,
+      CLS = ${Number.isFinite(avg.CLS) ? avg.CLS.toFixed(3) : 'NaN'}
     `);
 
-    assertVitals(vitals);
+    assertVitals(avg);
   });
 };
