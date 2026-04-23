@@ -13,7 +13,7 @@ type LayoutShift = PerformanceEntry & {
 };
 
 export async function collectVitals(page: Page): Promise<Vitals> {
-  return await page.evaluate(() => {
+  return page.evaluate(() => {
     return new Promise<Vitals>((resolve) => {
       let idleTimer: ReturnType<typeof setTimeout>;
       const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
