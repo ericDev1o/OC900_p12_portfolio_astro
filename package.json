@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
-    "@astrojs/compiler-rs": "^0.1.9",
+    "@astrojs/compiler-rs": "^0.1.10",
     "@axe-core/playwright": "^4.11.2",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.59.1",
