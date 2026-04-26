@@ -14,8 +14,7 @@
       "@/*": ["./src/*"],
       "@test/*": ["./test/*"]
     },
-    "moduleResolution": "bundler",
-    "target": "es2020", 
+    "moduleResolution": "bundler", 
     "lib": ["dom", "dom.iterable", "esnext"], 
     "allowJs": true,                         
     "skipLibCheck": true,                         
