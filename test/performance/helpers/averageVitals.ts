@@ -1,4 +1,4 @@
-import type { Vitals } from "./collectWebVitals";
+import type { Vitals } from './collectWebVitals';
 
 type CompleteVitals = {
     FCP: number,

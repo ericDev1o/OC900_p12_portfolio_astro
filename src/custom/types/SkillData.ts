@@ -1,4 +1,4 @@
-import type { LogoKey } from "@/config/logoPathsConfig";
+import type { LogoKey } from '@/config/logoPathsConfig';
 
 export type SkillData = {
   key: LogoKey;
