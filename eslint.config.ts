@@ -4,6 +4,7 @@ import tsParser from '@typescript-eslint/parser';
 import globals from 'globals';
 import prettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 /**
@@ -29,25 +30,27 @@ export default defineConfig([
     '.astro'
     ]
   ),
-  astro.configs.recommended,
+  ...astro.configs.recommended,
   {
-    files: ['**/*.{ts,tsx}'],
+    ...jsxA11y.flatConfigs.strict,
 
+    files: ['**/*.{ts,tsx}'],
+   
     plugins: {
+      ...jsxA11y.flatConfigs.strict.plugins,
       '@typescript-eslint': tseslint
     },
-    
     
     languageOptions: {
       parser: tsParser,
       ecmaVersion: 'latest',
       sourceType: 'module',
-      globals: globals.browser,
-      parserOptions: {
-        ecmaFeatures: { tsx: true }
-      },
+      globals: globals.browser
     },
+
     rules: {
+      ...jsxA11y.flatConfigs.strict.rules,
+
       ...tseslint.configs.recommended.rules,
 
       'no-unused-vars': 'off',
