@@ -103,5 +103,10 @@
         "key": "excalidraw", 
         "width": 154, 
         "height": 55
+    },
+    {
+        "key": "astro",
+        "width": 139,
+        "height": 55
     }
 ]
