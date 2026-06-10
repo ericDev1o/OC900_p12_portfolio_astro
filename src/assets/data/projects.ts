@@ -142,17 +142,17 @@ export const projects: Project[] =
         logos: ['feedly', 'notion', 'excalidraw', 'gitHub']
     },
     {
-        URL: 'https://ericdev1o.github.io/OC900_p12_portfolio/',
-        repository: 'https://github.com/ericDev1o/OC900_p12_portfolio',
+        URL: 'https://ericdev1o.github.io/OC900_p12_portfolio_astro/',
+        repository: 'https://github.com/ericDev1o/OC900_p12_portfolio_astro',
         image: getImage('portfolio'),
         number: 12,
         title: 'portfolio',
         contexte: 'Réalisation d’un site vitrine professionnel pour mettre en avant des services, avec une planification agile et un développement full-code. Le défi principal était de concilier fonctionnalité, accessibilité et performances tout en respectant des délais aussi réalistes que possible.',
         objectifs: 'Créer un site simple mais attractif avec des animations douces et un appel au contact efficace. Assurer une accessibilité optimale et de bonnes performances, tout en validant la qualité via des outils de test automatisés et manuels.',
-        stackTechnique: 'HTML, CSS, TypeScript, React, TailwindCSS, rendu côté client poussé grâce aux outils d’analyse tels que Lighthouse et axe Dev Tools, ainsi que Notion Kanban pour la gestion agile.',
+        stackTechnique: 'HTML, CSS, Astro, TypeScript, TailwindCSS, rendu côté client poussé grâce aux outils d’analyse tels que Lighthouse et axe Dev Tools, ainsi que Notion Kanban pour la gestion agile.',
         competencesDeveloppees: "Découpage frontend en composants react, accessibilité solide et performances en progrès. Début opérationnel d'automatisation des tests avec axe-core/playwright et stylelint.",
-        resultatsEtImpact: 'Livraison d’une version 0.1.2 fonctionnelle respectant les standards, avec une amélioration notable de l’accessibilité et des performances mesurées par Lighthouse.',
-        perspectivesAmelioration: "1) Faire adhérer le bas de page au défilement, 2) supprimer les marges blanches au défilement de 320 à 1440 px, 3) proposer un carrousel de projets, 4) différencier l'affichage selon mobile / tablette ou desktop, 5) filtrer les projets par technologie, 6) publier une vidéo a) de la présentation à propos voire b) des projets passés sont soumises au sondage entre pairs pour décision / priorisation.",
-        logos: ['HTML', 'CSS', 'TS', 'tailwindCSS', 'react', 'lighthouse', 'WAvE', 'axeDevTool', 'greenITanalysis', 'feedly', 'stylelint', 'playwright', 'notion', 'gitHub']
+        resultatsEtImpact: 'Livraison d’une version 0.1.0 fonctionnelle respectant les standards, avec une amélioration notable de l’accessibilité et des performances mesurées par Lighthouse.',
+        perspectivesAmelioration: "Ce projet a souligné l’intérêt de l’éco-conception web. Il a été réécrit en Astro afin de réduire le JavaScript embarqué (> 60 kB => 0 kB) à fonctionnalité équivalente. Les évolutions fonctionnelles envisagées relèvent principalement de l’UX et dépendraient des retours utilisat·rice·eur·s.",
+        logos: ['HTML', 'CSS', 'TS', 'tailwindCSS', 'astro', 'lighthouse', 'WAvE', 'axeDevTool', 'greenITanalysis', 'feedly', 'stylelint', 'playwright', 'notion', 'gitHub']
     }
 ]
