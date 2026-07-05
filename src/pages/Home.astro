@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 
 import { logosMap } from '@/config/logoPathsConfig';
 
-import Skills from '../components/containers/Skills.astro';
 import Portfolio from '../components/containers/Portfolio.astro';
 
 import LinkClickWarning from '../components/UI/LinkClickWarning.astro';
@@ -18,7 +17,7 @@ import { projects } from  '@/assets/data/projects';
 import photo from '@/assets/images/photoCV.webp';
 
 const basePath = import.meta.env.BASE_URL || '/';
-const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
+const CVPath = basePath + 'files/CV_dev-produit_Eric-Faraut.pdf'
 ---
 
 <main>
@@ -79,6 +78,45 @@ const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
       >
         <Title
           level={3}
+          id='projets'
+        >
+          Projets
+        </Title>
+        <Portfolio projects={ projects } />
+      </div>
+    </Section>
+    <Section class='py-20'>
+      <div 
+        class='
+          flex 
+          flex-col 
+          items-center 
+          gap-8'
+      >
+        <Title
+          level={3}
+          id='competences'
+        >
+          Compétences
+        </Title>
+        <p class='text-xl'>
+          Avez-vous besoin d'1 site web à votre image?
+        </p>
+        <p class='text-xl'>
+          Je transforme votre brief en écrans propres, responsives et frugaux.
+        </p>
+      </div>
+    </Section>
+     <Section class='py-20'>
+      <div 
+        class='
+          flex 
+          flex-col 
+          items-center 
+          gap-8'
+      >
+        <Title
+          level={3}
           id='vous&moi=nous'
         >
           À propos de moi
@@ -106,8 +144,8 @@ const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
         </Title>
         <p class='max-w-prose'>
           D'abord intéressé par les indicateurs décisionnels et l'extraction de leurs données,
-          j'ai fait évoluer 1 solution back-end. 
-          Focalisé accessibilité, ma solution front-end offre 1 
+          j'ai fait évoluer une solution back-end. 
+          Focalisé accessibilité, ma solution front-end vous offre une 
           <span 
               class='
               font-extrabold'
@@ -133,13 +171,13 @@ const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
           Notre objectif aujourd'hui
         </Title>
         <p class='max-w-prose'>
-          Je suis prêt à être votre intégrateur web en agence, ESN ou organisation à impact en Île-de-France. 
+          Je suis prêt à être votre intégrateur web en agence, ESN ou autre organisation à impact en Île-de-France. 
         </p>
         <Title level={5}>
-          Pour 1 projet numérique plus inclusif et éco-responsable demain
+          Pour notre projet numérique plus inclusif et éco-responsable demain
         </Title>
         <p class='max-w-prose'>
-          De la startup du recyclage à 1 administration en passant par le grand groupe ou 1 association, c'est le projet qui est mon moteur.
+          De la startup du recyclage à une administration en passant par le grand groupe ou l'association, c'est le projet qui est mon moteur.
         </p>
         <Title level={4}>
           Quel est mon apport?
@@ -148,7 +186,7 @@ const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
           Qualitatif
         </Title>
         <p class='max-w-prose'>
-          Écoute, connaissance des standards web et veille technologique feront de votre projet 1 site 
+          Écoute, connaissance des standards web et veille technologique feront de votre vitrine un site 
           <Span color='orange'>
             accessible 
           </Span>
@@ -161,7 +199,7 @@ const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
           Quantitatif
         </Title>
         <p class='max-w-prose'>
-          L'audit Google Lighthouse de ma solution front-end, dans 1 fenêtre de navigation privée, est 
+          L'audit Google Lighthouse de ma solution front-end, dans une fenêtre de navigation privée, est 
           <Span color='orange'>
             100/100.
           </Span>
@@ -213,46 +251,6 @@ const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
       >
         <Title
           level={3}
-          id='competences'
-        >
-          Compétences
-        </Title>
-        <p class='text-xl'>
-          Avez-vous besoin d'1 site web à votre image?
-        </p>
-        <p class='text-xl'>
-          Je transforme 1 brief en écrans propres, responsives et frugaux.
-        </p>
-        <Skills />
-      </div>
-    </Section>
-    <Section class='py-20'>
-      <div 
-        class='
-          flex 
-          flex-col 
-          items-center 
-          gap-8'
-      >
-        <Title
-          level={3}
-          id='projets'
-        >
-          Projets
-        </Title>
-        <Portfolio projects={ projects } />
-      </div>
-    </Section>
-    <Section class='py-20'>
-      <div 
-        class='
-          flex 
-          flex-col 
-          items-center 
-          gap-8'
-      >
-        <Title
-          level={3}
           id='parcours'
         >
           Parcours
@@ -262,10 +260,14 @@ const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
             text-2xl
             leading-loose'
         >
-          intégrateur 
-          <Span color='violet'>
-            web
-          </Span>
+          <Link
+            href='https://openclassrooms.com/fr/paths/900-integrateur-web#projects'
+            text='intégrateur web'
+          />
+          <LinkClickWarning />
+        <p>
+          22 avril 2024 au 21 décembre 2025
+        </p>
         </h4>
         <h5 
           class='
@@ -286,22 +288,8 @@ const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
             service
           </Span>
         </p>
-        <div 
-          class='
-            group
-            relative'
-        >
-          <Link
-            href='https://openclassrooms.com/fr/paths/900-integrateur-web#projects'
-            text='Suivez le parcours.'
-          />
-          <LinkClickWarning />
-        </div>
-        <h6>
-          22 avril 2024 au 21 décembre 2025
-        </h6>
         <Title level={4}>
-          Sachez-en plus sur ce que nous avons co-construit avant
+          Sachez-en plus sur ce que nous avons construit avant
         </Title>
         <div 
           class='
@@ -347,7 +335,7 @@ const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
                 duration-600 
                 ease-in-out 
                 hover:text-blue-600'>
-                Téléchargez mon CV
+                Téléchargez un CV
             </span>
           </a>
           <LinkClickWarning />
@@ -373,7 +361,7 @@ const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
           <Span color='orange'>
             projet web
           </Span> 
-          à 
+          avec 
           <Span color='green'>
             impact.
           </Span>
@@ -406,7 +394,7 @@ const CVPath = basePath + 'files/CV_integrateur_web_react_Eric_F.pdf'
             >
               <Link
                 href='https://calendly.com/eric-faraut/30min'
-                text='Prendre rendez-vous (Calendly)'
+                text='Parlons-en'
               />
             <LinkClickWarning />
           </div>
