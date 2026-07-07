@@ -37,10 +37,10 @@ export const projects: Project[] =
         title: 'Riding cities, découvrez le skateboard près de chez vous',
         contexte: 'Dans le cadre de la mise à jour du contenu du site web de l’association sportive Riding Cities, il s’agissait d’enrichir le contenu tout en respectant l’identité visuelle existante. Le défi principal était de rester fidèle à la maquette Figma proposée, tout en assurant une bonne expérience utilisateur.',
         objectifs: 'Ajouter une section présentant les membres fondateurs avec photos et noms, ainsi qu’une zone de téléchargement des plannings pour différents groupes. Maintenir une structure HTML sémantique et appliquer rigoureusement les styles déjà définis.',
-        stackTechnique: 'HTML5 pour la structure, CSS existant pour le style, Visual Studio Code comme environnement de développement, et Figma pour le design.',
+        stackTechnique: 'HTML 5 pour la structure, CSS existant pour le style, Visual Studio Code comme environnement de développement, et Figma pour le design.',
         competencesDeveloppees: 'Maîtrise de la structuration HTML sémantique, adaptation de styles CSS en se basant sur un design existant, et lecture attentive de maquettes pour une correspondance précise.',
         resultatsEtImpact: 'Mise en ligne d’une nouvelle section visuellement cohérente intégrée au site, avec boutons fonctionnels pour le téléchargement des plannings, améliorant l’information disponible pour les membres. Le rendu respecte fidèlement la charte graphique.',
-        perspectivesAmelioration: "Rendre le site web 'responsive' pour l’adapter aux petits écrans jusqu'à 320 pixels de large. Ajout d’éléments pour améliorer l’expérience utilisateur, notamment en termes d’accessibilité.",
+        perspectivesAmelioration: "Rendre le site web 'responsive' pour l’adapter aux petits écrans jusqu’à 320 pixels de large. Ajout d’éléments pour améliorer l’expérience utilisateur, notamment en termes d’accessibilité.",
         logos: ['HTML', 'gitHub']
     },
     {
@@ -81,7 +81,7 @@ export const projects: Project[] =
         objectifs: 'Créer un carrousel d’images dynamique pour présenter les services, tout en assurant une navigation fluide et intuitive. Garantir la fidélité visuelle par rapport à la maquette originale et une expérience utilisateur optimisée.',
         stackTechnique: 'HTML et CSS pour la structure et le design, JavaScript pour l’interactivité via la gestion des événements. Visual Studio Code utilisé comme environnement de développement, avec GitHub pour le versionnage.',
         competencesDeveloppees: 'Manipulation du DOM en JavaScript, mise en place d’écouteurs d’événements, gestion rigoureuse des différentes situations de navigation dans le carrousel. Apprentissage de la coordination entre code statique et dynamique. Réalisme focalisé sur une fonctionnalité assez juste à temps.',
-        resultatsEtImpact: "Un carrousel fonctionnel, conforme à la maquette, qui améliore l’attractivité du site. Le projet a renforcé la réactivité du site qui appelle plus à l'action.",
+        resultatsEtImpact: "Un carrousel fonctionnel, conforme à la maquette, qui améliore l’attractivité du site. Le projet a renforcé la réactivité du site qui appelle plus à l’action.",
         perspectivesAmelioration: "Compléter le 'responsive', intégration de fonctionnalité supplémentaire comme le défilement automatique. Automatisation des tests pour couvrir tous les cas d’utilisation possibles sans régression même dans un délai contraint. Amélioration de la performance en optimisant le chargement des images.",
         logos: ['HTML', 'CSS', 'JS', 'gitHub']
     },
@@ -94,7 +94,7 @@ export const projects: Project[] =
         contexte: 'Le site Kasa est une plateforme web professionnelle pour une agence immobilière, où la présentation visuelle des logements est cruciale pour inciter à la réservation. Il devait s’adapter à un contenu variable en nombre de photos et en longueur de texte.',
         objectifs: "Créer un site web 'responsive', accessible, capable de gérer efficacement différents contenus variés tout en offrant une expérience fluide et engageante.",
         stackTechnique: 'Le projet a été développé avec HTML, CSS, TypeScript, Vite, React et React Router, assurant une architecture moderne et performante.',
-        competencesDeveloppees: 'Ce projet m’a permis de développer ma rigueur en structurant un projet React de zéro selon les bonnes pratiques.',
+        competencesDeveloppees: 'Ce projet m’a permis de développer ma créativité rigoureuse en structurant un projet React de zéro selon les bonnes pratiques.',
         resultatsEtImpact: "Le site 'responsive' affiche tous les logements, avec une animation attrayante lors du changement de photo dans le carrousel, améliorant l’expérience utilisateur.",
         perspectivesAmelioration: "L’accessibilité du site reste un axe de progression pour garantir une expérience inclusive à tous les utilisateurs. Résolution de problèmes et gestion du temps d'apprentissage de React peuvent être améliorés.",
         logos: ['HTML', 'CSS', 'TS', 'react', 'reactRouter', 'vite', 'gitHub']
@@ -124,7 +124,7 @@ export const projects: Project[] =
         stackTechnique: 'HTML, CSS, TypeScript, React, React Router, Redux, Vite et Jest pour les tests ont rendu ce projet plus réalisable. Lighthouse et WAvE assurent le respect des bonne pratiques par l’analyse des performances et de l’accessibilité.',
         competencesDeveloppees: "J’ai approfondi mes pratiques d'organisation logicielle en structurant un code modulaire avec un store Redux centralisé pour une gestion d’état efficace.",
         resultatsEtImpact: 'Le site propose un intranet performant grâce à Redux, facilitant la gestion des connexions utilisateurs et offrant une navigation fluide.',
-        perspectivesAmelioration: "Des optimisations de performances restent envisageables pour améliorer la rapidité et la réactivité de l’application. La sécurité doit être 'by design' aussi",
+        perspectivesAmelioration: "Des optimisations de performances restent envisageables pour améliorer la rapidité et la réactivité de l’application. La sécurité doit être 'by tested design'.",
         logos: ['HTML', 'CSS', 'TS', 'react', 'reactRouter', 'redux', 'vite', 'jest', 'lighthouse', 'WAvE', 'gitHub']
     },
     {
@@ -150,7 +150,7 @@ export const projects: Project[] =
         contexte: 'Réalisation d’un site vitrine professionnel pour mettre en avant des services, avec une planification agile et un développement full-code. Le défi principal était de concilier fonctionnalité, accessibilité et performances tout en respectant des délais aussi réalistes que possible.',
         objectifs: 'Créer un site simple mais attractif avec des animations douces et un appel au contact efficace. Assurer une accessibilité optimale et de bonnes performances, tout en validant la qualité via des outils de test automatisés et manuels.',
         stackTechnique: 'HTML, CSS, Astro, TypeScript, TailwindCSS, rendu côté client poussé grâce aux outils d’analyse tels que Lighthouse et axe Dev Tools, ainsi que Notion Kanban pour la gestion agile.',
-        competencesDeveloppees: "Découpage frontend en composants react, accessibilité solide et performances en progrès. Début opérationnel d'automatisation des tests avec axe-core/playwright et stylelint.",
+        competencesDeveloppees: "Découpage frontend en composants react, accessibilité solide et performances en progrès. Début d’automatisation des tests avec axe-core/playwright et stylelint.",
         resultatsEtImpact: 'Livraison d’une version 0.1.0 fonctionnelle respectant les standards, avec une amélioration notable de l’accessibilité et des performances mesurées par Lighthouse.',
         perspectivesAmelioration: "Ce projet a souligné l’intérêt de l’éco-conception web. Il a été réécrit en Astro afin de réduire le JavaScript embarqué (> 60 kB => 0 kB) à fonctionnalité équivalente. Les évolutions fonctionnelles envisagées relèvent principalement de l’UX et dépendraient des retours utilisat·rice·eur·s.",
         logos: ['HTML', 'CSS', 'TS', 'tailwindCSS', 'astro', 'lighthouse', 'WAvE', 'axeDevTool', 'greenITanalysis', 'feedly', 'stylelint', 'playwright', 'notion', 'gitHub']
