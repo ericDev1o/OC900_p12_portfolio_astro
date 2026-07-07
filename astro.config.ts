@@ -3,8 +3,6 @@ import { defineConfig } from 'astro/config';
 
 import tailwind from '@tailwindcss/vite';
 
-import tsconfigPaths from 'vite-tsconfig-paths';
-
 export default defineConfig({
   site: 'https://ericdev1o.github.io',
   base: '/OC900_p12_portfolio_astro/',
@@ -15,14 +13,6 @@ export default defineConfig({
   
   build: {
     assets: 'assets'
-  },
-
-  markdown: {
-    syntaxHighlight: false,
-    smartypants: {
-      openingQuotes: { double: '« ', single: '‹ ' },
-      closingQuotes: { double: ' »', single: ' ›' }
-    }
   },
 
   security: {
@@ -48,8 +38,10 @@ export default defineConfig({
   },
 
   vite: {
+    resolve: {
+      tsconfigPaths: true
+    },
     plugins: [
-      tsconfigPaths(),
       tailwind()
     ]
   }
