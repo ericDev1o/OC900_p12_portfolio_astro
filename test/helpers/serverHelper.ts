@@ -1,10 +1,6 @@
-import { 
-  spawn, 
-  ChildProcess, 
-  execSync
-} from 'node:child_process';
-import net from 'node:net';
+import { type ChildProcess, execSync, spawn } from 'node:child_process';
 import fs from 'node:fs';
+import net from 'node:net';
 
 let serverProcess: ChildProcess | null = null;
 
@@ -26,24 +22,23 @@ function registerGlobalCleanup() {
     }
   };
 
-  process.on('SIGINT', shutdown);   // Ctrl+C
-  process.on('SIGTERM', shutdown);  // CI / Docker
+  process.on('SIGINT', shutdown); // Ctrl+C
+  process.on('SIGTERM', shutdown); // CI / Docker
   process.on('uncaughtException', shutdown);
   process.on('unhandledRejection', shutdown);
 }
 
 /* =========================
-   1. BUILD PROJECT
+   1. Build project
 ========================= */
 export function buildProject() {
-  if(fs.existsSync('dist')) {
+  if (fs.existsSync('dist')) {
     console.log('🧱 Build skipped (dist exists)');
     return;
   }
   console.log('🧱 Building project...');
 
-  execSync('yarn build', 
-  {
+  execSync('pnpm build', {
     stdio: 'inherit',
   });
 
@@ -51,22 +46,18 @@ export function buildProject() {
 }
 
 /* =========================
-   2. START ASTRO SERVER
+   2. Start Astro server
 ========================= */
 export async function startAstroServer(port = 4321) {
   registerGlobalCleanup();
 
   console.log(`🚀 Starting Astro on port ${port}...`);
 
-  serverProcess = spawn(
-    'yarn',
-    ['preview', '--port', String(port), '--strictPort'],
-    {
-      stdio: 'pipe',
-      shell: false,
-      windowsHide: true
-    }
-  );
+  serverProcess = spawn('pnpm', ['preview', '--port', String(port), '--strictPort'], {
+    stdio: 'pipe',
+    shell: false,
+    windowsHide: true,
+  });
 
   await waitForPort(port);
 
@@ -76,9 +67,9 @@ export async function startAstroServer(port = 4321) {
 }
 
 /* =========================
-   3. WAIT FOR SERVER READY
+   3. Wait for port to be ready
 ========================= */
-function waitForPort(port: number, timeout = 15000) {
+function waitForPort(port: number, timeout = 30000) {
   return new Promise<void>((resolve, reject) => {
     const start = Date.now();
 
@@ -107,7 +98,7 @@ function waitForPort(port: number, timeout = 15000) {
 }
 
 /* =========================
-   4. STOP ASTRO SERVER
+   4. Stop Astro server
 ========================= */
 export async function stopAstroServer() {
   if (!serverProcess) return;
@@ -130,13 +121,9 @@ export async function stopAstroServer() {
 }
 
 /* =========================
-   5. ORCHESTRATOR (MAIN API)
+   5. Orchestrator (Main API)
 ========================= */
-export async function withAstroTestServer<T>(
-  testFn: () => Promise<T>,
-  port = 4321
-): Promise<T> {
-
+export async function withAstroTestServer<T>(testFn: () => Promise<T>, port = 4321): Promise<T> {
   buildProject();
 
   await startAstroServer(port);

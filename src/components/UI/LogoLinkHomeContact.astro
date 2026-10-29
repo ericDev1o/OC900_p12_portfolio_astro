@@ -8,15 +8,9 @@ type Props = {
   src: ImageMetadata;
   altText: string;
   classNameImageWidthHeight: string;
-  sizes: string
+  sizes: string;
 };
-const { 
-  href, 
-  src, 
-  altText, 
-  classNameImageWidthHeight, 
-  sizes
-} = Astro.props satisfies Props;
+const { href, src, altText, classNameImageWidthHeight, sizes } = Astro.props satisfies Props;
 ---
 
 <IconLink 
