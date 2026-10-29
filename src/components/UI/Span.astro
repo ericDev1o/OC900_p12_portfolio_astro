@@ -2,17 +2,14 @@
 type Color = 'green' | 'orange' | 'violet';
 
 const styles: Record<Color, string> = {
-    green: 'text-green-400',
-    orange: 'text-orange-300',
-    violet: 'text-violet-500'
-}
+  green: 'text-green-400',
+  orange: 'text-orange-300',
+  violet: 'text-violet-500',
+};
 
-const { 
-    color, 
-    className
-} = Astro.props as { 
-    color: 'green',
-    className?: '' 
+const { color, className } = Astro.props as {
+  color: 'green';
+  className?: '';
 };
 ---
 

@@ -4,15 +4,6 @@ dist/
 # generated types
 .astro/
 
-# pnp
-.pnp.cjs
-.pnp.*.mjs
-
-# yarn
-.yarn
-.yarnrc.yml
-yarn.lock
-
 # dependencies
 node_modules/
 

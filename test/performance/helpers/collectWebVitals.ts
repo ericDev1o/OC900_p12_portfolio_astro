@@ -31,10 +31,9 @@ export async function collectVitals(page: Page): Promise<Vitals> {
         for (const entry of list.getEntries()) {
           if (entry.entryType === 'layout-shift') {
             const ls = entry as LayoutShift;
-            
-            if(!ls.hadRecentInput) 
-              clsValue += ls.value;
-              lastChange = Date.now();
+
+            if (!ls.hadRecentInput) clsValue += ls.value;
+            lastChange = Date.now();
           }
 
           if (entry.entryType === 'largest-contentful-paint') {
@@ -54,11 +53,13 @@ export async function collectVitals(page: Page): Promise<Vitals> {
         const isIdle = now - lastChange > IDLE_TIME;
         const isTimeOut = now - start > MAX_DURATION;
 
-        if(isIdle || isTimeOut) {
+        if (isIdle || isTimeOut) {
           clearTimeout(interval);
           observer.disconnect();
 
-          const fcpEntry = performance.getEntriesByName('first-contentful-paint')[0] as PerformanceEntry | undefined;
+          const fcpEntry = performance.getEntriesByName('first-contentful-paint')[0] as
+            | PerformanceEntry
+            | undefined;
 
           const fcp = fcpEntry?.startTime ?? null;
 
@@ -70,7 +71,7 @@ export async function collectVitals(page: Page): Promise<Vitals> {
             FCP: fcp,
             LCP: lcpValue,
             TTFB: ttfb,
-            CLS: clsValue
+            CLS: clsValue,
           });
         }
       }, 100);
