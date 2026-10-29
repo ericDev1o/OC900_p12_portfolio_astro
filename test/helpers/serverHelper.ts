@@ -38,7 +38,7 @@ export function buildProject() {
   }
   console.log('🧱 Building project...');
 
-  execSync('yarn build', {
+  execSync('pnpm build', {
     stdio: 'inherit',
   });
 
@@ -53,7 +53,7 @@ export async function startAstroServer(port = 4321) {
 
   console.log(`🚀 Starting Astro on port ${port}...`);
 
-  serverProcess = spawn('yarn', ['preview', '--port', String(port), '--strictPort'], {
+  serverProcess = spawn('pnpm', ['preview', '--port', String(port), '--strictPort'], {
     stdio: 'pipe',
     shell: false,
     windowsHide: true,
