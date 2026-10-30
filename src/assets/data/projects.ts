@@ -14,7 +14,8 @@ type ProjectImageName =
   | 'nina+carducci'
   | 'argent+bank'
   | 'menu+maker'
-  | 'portfolio';
+  | 'portfolio'
+  | 'food+saver';
 
 function getImage(name: ProjectImageName): ImageMetadata {
   const path = `/src/assets/images/projects/${name}.webp`;
@@ -211,11 +212,11 @@ export const projects: Project[] = [
     stackTechnique:
       'HTML, CSS, Astro, TypeScript, TailwindCSS, rendu côté client poussé grâce aux outils d’analyse tels que Lighthouse et axe Dev Tools, ainsi que Notion Kanban pour la gestion agile.',
     competencesDeveloppees:
-      'Découpage frontend en composants react, accessibilité solide et performances en progrès. Début d’automatisation des tests avec axe-core/playwright et stylelint.',
+      'Découpage frontend en composants react, accessibilité solide et performances en progrès. Début d’automatisation des tests avec axe-core/playwright.',
     resultatsEtImpact:
       'Livraison d’une version 0.1.0 fonctionnelle respectant les standards, avec une amélioration notable de l’accessibilité et des performances mesurées par Lighthouse.',
     perspectivesAmelioration:
-      'Ce projet a souligné l’intérêt de l’éco-conception web. Il a été réécrit en Astro afin de réduire le JavaScript embarqué (> 60 kB => 0 kB) à fonctionnalité équivalente. Les évolutions fonctionnelles envisagées relèvent principalement de l’UX et dépendraient des retours utilisat·rice·eur·s.',
+      'Ce projet a souligné l’intérêt de l’éco-conception web. Il a été réécrit en Astro afin de réduire le JavaScript déployé (> 60 kB => 0 kB) à fonctionnalité équivalente. Les évolutions fonctionnelles envisagées relèvent principalement de l’UX et dépendraient des retours utilisat·rice·eur·s.',
     logos: [
       'HTML',
       'CSS',
@@ -227,10 +228,58 @@ export const projects: Project[] = [
       'axeDevTool',
       'greenITanalysis',
       'feedly',
-      'stylelint',
       'playwright',
       'notion',
       'gitHub',
+    ],
+  },
+  {
+    URL: 'https://foodsaver-web.onrender.com',
+    repository: 'https://github.com/ericDev1o/FoodSaver',
+    image: getImage('food+saver'),
+    number: 13,
+    title: 'Food Saver, votre application de lutte contre le gaspillage alimentaire',
+    contexte:
+      'Réalisation d’un Proof Of Concept de produit anti-gaspillage alimentaire. Le site web en français ou anglais liste vos aliments périssables à brève échéance avec des alertes. Le défi principal était de concevoir et développer une application web fullstack, testée et déployée, capable de gérer les données et fournir des notifications pertinentes pour réduire le gaspillage alimentaire.',
+    objectifs:
+      'Créer un site simple à utiliser selon la stack spécifiée en simplifiant maintenance et évolution par la documentation et les tests.',
+    stackTechnique: 
+    [
+      { label: 'Front-end', value: 'React 19, TypeScript 7, Vite 8, TailwindCSS 4' },
+      { label: 'Back-end', value: 'ASP.NET 10 (Minimal API), C# 14, Entity Framework Core 10' },
+      { label: 'Base de données', value: 'SQLite (développement) et SQL Server (production)' },
+      { label: 'Tests & Qualité', value: 'Cypress (tests end-to-end et accessibilité via axe-core), xUnit (tests unitaires API), OpenAPI 3' },
+      { label: 'DevOps', value: 'Déploiement conteneurisé sur Render.com, optimisation de l’image Docker pour l’éco-conception' }
+    ],
+    competencesDeveloppees: [
+      { label: 'Architecture Fullstack', value: 'Conception d’une API RESTful moderne avec ASP.NET 10 et intégration fluide avec un front-end React 19' },
+      { label: 'Qualité & Accessibilité', value: 'Mise en place de tests E2E automatisés avec Cypress, ciblant spécifiquement les critères d’accessibilité (a11y) et la couverture fonctionnelle' },
+      { label: 'Documentation Technique', value: 'Rédaction d’Architectural Decision Records (ADR) pour tracer les choix techniques et faciliter la collaboration future' },
+      { label: 'Éco-conception', value: 'Optimisation de l’empreinte environnementale via du CSS natif au lieu de TailwindCSS et un conteneur Docker léger' },
+    ],
+    resultatsEtImpact:
+      'Livraison d’un produit fonctionnel respectant les standards par itérations incrementales successives en moins de 4 semaines avec un premier Minimum Viable Product au bout de la première semaine',
+    perspectivesAmelioration: [
+      { label: 'Échelle', value: 'Migration vers une architecture plus robuste pour gérer un volume élevé d’utilisateurs (base de données SQL Server complète, mise en cache)' },
+      { label: 'Fonctionnalités', value: 'Ajout de la synchronisation cloud, notifications push mobiles et intégration avec des listes de courses' },
+      { label: 'Performance', value: 'Optimisation supplémentaire du bundle React et mise en place d’un service de recommandation de recettes basé sur les aliments disponibles' },
+    ],
+    logos: [
+      'CSS',
+      'TS',
+      'react',
+      'vite',
+      'axeDevTool',
+      'feedly',
+      'gitHub',
+      'docker',
+      'cypress',      
+      'xUnit',
+      'openAPI',
+      'SQLServer',
+      'C#',
+      'dotnet',
+      'EFCore'
     ],
   },
 ];

@@ -13,7 +13,11 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── src/
 │   └── assets/
 │       └── data
-│           └── projects.json
+│           └── projects.ts
+            └── skills.json
+            └── images
+                └── logos
+                └── projects
 │   └── components/
 │       └── containers
 │           └── Layout.tsx
@@ -32,9 +36,12 @@ Inside of your Astro project, you'll see the following folders and files:
 │   └── integration/
 │       └── Home.integration.browser.test.tsx
 └── astro.config.ts
-└── eslint.config.ts
+└── biome.json
 └── package.json
-└── stylelint.config.mjs
+└── playwright.config.ts
+└── playwright.perf.config.ts
+└── pnpm-lock.yaml
+└── pnpm.config.yaml
 └── tailwind.config.ts
 └── tsconfig.json
 ```

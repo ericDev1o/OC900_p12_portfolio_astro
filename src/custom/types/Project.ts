@@ -11,9 +11,9 @@ export type Project = {
   title: string;
   contexte: string;
   objectifs: string;
-  stackTechnique: string;
-  competencesDeveloppees: string;
+  stackTechnique: string | { label: string; value: string }[];
+  competencesDeveloppees: string | { label: string; value: string }[];
   resultatsEtImpact: string;
-  perspectivesAmelioration: string;
+  perspectivesAmelioration: string | { label: string; value: string }[];
   logos: LogoKey[];
 };
