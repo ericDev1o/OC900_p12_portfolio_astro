@@ -288,26 +288,26 @@ export const projects: Project[] = [
     repository: 'https://github.com/mouvementmarianne/carte',
     image: getImage('carte'),
     number: 14,
-    title: 'Carte interactive du Mouvement Marianne, visualisez vos contacts géolocalisé·e·s',
+    title: 'Carte interactive du Mouvement Marianne, visualisez vos contacts de proximité',
     contexte:
-      'Réalisation d’une carte interactive dynamique pour le Mouvement Marianne, permettant la visualisation géolocalisée des données membres ou événements. Le défi principal était d’intégrer une API WordPress 2 (REST API) pour récupérer les données en temps réel et de les afficher de manière fluide et accessible, tout en optimisant les performances de chargement des tuiles cartographiques.',
+      'Réalisation d’une carte interactive dynamique pour le Mouvement Marianne, permettant la visualisation géolocalisée des données membres. Le défi principal était d’intégrer une API WordPress 2 (REST API) pour récupérer les données en temps réel et de les afficher de manière fluide et accessible, tout en optimisant les performances de chargement des tuiles cartographiques.',
     objectifs:
       'Créer une interface de carte intuitive et performante, facilitant l’engagement citoyen par la visualisation de données. Assurer une maintenance simplifiée grâce à l’automatisation des tests et à l’assistance IA pour la génération de code.',
     stackTechnique: [
-      { label: 'Front-end', value: 'JavaScript (ES6+), Leaflet.js, WordPress 2 (REST API)' },
-      { label: 'Outils IA', value: 'GitHub Copilot (VSCode)pour l’assistance à la génération de code' },
-      { label: 'Tests & Qualité', value: 'Tests E2E d’accessibilité et de fonctionnalité Playwright & axe-core' }
+      { label: 'Front-end', value: 'JavaScript (ES6+), Leaflet Map 3.4.7, WordPress 7.1.4 (REST API 2)' },
+      { label: 'Outils IA', value: 'GitHub Copilot (VSCode) pour l’assistance à la génération de code' },
+      { label: 'Tests & Qualité', value: 'Tests E2E d’accessibilité et de fonctionnalité en Playwright & axe-core' }
     ],
     competencesDeveloppees: [
       { label: 'Intégration API', value: 'Consommation et traitement de données JSON via l’API WordPress REST pour une mise à jour dynamique de la carte' },
       { label: 'Géolocalisation', value: 'Implémentation de cartes interactives performantes avec gestion des événements de zoom et de clic' },
-      { label: 'Assistance IA', value: 'Utilisation de GitHub Copilot pour accélérer le développement, refactoriser le code et générer des tests' },
-      { label: 'Performance Web', value: 'Optimisation du chargement des tuiles et des requêtes API pour une expérience utilisateur fluide' }
+      { label: 'Assistance IA', value: 'Utilisation surveillée de GitHub Copilot pour accélérer le développement, refactoriser le code et générer des tests' },
+      { label: 'Performance Web', value: 'Optimisation du chargement des tuiles et des requêtes API pour une expérience utilisat·rice·eur fluide' }
     ],
     resultatsEtImpact:
-      'Livraison d’une carte interactive fonctionnelle et responsive, permettant une visualisation claire des données du mouvement. Réduction du temps de développement grâce à l’assistance IA.',
+      'Livraison d’une carte interactive fonctionnelle et adaptative aux terminaux, permettant une visualisation claire des données du mouvement. Réduction du temps de développement grâce à l’assistance IA.',
     perspectivesAmelioration: [
-      { label: 'Fonctionnalités', value: 'Ajout de filtres avancés (par région, par date) et export des données visualisées' },
+      { label: 'Visualisation', value: 'Adaptation de la carte et des encarts informatifs au défilement d’écran' },
       { label: 'Performance', value: 'Mise en cache côté client des requêtes API pour réduire la charge serveur et accélérer les chargements' },
       { label: 'Accessibilité', value: 'Amélioration de la navigation au clavier sur la carte et descriptions détaillées des points d’intérêt pour les lecteurs d’écran' }
     ],
