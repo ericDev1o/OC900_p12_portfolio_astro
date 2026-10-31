@@ -14,7 +14,9 @@ type ProjectImageName =
   | 'nina+carducci'
   | 'argent+bank'
   | 'menu+maker'
-  | 'portfolio';
+  | 'portfolio'
+  | 'food+saver'
+  | 'carte';
 
 function getImage(name: ProjectImageName): ImageMetadata {
   const path = `/src/assets/images/projects/${name}.webp`;
@@ -211,11 +213,11 @@ export const projects: Project[] = [
     stackTechnique:
       'HTML, CSS, Astro, TypeScript, TailwindCSS, rendu côté client poussé grâce aux outils d’analyse tels que Lighthouse et axe Dev Tools, ainsi que Notion Kanban pour la gestion agile.',
     competencesDeveloppees:
-      'Découpage frontend en composants react, accessibilité solide et performances en progrès. Début d’automatisation des tests avec axe-core/playwright et stylelint.',
+      'Découpage frontend en composants react, accessibilité solide et performances en progrès. Début d’automatisation des tests avec axe-core/playwright.',
     resultatsEtImpact:
       'Livraison d’une version 0.1.0 fonctionnelle respectant les standards, avec une amélioration notable de l’accessibilité et des performances mesurées par Lighthouse.',
     perspectivesAmelioration:
-      'Ce projet a souligné l’intérêt de l’éco-conception web. Il a été réécrit en Astro afin de réduire le JavaScript embarqué (> 60 kB => 0 kB) à fonctionnalité équivalente. Les évolutions fonctionnelles envisagées relèvent principalement de l’UX et dépendraient des retours utilisat·rice·eur·s.',
+      'Ce projet a souligné l’intérêt de l’éco-conception web. Il a été réécrit en Astro afin de réduire le JavaScript déployé (> 60 kB => 0 kB) à fonctionnalité équivalente. Les évolutions fonctionnelles envisagées relèvent principalement de l’UX et dépendraient des retours utilisat·rice·eur·s.',
     logos: [
       'HTML',
       'CSS',
@@ -227,10 +229,98 @@ export const projects: Project[] = [
       'axeDevTool',
       'greenITanalysis',
       'feedly',
-      'stylelint',
       'playwright',
       'notion',
       'gitHub',
     ],
   },
+  {
+    URL: 'https://foodsaver-web.onrender.com',
+    repository: 'https://github.com/ericDev1o/FoodSaver',
+    image: getImage('food+saver'),
+    number: 13,
+    title: 'Food Saver, votre application de lutte contre le gaspillage alimentaire',
+    contexte:
+      'Réalisation d’un Proof Of Concept de produit anti-gaspillage alimentaire. Le site web en français ou anglais liste vos aliments périssables à brève échéance avec des alertes. Le défi principal était de concevoir et développer une application web fullstack, testée et déployée, capable de gérer les données et fournir des notifications pertinentes pour réduire le gaspillage alimentaire.',
+    objectifs:
+      'Créer un site simple à utiliser selon la stack spécifiée en simplifiant maintenance et évolution par la documentation et les tests.',
+    stackTechnique: 
+    [
+      { label: 'Front-end', value: 'React 19, TypeScript 7, Vite 8, TailwindCSS 4' },
+      { label: 'Back-end', value: 'ASP.NET 10 (Minimal API), C# 14, Entity Framework Core 10' },
+      { label: 'Base de données', value: 'SQLite (développement) et SQL Server (production)' },
+      { label: 'Tests & Qualité', value: 'Cypress (tests end-to-end et accessibilité via axe-core), xUnit (tests unitaires API), OpenAPI 3' },
+      { label: 'DevOps', value: 'Déploiement conteneurisé sur Render.com, optimisation de l’image Docker pour l’éco-conception' }
+    ],
+    competencesDeveloppees: [
+      { label: 'Architecture Fullstack', value: 'Conception d’une API RESTful moderne avec ASP.NET 10 et intégration fluide avec un front-end React 19' },
+      { label: 'Qualité & Accessibilité', value: 'Mise en place de tests E2E automatisés avec Cypress, ciblant spécifiquement les critères d’accessibilité (a11y) et la couverture fonctionnelle' },
+      { label: 'Documentation Technique', value: 'Rédaction d’Architectural Decision Records (ADR) pour tracer les choix techniques et faciliter la collaboration future' },
+      { label: 'Éco-conception', value: 'Optimisation de l’empreinte environnementale via du CSS natif au lieu de TailwindCSS et un conteneur Docker léger' },
+    ],
+    resultatsEtImpact:
+      'Livraison d’un produit fonctionnel respectant les standards par itérations incrementales successives en moins de 4 semaines avec un premier Minimum Viable Product au bout de la première semaine',
+    perspectivesAmelioration: [
+      { label: 'Échelle', value: 'Migration vers une architecture plus robuste pour gérer un volume élevé d’utilisateurs (base de données SQL Server complète, mise en cache)' },
+      { label: 'Fonctionnalités', value: 'Ajout de la synchronisation cloud, notifications push mobiles et intégration avec des listes de courses' },
+      { label: 'Performance', value: 'Optimisation supplémentaire du bundle React et mise en place d’un service de recommandation de recettes basé sur les aliments disponibles' },
+    ],
+    logos: [
+      'CSS',
+      'TS',
+      'react',
+      'vite',
+      'axeDevTool',
+      'feedly',
+      'gitHub',
+      'docker',
+      'cypress',      
+      'xUnit',
+      'openAPI',
+      'SQLServer',
+      'C#',
+      'dotnet',
+      'EFCore'
+    ],
+  },
+    {
+    URL: 'https://www.mouvementmarianne.org/carte-interactive/',
+    repository: 'https://github.com/mouvementmarianne/carte',
+    image: getImage('carte'),
+    number: 14,
+    title: 'Carte interactive du Mouvement Marianne, visualisez vos contacts de proximité',
+    contexte:
+      'Réalisation d’une carte interactive dynamique pour le Mouvement Marianne, permettant la visualisation géolocalisée des données membres. Le défi principal était d’intégrer une API WordPress 2 (REST API) pour récupérer les données en temps réel et de les afficher de manière fluide et accessible, tout en optimisant les performances de chargement des tuiles cartographiques.',
+    objectifs:
+      'Créer une interface de carte intuitive et performante, facilitant l’engagement citoyen par la visualisation de données. Assurer une maintenance simplifiée grâce à l’automatisation des tests et à l’assistance IA pour la génération de code.',
+    stackTechnique: [
+      { label: 'Front-end', value: 'JavaScript (ES6+), Leaflet Map 3.4.7, WordPress 7.1.4 (REST API 2)' },
+      { label: 'Outils IA', value: 'GitHub Copilot (VSCode) pour l’assistance à la génération de code' },
+      { label: 'Tests & Qualité', value: 'Tests E2E d’accessibilité et de fonctionnalité en Playwright & axe-core' }
+    ],
+    competencesDeveloppees: [
+      { label: 'Intégration API', value: 'Consommation et traitement de données JSON via l’API WordPress REST pour une mise à jour dynamique de la carte' },
+      { label: 'Géolocalisation', value: 'Implémentation de cartes interactives performantes avec gestion des événements de zoom et de clic' },
+      { label: 'Assistance IA', value: 'Utilisation surveillée de GitHub Copilot pour accélérer le développement, refactoriser le code et générer des tests' },
+      { label: 'Performance Web', value: 'Optimisation du chargement des tuiles et des requêtes API pour une expérience utilisat·rice·eur fluide' }
+    ],
+    resultatsEtImpact:
+      'Livraison d’une carte interactive fonctionnelle et adaptative aux terminaux, permettant une visualisation claire des données du mouvement. Réduction du temps de développement grâce à l’assistance IA.',
+    perspectivesAmelioration: [
+      { label: 'Visualisation', value: 'Adaptation de la carte et des encarts informatifs au défilement d’écran' },
+      { label: 'Performance', value: 'Mise en cache côté client des requêtes API pour réduire la charge serveur et accélérer les chargements' },
+      { label: 'Accessibilité', value: 'Amélioration de la navigation au clavier sur la carte et descriptions détaillées des points d’intérêt pour les lecteurs d’écran' }
+    ],
+    logos: [
+      'JS',
+      'wordPress',
+      'github',
+      'feedly',
+      'axeDevTool',
+      'playwright',
+      'copilot',
+      'biome'
+    ],
+  },
+
 ];

@@ -110,17 +110,86 @@ const motion = `
         <Accordion
             summary='Découvrez ce projet'
         >
-            <h4 class='font-extrabold mt-2'>Contexte</h4>
-            <p>{project.contexte}</p>
-            <h4 class='font-extrabold mt-2'>Objectifs</h4>
-            <p>{project.objectifs}</p>
-            <h4 class='font-extrabold mt-2'>Stack technique</h4>
-            <p>{project.stackTechnique}</p>
-            <h4 class='font-extrabold mt-2'>Compétences développées</h4>
-            <p>{project.competencesDeveloppees}</p>
-            <h4 class='font-extrabold mt-2'>Résultats et impact</h4>
-            <p>{project.resultatsEtImpact}</p>
-            <h4 class='font-extrabold mt-2'>Perspectives d’amélioration</h4>
-            <p>{project.perspectivesAmelioration}</p>
+            <h4 
+                class='
+                    font-extrabold 
+                    mt-2'
+            >
+                Contexte
+            </h4>
+            <p>
+                {project.contexte}
+            </p>
+            <h4 
+                class='
+                    font-extrabold 
+                    mt-2'
+            >
+                Objectifs
+            </h4>
+            <p>
+                {project.objectifs}
+            </p>
+            <h4 
+                class='
+                    font-extrabold 
+                    mt-2'
+            >
+                Stack technique
+            </h4>
+            <ul>
+                {Array.isArray(project.stackTechnique) 
+                        ? project.stackTechnique.map((item) => (
+                            <li>
+                                <u>{item.label}</u> : {item.value}
+                            </li>
+                        ))
+                        : project.stackTechnique
+                    }
+            </ul>
+            <h4 
+                class='
+                    font-extrabold 
+                    mt-2'
+            >
+                Compétences développées
+            </h4>
+            <ul>
+                {Array.isArray(project.competencesDeveloppees) 
+                        ? project.competencesDeveloppees.map((item) => (
+                            <li>
+                                <u>{item.label}</u> : {item.value}
+                            </li>
+                        ))
+                        : project.competencesDeveloppees
+                    }
+            </ul>
+            <h4 
+                class='
+                    font-extrabold 
+                    mt-2'
+            >
+                Résultats et impact
+            </h4>
+            <p>
+                {project.resultatsEtImpact}
+            </p>
+            <h4 
+                class='
+                    font-extrabold 
+                    mt-2'
+            >
+                Perspectives d’amélioration
+            </h4>
+            <ul>
+                {Array.isArray(project.perspectivesAmelioration) 
+                        ? project.perspectivesAmelioration.map((item) => (
+                            <li>
+                                <u>{item.label}</u> : {item.value}
+                            </li>
+                        ))
+                        : project.perspectivesAmelioration
+                    }
+            </ul>
         </Accordion>
 </article>
