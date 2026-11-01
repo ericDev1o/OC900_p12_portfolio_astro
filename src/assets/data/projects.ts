@@ -211,11 +211,11 @@ export const projects: Project[] = [
     objectifs:
       'Créer un site simple mais attractif avec des animations douces et un appel au contact efficace. Assurer une accessibilité optimale et de bonnes performances, tout en validant la qualité via des outils de test automatisés et manuels.',
     stackTechnique:
-      'HTML, CSS, Astro, TypeScript, TailwindCSS, rendu côté client poussé grâce aux outils d’analyse tels que Lighthouse et axe Dev Tools, ainsi que Notion Kanban pour la gestion agile.',
+      'HTML 5, CSS 3, Astro 7, TypeScript 7, TailwindCSS 4, rendu côté client poussé grâce aux outils d’analyse tels que Lighthouse et axe Dev Tools, ainsi que Notion Kanban pour la gestion agile.',
     competencesDeveloppees:
-      'Découpage frontend en composants react, accessibilité solide et performances en progrès. Début d’automatisation des tests avec axe-core/playwright.',
+      'Découpage frontend en composants astro, accessibilité solide et performances en progrès. Début d’automatisation des tests avec axe-core 4/playwright 1.',
     resultatsEtImpact:
-      'Livraison d’une version 0.1.0 fonctionnelle respectant les standards, avec une amélioration notable de l’accessibilité et des performances mesurées par Lighthouse.',
+      'Déploiement d’une version 0.1.0 fonctionnelle respectant les standards, avec une amélioration notable de l’accessibilité et des performances mesurées par Lighthouse.',
     perspectivesAmelioration:
       'Ce projet a souligné l’intérêt de l’éco-conception web. Il a été réécrit en Astro afin de réduire le JavaScript déployé (> 60 kB => 0 kB) à fonctionnalité équivalente. Les évolutions fonctionnelles envisagées relèvent principalement de l’UX et dépendraient des retours utilisat·rice·eur·s.',
     logos: [
@@ -232,6 +232,7 @@ export const projects: Project[] = [
       'playwright',
       'notion',
       'gitHub',
+      'biome'
     ],
   },
   {

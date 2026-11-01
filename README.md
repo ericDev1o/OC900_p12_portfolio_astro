@@ -2,10 +2,11 @@
 
 [![License: ISC](https://img.shields.io/badge/license-ISC-lightgrey.svg)](license.md)
 [![Accessibility tests](https://img.shields.io/badge/tests-manual-yellow.svg)](#test-please)
+[![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
 
 # 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Inside of your Astro project, you'll see the following most important folders and files:
 
 ```text
 /
@@ -22,19 +23,24 @@ Inside of your Astro project, you'll see the following folders and files:
 │       └── containers
 │           └── Layout.tsx
 │           └── Portfolio.astro
-│           └── Skills.tsx
 │       └── UI
 │           └── Footer.tsx
 │           └── Header.tsx
-│           └── ProjectCard.tsx
-│           └── Skill.tsx
+│           └── ProjectCard.astro
+│           └── LinkClickWarning.astro
 │   └── pages/
-│       └── index.astro
+│       └── 404.astro
+        └── Home.astro
+        └── index.astro
+    └── styles/
+│       └── index.css
 ├── test/
 │   └── accessibility/
 │       └── Home.a11y.test.ts
 │   └── integration/
-│       └── Home.integration.browser.test.tsx
+│       └── Home.integration.test.tsx
+    └── performance/
+│       └── Home.performance.test.ts
 └── astro.config.ts
 └── biome.json
 └── package.json
