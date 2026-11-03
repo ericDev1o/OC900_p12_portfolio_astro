@@ -1,30 +1,25 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/*.d.ts", 
-    "src",
-    "playwright*.config.ts",
-    "test"
-  ],
-  "exclude": [
-    "dist"
-  ],
-  "compilerOptions": { 
+  "include": [".astro/*.d.ts", "src", "playwright*.config.ts", "test"],
+  "exclude": ["dist"],
+  "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],
       "@test/*": ["./test/*"]
     },
-    "moduleResolution": "bundler", 
-    "lib": ["dom", "dom.iterable", "esnext"], 
-    "allowJs": true,                         
-    "skipLibCheck": true,                         
-    "forceConsistentCasingInFileNames": true,              
-    "resolveJsonModule": true,                 
-    "isolatedModules": true,                  
+    "moduleResolution": "bundler",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "types": [
-      "node",
-      "astro/client"]            
+    "types": ["node", "astro/client"]
   },
+  "contentMapper": {
+    "package": "@astrojs/ts-content-mapper",
+    "extensions": [".astro"]
+  }
 }

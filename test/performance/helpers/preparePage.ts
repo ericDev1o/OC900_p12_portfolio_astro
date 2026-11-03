@@ -1,8 +1,6 @@
 import type { Page } from '@playwright/test';
 
-export async function preparePage(
-  page: Page, 
-  url: string) {
+export async function preparePage(page: Page, url: string) {
   await page.goto(url);
 
   autoScroll(page);

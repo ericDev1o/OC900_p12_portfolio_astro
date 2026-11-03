@@ -1,0 +1,6 @@
+# Prevent installation of unverified or too recent packages if necessary
+# pnpm does not natively support blocking packages younger than X days like npm or Yarn,
+# but you can use lockfiles to pin exact versions.
+
+# For maximum security, you can also use:
+package-extending: false

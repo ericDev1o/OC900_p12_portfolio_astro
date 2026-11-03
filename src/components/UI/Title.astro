@@ -1,12 +1,9 @@
 ---
 type Level = 3 | 4 | 5;
 
-const { 
-    level, 
-    id } 
-= Astro.props as {
-    level: Level,
-    id?: string
+const { level, id } = Astro.props as {
+  level: Level;
+  id?: string;
 };
 
 const Tag = `h${level}` as keyof HTMLElementTagNameMap;
@@ -16,10 +13,10 @@ const baseClass = `
     leading-loose`;
 
 const styles = {
-    3: 'text-3xl',
-    4: 'text-2xl',
-    5: 'text-xl'
-}
+  3: 'text-3xl',
+  4: 'text-2xl',
+  5: 'text-xl',
+};
 ---
 
 <Tag

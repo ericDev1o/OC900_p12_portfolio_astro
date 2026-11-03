@@ -1,32 +1,26 @@
 ---
 import { Image } from 'astro:assets';
 
-import { 
-    type  LogoKey, 
-    logosMap
-} from '@/config/logoPathsConfig';
+import { type LogoKey, logosMap } from '@/config/logoPathsConfig';
 
 type Props = {
-    keys: LogoKey[],
-    repo?: string
+  keys: LogoKey[];
+  repo?: string;
 };
 
-const {
-    keys,
-    repo
-} =  Astro.props satisfies Props;
+const { keys, repo } = Astro.props satisfies Props;
 
 type ValidKey = {
-    key: string; 
-    imgMeta: ImageMetadata
-}
+  key: string;
+  imgMeta: ImageMetadata;
+};
 const validKeys: ValidKey[] = [];
 
-for(const key of keys) {
-    const imgMeta = logosMap[key];
-    if (!imgMeta) continue;
+for (const key of keys) {
+  const imgMeta = logosMap[key];
+  if (!imgMeta) continue;
 
-    validKeys.push({ key, imgMeta });
+  validKeys.push({ key, imgMeta });
 }
 ---
 

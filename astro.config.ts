@@ -1,18 +1,22 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
 
 import tailwind from '@tailwindcss/vite';
+import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://ericdev1o.github.io',
   base: '/OC900_p12_portfolio_astro/',
 
   server: {
-    port: 4321
+    port: 4321,
   },
-  
+
+  experimental: {
+    incrementalBuild: true,
+  },
+
   build: {
-    assets: 'assets'
+    assets: 'assets',
   },
 
   security: {
@@ -24,7 +28,7 @@ export default defineConfig({
         "base-uri 'none'",
 
         "frame-src 'none'",
-        
+
         "form-action 'self'",
 
         "require-trusted-types-for 'script'",
@@ -32,17 +36,15 @@ export default defineConfig({
         "worker-src 'none'",
         "manifest-src 'none'",
 
-        "upgrade-insecure-requests"
-      ]
-    }
+        'upgrade-insecure-requests',
+      ],
+    },
   },
 
   vite: {
     resolve: {
-      tsconfigPaths: true
+      tsconfigPaths: true,
     },
-    plugins: [
-      tailwind()
-    ]
-  }
+    plugins: [tailwind()],
+  },
 });
